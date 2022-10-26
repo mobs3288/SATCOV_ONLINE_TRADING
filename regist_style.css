@@ -1,0 +1,92 @@
+body{
+	font-family: sans-serif;
+	background: #303030;
+}
+ 
+h1{
+	text-align: center;
+	/*ketebalan font*/
+	font-weight: 300;
+}
+
+
+.regist{
+	text-align: center;
+	color: #FFFFFF;
+	font-size: xx-large;
+}
+
+.tulisan_register{
+	text-align: center;
+	/*membuat semua huruf menjadi kapital*/
+	text-transform: uppercase;
+	color: #FFFFFF;
+	font-size: 100;
+}
+ 
+.kotak_register{
+	width: 350px;
+	background: #404040;
+	/*meletakkan form ke tengah*/
+	margin: 80px auto;
+	padding: 1px 20px;
+	border-radius: 27px;
+}
+ 
+label{
+	font-size: 11pt;
+	color: #FFFFFF;
+}
+ 
+.form_register{
+	/*membuat lebar form penuh*/
+	box-sizing : border-box;
+	width: 100%;
+	padding: 10px;
+	font-size: 11pt;
+	margin-bottom: 15px;
+	border-radius: 27px;
+}
+ 
+
+.tombol_register{
+	background: #F27B35;
+	color: white;
+	font-size: 11pt;
+	width: 150px;
+	border: none;
+	border-radius: 27px;
+	padding: 10px 20px;
+}
+ 
+.link{
+	color: #232323;
+	text-decoration: none;
+	font-size: 10pt;
+}
+ 
+.alert{
+	background: #e44e4e;
+	color: white;
+	padding: 10px;
+	text-align: center;
+	border:1px solid #b32929;
+}
+
+.success{
+	background: #4ee44e;
+	color: white;
+	padding: 10px;
+	text-align: center;
+	border:1px solid #4ee44e;
+}
+
+.akun{
+	position: absolute;
+	right: 600px;
+	bottom: 12px;
+}
+
+.logo{
+	text-align: center;
+  }

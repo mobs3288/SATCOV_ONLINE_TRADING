@@ -3,7 +3,7 @@
 <head>
 	<title>Saham</title>
 	<link rel="stylesheet" type="text/css" href="style_data_saham.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 	<?php 
@@ -36,7 +36,7 @@
 		<a href="#services">Setting</a>
 		<a href="#services">User Management</a>
 
-		<br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br>
 		<form action="logout.php">
          	<input type="submit" value="LOG OUT" class = "tombol_logout" />
       	</form>

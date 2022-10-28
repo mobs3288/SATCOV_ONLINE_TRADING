@@ -24,8 +24,9 @@
 	<h1>Halaman Admin</h1>
  
 	<p>Halo <b><?php echo $_SESSION['username']; ?></b> Anda telah login sebagai <b><?php echo $_SESSION['level']; ?></b>.</p>
-	<a href="logout.php">LOGOUT</a>
-	<a href="data_saham.php">SAHAM</a>
+	<a href="logout.php">LOGOUT</a><br>
+	<a href="data_saham.php">ADD SAHAM</a><br>
+	<a href="info_saham.php">INFO SAHAM</a>
  
 	<br/>
 	<br/>

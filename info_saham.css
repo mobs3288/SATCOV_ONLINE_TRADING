@@ -1,0 +1,322 @@
+body {
+  font-family: sans-serif;
+  background: #303030;
+}
+
+h1 {
+  text-align: center;
+  /*ketebalan font*/
+  font-weight: 300;
+  color: #d9d9d9;
+}
+
+.tulisan_login {
+  text-align: center;
+  /*membuat semua huruf menjadi kapital*/
+  text-transform: uppercase;
+}
+
+.tulisan_register {
+  text-align: center;
+  /*membuat semua huruf menjadi kapital*/
+  text-transform: uppercase;
+}
+
+.kotak_login {
+  width: 350px;
+  background: white;
+  /*meletakkan form ke tengah*/
+  margin: 80px auto;
+  padding: 30px 20px;
+  box-shadow: 0px 0px 100px 4px #d6d6d6;
+}
+
+label {
+  font-size: 11pt;
+}
+
+.form_login {
+  /*membuat lebar form penuh*/
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  font-size: 11pt;
+  margin-bottom: 20px;
+}
+
+.tombol_login {
+  background: #2aa7e2;
+  color: white;
+  font-size: 11pt;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+}
+
+.tombol_register {
+  background: #fe4e1e;
+  color: white;
+  font-size: 11pt;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+}
+
+.tombol_logout{
+	background: #F27B35;
+	color: white;
+	font-size: 11pt;
+	width: 100%;
+	border: none;
+	border-radius: 3px;
+	padding: 10px 20px;
+}
+
+.tombol_add {
+  background: #8e8bff;
+  color: #ffffff;
+  font-size: 11pt;
+  width: 14%;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  position: absolute;
+  left: 575px;
+  bottom: 615px;
+}
+
+.search {
+  background: #7c7c7c;
+  color: #ffffff;
+  font-size: 11pt;
+  width: 56%;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  position: absolute;
+  left: 455px;
+  top: 125px;
+  text-align: left;
+}
+
+.link {
+  color: #232323;
+  text-decoration: none;
+  font-size: 10pt;
+}
+
+.alert {
+  background: #e44e4e;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #b32929;
+}
+
+.success {
+  background: #4ee44e;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #4ee44e;
+}
+
+.topnav {
+  background-color: #404040;
+  overflow: hidden;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04aa6d;
+  color: white;
+}
+
+.logo_user {
+  position: absolute;
+  right: 30px;
+  top: 12px;
+}
+
+.tableinfo {
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  padding: auto;
+}
+
+.tableinfotop {
+  position: absolute;
+  right: 96px;
+  top: 5px;
+}
+
+.menu {
+  position: absolute;
+
+  bottom: 738px;
+}
+
+.table {
+  height: 66%;
+  width: 850px;
+  position: fixed;
+  z-index: 1;
+  top: 200px;
+  left: 450px;
+  background-color: #404040;
+  overflow-x: hidden;
+  padding-top: 20px;
+  border-radius: 27px;
+}
+
+.sidenav {
+  height: 80%;
+  width: 380px;
+  position: fixed;
+  z-index: 1;
+  top: 100px;
+  left: 30px;
+  background-color: #404040;
+  overflow-x: hidden;
+  padding-top: 20px;
+  border-radius: 27px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #e7e7e7;
+  display: block;
+  padding: 15px;
+  font-weight: bold;
+}
+
+.sidenav b {
+  padding: 6px 8px 6px 25px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #e7e7e7;
+  display: block;
+  padding: 3px 30px;
+  font-weight: bold;
+}
+
+.sidenav a:hover {
+  color: #f27b35;
+}
+.sidenav b:hover {
+  color: #f27b35;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+.topnav input[type="text"] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+#menu__toggle {
+  opacity: 0;
+}
+#menu__toggle:checked + .menu__btn > span {
+  transform: rotate(45deg);
+}
+#menu__toggle:checked + .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0deg);
+}
+#menu__toggle:checked + .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+#menu__toggle:checked ~ .menu__box {
+  left: 0 !important;
+}
+.menu__btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+}
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #616161;
+  transition-duration: 0.25s;
+}
+.menu__btn > span::before {
+  content: "";
+  top: -8px;
+}
+.menu__btn > span::after {
+  content: "";
+  top: 8px;
+}
+.menu__box {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 300px;
+  height: 100%;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  background-color: #eceff1;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  transition-duration: 0.25s;
+}
+.menu__item {
+  display: block;
+  padding: 12px 24px;
+  color: #333;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  transition-duration: 0.25s;
+}
+.menu__item:hover {
+  background-color: #cfd8dc;
+}

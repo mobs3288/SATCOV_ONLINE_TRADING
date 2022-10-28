@@ -72,6 +72,7 @@ label{
 	border: none;
 	border-radius: 3px;
 	padding: 10px 20px;
+	position: absolute;
 }
 
 .tombol_add{
@@ -82,9 +83,9 @@ label{
 	border: none;
 	border-radius: 10px;
 	padding: 10px 20px;
-	position: absolute;
+	position: relative;
 	left: 575px;
-	bottom: 615px;
+	bottom: 12px;
 }
 
 .search{
@@ -95,9 +96,9 @@ label{
 	border: none;
 	border-radius: 10px;
 	padding: 10px 20px;
-	position: absolute;
-	left: 780px;
-	bottom: 615px;
+	position: relative;
+	left: 790px;
+	bottom: 49px;
 	text-align: left;
 }
  
@@ -147,11 +148,11 @@ label{
 	color: white;
 }
 
-.logo_user{
+.logo_user {
 	position: absolute;
-	right: 20px;
-	bottom: 738px;
-}
+	right: 30px;
+	top: 12px;
+  }
 
 .menu{
 	position: absolute;
@@ -220,3 +221,5 @@ label{
 	.sidenav {padding-top: 15px;}
 	.sidenav a {font-size: 18px;}
 }
+
+

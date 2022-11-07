@@ -4,10 +4,11 @@ body{
 }
  
 h1{
-	text-align: center;
 	/*ketebalan font*/
 	font-weight: 300;
 	color: #D9D9D9;
+	position: relative;
+	left: 570px;
 }
  
 .tulisan_login{
@@ -72,34 +73,48 @@ label{
 	border: none;
 	border-radius: 3px;
 	padding: 10px 20px;
-	position: absolute;
+	position: relative;
 }
 
 .tombol_add{
 	background: #8E8BFF;
 	color: #FFFFFF;
 	font-size: 11pt;
-	width: 14%;
+	width: relative;
 	border: none;
 	border-radius: 10px;
 	padding: 10px 20px;
 	position: relative;
 	left: 575px;
-	bottom: 12px;
+	bottom: 60px;
+}
+
+.tombol_add_modal{
+	background: #8E8BFF;
+	color: white;
+	font-size: 11pt;
+	width: 100%;
+	border: none;
+	border-radius: 3px;
+	padding: 10px 20px;
 }
 
 .search{
 	background: #7C7C7C;
 	color: #FFFFFF;
 	font-size: 11pt;
-	width: 20%;
+	width: relative;
 	border: none;
 	border-radius: 10px;
 	padding: 10px 20px;
 	position: relative;
 	left: 790px;
-	bottom: 49px;
+	top: 21px;
 	text-align: left;
+}
+
+::placeholder{
+	color: white;
 }
  
 .link{
@@ -122,6 +137,8 @@ label{
 	padding: 10px;
 	text-align: center;
 	border:1px solid #4ee44e;
+	position: sticky;
+	opacity: 75%;
 }
 
 .topnav {
@@ -149,9 +166,9 @@ label{
 }
 
 .logo_user {
-	position: absolute;
-	right: 30px;
-	top: 12px;
+	position: fixed;
+	right: 12px;
+	top: 0px;
   }
 
 .menu{
@@ -161,24 +178,24 @@ label{
 }
 
 .table {
-	height: 67%;
-	width: 700px;
-	position: fixed;
+	width: 650px;
+	height: min-content;
+	position: sticky;
 	z-index: 1;
-	top: 200px;
+	bottom: 25px;
 	left: 575px;
 	background-color: #404040;
 	overflow-x: hidden;
-	padding-top: 20px;
-	border-radius: 27px;
+	border-radius: 10px;
+	color: white;
   }
 
 .sidenav {
-	height: 80%;
+	height: relative;
 	width: 380px;
 	position: fixed;
 	z-index: 1;
-	top: 100px;
+	top: 150px;
 	left: 30px;
 	background-color: #404040;
 	overflow-x: hidden;
@@ -223,3 +240,10 @@ label{
 }
 
 
+.modal-header{
+	background-color: #404040;
+}
+
+.modal-title{
+	color: white;
+}

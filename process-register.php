@@ -46,7 +46,6 @@ if($row != null){
 	return;
 
 }else{
-	//hash password
 	$password = $user['password'];
 	$level = 'user';
 

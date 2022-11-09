@@ -19,6 +19,12 @@ $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_array(MYSQLI_ASSOC);
 
+if($saham['kode_saham'] == null or $saham['nama_saham'] == null or $saham['harga'] == null ){
+	$_SESSION['error'] = 'Gaboleh kosong yah mas!';
+	header("Location:data_saham.php?pesan=failed");
+	return;
+}
+
 //jika username sudah ada, maka return kembali ke halaman register.
 if($row != null){
 	$_SESSION['error'] = 'Saham: '.$saham['kode_saham'].' yang anda masukkan sudah ada di database.';

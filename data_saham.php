@@ -27,6 +27,9 @@
 		if ($_GET['pesan']=="register"){
          echo "<div class='success'>Data Saham berhasil register ke database</div>";
       	}
+		if ($_GET['pesan']=="failed"){
+			echo "<div class='alert'>Datanya kosong masbro</div>";
+		}
 	}
  
 	?>
@@ -51,7 +54,7 @@
       	</form>
 	</div>
 	<br>
-	<h1> Stock Exchanges </h1>
+	<h1> Stock Exchanges </h1><br><br><br>
 
 	<div class="form-outline">
   		<input type="search" id="form1" class="search" placeholder="Search..." aria-label="Search" />
@@ -69,7 +72,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Modal Header</h4>
+				<h4 class="modal-title">Add Stock</h4>
 			</div>
 			<form action="process_add_saham.php" method="post">
 				<div class="form-group">
@@ -95,13 +98,12 @@
 		</div>
 	</div>
 	</div>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script>        
 		$(document).ready(function(){
 			$(".table").load("auto_update_saham.php");
 			setInterval(function() {
 				$(".table").load("auto_update_saham.php");
-			}, 1000);
+			},3000);
 		});
 	</script>
 

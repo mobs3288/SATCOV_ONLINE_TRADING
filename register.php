@@ -48,7 +48,7 @@ session_start();
 						<form action="process-register.php" method="post">
 							<div class="form-group">
 								<label for="username">Nama Lengkap</label>
-								<input type="text" name="nama" class="form-control" id="name" value="<?php echo @$_SESSION['nama']?>" aria-describedby="name" placeholder="Nama lengkap" autocomplete="off">
+								<input type="text" name="nama_lengkap" class="form-control" id="nama_lengkap" value="<?php echo @$_SESSION['nama_lengkap']?>" aria-describedby="nama_lengkap" placeholder="Nama lengkap" autocomplete="off">
 
 							</div>
 							<div class="form-group">

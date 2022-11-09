@@ -5,7 +5,7 @@ include "koneksi.php";
 
 //dapatkan data user dari form register
 $user = [
-	'nama' => $_POST['nama'],
+	'nama_lengkap' => $_POST['nama_lengkap'],
 	'username' => $_POST['username'],
 	'password' => $_POST['password'],
 	'password_confirmation' => $_POST['password_confirmation'],
@@ -15,7 +15,7 @@ $user = [
 
 if($user['password'] != $user['password_confirmation']){
 	$_SESSION['error'] = 'Password yang anda masukkan tidak sama dengan password confirmation.';
-	$_SESSION['nama'] = $_POST['nama'];
+	$_SESSION['nama_lengkap'] = $_POST['nama_lengkap'];
 	$_SESSION['username'] = $_POST['username'];
 	header("Location:register.php");
 	return;
@@ -39,7 +39,7 @@ $row = $result->fetch_array(MYSQLI_ASSOC);
 //jika username sudah ada, maka return kembali ke halaman register.
 if($row != null){
 	$_SESSION['error'] = 'Username: '.$user['username'].' yang anda masukkan sudah ada di database.';
-	$_SESSION['nama'] = $_POST['nama'];
+	$_SESSION['nama_lengkap'] = $_POST['nama_lengkap'];
 	$_SESSION['password'] = $_POST['password'];
 	$_SESSION['password_confirmation'] = $_POST['password_confirmation'];
 	header("Location:register.php");
@@ -50,10 +50,10 @@ if($row != null){
 	$level = 'user';
 
 	//username unik. simpan di database.
-	$query = "insert into user (nama, username, password, level) values  (?,?,?,?)";
+	$query = "insert into user (nama_lengkap, username, password, level) values  (?,?,?,?)";
 	$stmt = $mysqli->stmt_init();
 	$stmt->prepare($query);
-	$stmt->bind_param('ssss', $user['nama'],$user['username'],$password, $level);
+	$stmt->bind_param('ssss', $user['nama_lengkap'],$user['username'],$password, $level);
 	$stmt->execute();
 	$result = $stmt->get_result();
 	var_dump($result);

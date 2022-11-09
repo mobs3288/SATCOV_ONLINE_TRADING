@@ -5,9 +5,9 @@ body{
  
 h1{
 	/*ketebalan font*/
-	font-weight: 300;
+
 	color: #D9D9D9;
-	position: relative;
+	position: fixed;
 	left: 570px;
 }
  
@@ -129,6 +129,9 @@ label{
 	padding: 10px;
 	text-align: center;
 	border:1px solid #b32929;
+	position: absolute;
+	opacity: 75%;
+	left: 570px;
 }
 
 .success{
@@ -137,8 +140,9 @@ label{
 	padding: 10px;
 	text-align: center;
 	border:1px solid #4ee44e;
-	position: sticky;
+	position: absolute;
 	opacity: 75%;
+	left: 570px;
 }
 
 .topnav {
@@ -166,23 +170,22 @@ label{
 }
 
 .logo_user {
-	position: fixed;
+	position: absolute;
 	right: 12px;
 	top: 0px;
   }
 
 .menu{
 	position: absolute;
-
 	bottom: 738px;
 }
 
 .table {
 	width: 650px;
 	height: min-content;
-	position: sticky;
+	position: relative;
+	bottom: 35px;
 	z-index: 1;
-	bottom: 25px;
 	left: 575px;
 	background-color: #404040;
 	overflow-x: hidden;
@@ -246,4 +249,8 @@ label{
 
 .modal-title{
 	color: white;
+}
+
+.modal-content{
+	padding: 10px;
 }

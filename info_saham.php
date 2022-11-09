@@ -23,14 +23,6 @@
 		echo "<div class='alert'>Anda tidak memiliki akses untuk halaman ini.</div>";
 		exit; 
 	} 
-	if(isset($_GET['pesan'])){
-		if ($_GET['pesan']=="register"){
-         echo "<div class='success'>Data Saham berhasil register ke database</div>";
-      	}
-		if ($_GET['pesan']=="failed"){
-			echo "<div class='alert'>Datanya kosong masbro</div>";
-		}
-	}
  
 	?>
 
@@ -61,10 +53,13 @@
 	<h1> Stock Exchanges </h1><br><br><br>
 
 	<div class="form-outline">
-  		<input type="search" id="form1" class="search" placeholder="Search..." aria-label="Search" />
+      <form action="cek_search.php" method="post">
+  		  <input type="search" id="search" class="search" placeholder="Search..." aria-label="Search" name = "search"/>
+      </form>
 	</div>
+  
 	<br/>
-	<br/><br/><br/>
+	<br/>
 	<script>        
 		$(document).ready(function(){
 			$(".table").load("auto_update_saham.php");
@@ -75,6 +70,5 @@
 	</script>
 
 	<div class = "table"></div>
-
 </body>
 </html>

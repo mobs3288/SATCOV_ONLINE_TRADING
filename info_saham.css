@@ -184,7 +184,7 @@ label{
 	width: 650px;
 	height: min-content;
 	position: relative;
-	bottom: 35px;
+	bottom: 0px;
 	z-index: 1;
 	left: 575px;
 	background-color: #404040;
@@ -265,4 +265,5 @@ label{
 .modal-content{
 	padding: 10px;
 }
+
 

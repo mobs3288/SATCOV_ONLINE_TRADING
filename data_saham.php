@@ -57,8 +57,11 @@
 	<h1>Manage Stock Exchanges</h1><br><br><br>
 
 	<div class="form-outline">
-  		<input type="search" id="form1" class="search" placeholder="Search..." aria-label="Search" />
+      <form action="cek_search.php" method="post">
+  		  <input type="search" id="search" class="search" placeholder="Search..." aria-label="Search" name = "search"/>
+      </form>
 	</div>
+	
 	<br/>
 	<br/>
 	<!-- Trigger the modal with a button -->

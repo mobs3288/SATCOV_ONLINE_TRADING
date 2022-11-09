@@ -54,7 +54,7 @@
       	</form>
 	</div>
 	<br>
-	<h1> Stock Exchanges </h1><br><br><br>
+	<h1>Manage Stock Exchanges</h1><br><br><br>
 
 	<div class="form-outline">
   		<input type="search" id="form1" class="search" placeholder="Search..." aria-label="Search" />

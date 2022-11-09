@@ -1,62 +1,80 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Informasi Saham</title>
-    <link rel="stylesheet" type="text/css" href="info_saham.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    <?php 
-      session_start();
-    
-      // cek apakah yang mengakses halaman ini sudah login
-      if($_SESSION['level']==""){
-        header("location:index.php?pesan=gagal");
-      }
+<head>
+	<title>Saham</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="info_saham.css">
+</head>
+<body>
+	<?php 
+	session_start();
+ 
+	if($_SESSION['username']==""){
+		header("location:index.php?pesan=gagal");
+	}
 
-      if ( $_SESSION['level'] != 'admin' && $_SESSION['level'] != 'user'){ 
-        echo "<div class='alert'>Anda tidak memiliki akses untuk halaman ini.</div>";
-        exit; 
-      } 
-    
-    ?>
-    
-    <div class="topnav">
-      <img src="logo.png" width="85" height="50" />
-      <div class="logo_user">
-        <img src="logo_user.png" width="45" height="45" />
-      </div>
-    </div>
+	// cek apakah yang mengakses halaman ini adalah admin
+	if ( $_SESSION['level'] != 'admin' and $_SESSION['level'] != 'user' ){ 
+		echo "<div class='alert'>Anda tidak memiliki akses untuk halaman ini.</div>";
+		exit; 
+	} 
+	if(isset($_GET['pesan'])){
+		if ($_GET['pesan']=="register"){
+         echo "<div class='success'>Data Saham berhasil register ke database</div>";
+      	}
+		if ($_GET['pesan']=="failed"){
+			echo "<div class='alert'>Datanya kosong masbro</div>";
+		}
+	}
+ 
+	?>
 
-    <div class="sidenav">
-      <a href="#about">Home</a>
-      <a href="#services">Account</a>
-      <a href="#infostock">Info Stock</a>
-      <a href="#stock">Stock</a>
-      <b href="#stock">Buy Stock</b>
-      <b href="#stock">Sell Stock</b>
-      <a href="#portofolio">Portofolio</a>
-      <a href="#cash">Cash Balance</a>
-      <b href="#cash">Top Up</b>
-      <b href="#cash">Withdrawal</b>
+	<div class="topnav">
+		<img src = "logo.png" width="85" height="50">
+		<div class = "logo_user">
+			<a href = "#account"><img src = "logo_user.png" width ="30" height="30"></a>
+		</div>
+	</div>
 
-      <br><br><br><br>
-      <form action="logout.php">
-        <input type="submit" value="LOG OUT" class="tombol_logout" />
-      </form>
-    </div>
-    <br />
-    <form action="">
-      <input type="text" value="Search.." class="search" />
+	<div class="sidenav">
+		<a href="halaman_admin.php">Home</a>
+		<a href="#services">Account</a>
+		<a href="#clients">Info Stock</a>
+		<a href="#contact">Stock</a>
+    <b href="#contact">Buy Stock</b>
+    <b href="#contact">Sell Stock</b>
+		<a href="#services">Portofolio</a>
+		<a href="#contact">Cash Balance</a>
+    <b href="#contact">Top Up</b>
+    <b href="#contact">Withdrawal</b><br>
+
+		<form action="logout.php">
+         	<input type="submit" value="LOG OUT" class = "tombol_logout" />
     </form>
+	</div>
+	<br>
+	<h1> Stock Exchanges </h1><br><br><br>
 
-    <div class="table">
-      <div class="tableinfo">
-        <img src="data1.png" width="455" height="460" />
-        <img src="data1.png" width="200" height="200" />
-      </div>
-    </div>
-    <br />
-    <br />
-  </body>
+	<div class="form-outline">
+  		<input type="search" id="form1" class="search" placeholder="Search..." aria-label="Search" />
+	</div>
+	<br/>
+	<br/><br/><br/>
+	<script>        
+		$(document).ready(function(){
+			$(".table").load("auto_update_saham.php");
+			setInterval(function() {
+				$(".table").load("auto_update_saham.php");
+			},3000);
+		});
+	</script>
+
+	<div class = "table"></div>
+
+</body>
 </html>

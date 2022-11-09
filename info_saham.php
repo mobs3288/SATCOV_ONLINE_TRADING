@@ -38,12 +38,17 @@
 		<a href="#services">Account</a>
 		<a href="#clients">Info Stock</a>
 		<a href="#contact">Stock</a>
+    <!--
     <b href="#contact">Buy Stock</b>
     <b href="#contact">Sell Stock</b>
+    -->
 		<a href="#services">Portofolio</a>
 		<a href="#contact">Cash Balance</a>
+    <!--
     <b href="#contact">Top Up</b>
-    <b href="#contact">Withdrawal</b><br>
+    <b href="#contact">Withdrawal</b>
+    -->
+    <br>
 
 		<form action="logout.php">
          	<input type="submit" value="LOG OUT" class = "tombol_logout" />
@@ -57,7 +62,7 @@
   		  <input type="search" id="search" class="search" placeholder="Search..." aria-label="Search" name = "search"/>
       </form>
 	</div>
-  
+
 	<br/>
 	<br/>
 	<script>        

@@ -29,13 +29,13 @@
 
 		date_default_timezone_set("Asia/Jakarta");
 
-		if(date("H:i:sa") > 18){
+		if(date("H") > 18){
 			$salam = "Selamat Malam!: ";
-		} else if (date("H:i:sa") > 5 and date("H:i:sa") < 12){
+		} else if (date("H") > 5 and date("H") < 12){
 			$salam = "Selamat Pagi!: ";
-		} else if (date("H:i:sa") > 12 and date("H:i:sa") > 15) {
+		} else if (date("H") > 12 and date("H") > 15) {
 			$salam = "Selamat Siang!: ";
-		} else if (date("H:i:sa") > 15 and date("H:i:sa") < 18) {
+		} else if (date("H") > 15 and date("H") < 18) {
 			$salam = "Selamat Sore!: ";
 		}
 		
@@ -51,7 +51,8 @@
 			echo $salam ."<b>".$data['nama_lengkap']."</b>"."<br><br>";
 		}
 	?>
-	<a href="logout.php">LOGOUT</a>
+	<a href="logout.php">LOGOUT</a><br>
+	<a href="info_saham.php">INFO SAHAM</a>
  
 	<br/>
 	<br/>

@@ -42,7 +42,7 @@
 	</div>
 
 	<div class="sidenav">
-		<a href="halaman_admin.php">Home</a>
+		<a href="home_direct.php">Home</a>
 		<a href="#services">Account</a>
 		<a href="#clients">Manage Stock</a>
 		<a href="#contact">Admin</a>
@@ -80,7 +80,7 @@
 			<form action="process_add_saham.php" method="post">
 				<div class="form-group">
 					<label for="kode_saham">Kode Saham</label>
-					<input type="text" name="kode_saham" class="form-control" id="kode_saham" value="<?php echo @$_SESSION['kode_saham']?>" aria-describedby="kode_saham" autocomplete="off">
+					<input type="text" name="kode_saham" class="form-control" id="kode_saham" value="<?php echo @$_POST['kode_saham']?>" aria-describedby="kode_saham" autocomplete="off">
 
 				</div>
 				<div class="form-group">

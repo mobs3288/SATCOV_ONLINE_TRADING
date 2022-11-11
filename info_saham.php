@@ -34,7 +34,7 @@
 	</div>
 
 	<div class="sidenav">
-		<a href="halaman_admin.php">Home</a>
+		<a href="home_direct.php">Home</a>
 		<a href="#services">Account</a>
 		<a href="#clients">Info Stock</a>
 		<a href="#contact">Stock</a>

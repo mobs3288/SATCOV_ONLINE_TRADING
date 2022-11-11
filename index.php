@@ -2,12 +2,12 @@
 <html>
 <head>
 	<title>CERITANYA SATGAS COVID ONLINE TRADING</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="home_style.css">
 </head>
 <body>
- 
-	<h1>INI CERITANYA SATGAS COVID ONLINE TRADING</h1>
- 
+	<br>
+	<img src = "logo.png"><br><br>
+
 	<?php 
 	if(isset($_GET['pesan'])){
 		if($_GET['pesan']=="gagal"){
@@ -20,28 +20,27 @@
 	?>
  
 	<div class="kotak_login">
-		<p class="tulisan_login">Silahkan login</p>
+		<p class="tulisan_login">LOGIN</p>
  
 		<form action="cek_login.php" method="post">
 			<label>Username</label>
 			<input type="text" name="username" class="form_login" placeholder="Username .." required="required">
  
 			<label>Password</label>
-			<input type="password" name="password" class="form_login" placeholder="Password .." required="required">
+			<input type="password" name="password" class="form_login" placeholder="Password .." required="required"><br><br><br>
  
-			<input type="submit" class="tombol_login" value="LOGIN">
+			<input type="submit" class="tombol_login" value="LOGIN"><br><br>
+
+			<center>
+			<div class = "forgot">
+				<a href = "#forgot">Forgot Password? </a>
+			</div>
+			</center>
  
 		</form>
-      <center>
-      <form action="register.php">
-         <input type="submit" value="REGISTER" class = "tombol_register" />
-      </form>
-	</center>
-	</div>
 
-	<center>
-		<img src="ojek.png" width="90" height="90">
-	</center>
+	</div>
+	<p align = "center">Belum punya akun? <a href = "register.php">Sign Up</a></p>
 </body>
 </html>
 <!-- ashiap -->

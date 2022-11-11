@@ -10,7 +10,7 @@
 
 	if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            echo $row['kode_saham']. "<br>";
+            $_SESSION['kode_saham'] = $row['kode_saham']. "<br>";
             echo $row['nama_saham'] ."<br>";
             echo $row['harga']. "<br>";
             }

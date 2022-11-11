@@ -6,7 +6,7 @@
 
     $search = $_POST['search'];
 
-	$sql = "SELECT * FROM saham WHERE kode_saham LIKE '%".$search."%'";
+	$sql = "SELECT * FROM saham WHERE kode_saham OR nama_saham LIKE '%".$search."%'" ;
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) {

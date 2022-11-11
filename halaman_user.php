@@ -28,14 +28,15 @@
 		$conn = new mysqli($host,$user,$password,$database);
 
 		date_default_timezone_set("Asia/Jakarta");
+		//echo date('H'). "<br>";
 
-		if(date("H") > 18){
+		if(date("H") >= 18){
 			$salam = "Selamat Malam!: ";
-		} else if (date("H") > 5 and date("H") < 12){
+		} else if (date("H") >= 5 and date("H") < 12){
 			$salam = "Selamat Pagi!: ";
-		} else if (date("H") > 12 and date("H") > 15) {
+		} else if (date("H") >= 12 and date("H") < 15) {
 			$salam = "Selamat Siang!: ";
-		} else if (date("H") > 15 and date("H") < 18) {
+		} else if (date("H") >= 15 and date("H") < 18) {
 			$salam = "Selamat Sore!: ";
 		}
 		
@@ -48,11 +49,12 @@
 		if($is_exist > 0){
 		// keluarkan hasil
 			$data = mysqli_fetch_assoc($result);
-			echo $salam ."<b>".$data['nama_lengkap']."</b>"."<br><br>";
+			echo ($salam ."<b>".$data['nama_lengkap']."</b>"."<br><br>");
 		}
 	?>
 	<a href="logout.php">LOGOUT</a><br>
-	<a href="info_saham.php">INFO SAHAM</a>
+	<a href="info_saham.php">INFO SAHAM</a><br>
+	<a href="account.php">AKON</a>
  
 	<br/>
 	<br/>

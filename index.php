@@ -5,8 +5,6 @@
 	<link rel="stylesheet" type="text/css" href="home_style.css">
 </head>
 <body>
-	<br>
-	<img src = "logo.png"><br><br>
 
 	<?php 
 	if(isset($_GET['pesan'])){
@@ -18,6 +16,7 @@
 	}
 	clearstatcache();
 	?>
+	<img src = "logo.png"><br><br>
  
 	<div class="kotak_login">
 		<p class="tulisan_login">LOGIN</p>

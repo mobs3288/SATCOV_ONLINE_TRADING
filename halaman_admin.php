@@ -74,7 +74,8 @@
 
 	<a href="logout.php">LOGOUT</a><br>
 	<a href="data_saham.php">ADD SAHAM</a><br>
-	<a href="info_saham.php">INFO SAHAM</a>
+	<a href="info_saham.php">INFO SAHAM</a><br>
+	<a href="account.php">AKON</a>
  
 	<br/>
 	<br/>

@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="cash_style.css">
+	<link rel="stylesheet" type="text/css" href="style_porto.css">
 </head>
 <body>
 	<?php 
@@ -25,13 +25,13 @@
 	} 
  
 	?>
+
 	<div class="topnav">
 		<img src = "logo.png" width="85" height="50">
 		<div class = "logo_user">
-			<a href = "#account"><img src = "photo1.jpeg" width ="30" height="30"></a>
+			<a href = "#account"><img src = "logo_user.png" width ="30" height="30"></a>
 		</div>
 	</div>
-
 	<?php
 		if ($_SESSION['level'] == "admin"){ ?>
 			<div class="sidenav">
@@ -63,39 +63,18 @@
 				</form>
 			</div> 
 	<?php } ?>
-	<br><br><br><br>
-	<h1> Cash Balance </h1>
+	<br>
+	<h1>Portofolio</h1><br><br><br>
+	<script>        
+		$(document).ready(function(){
+			$(".table").load("auto_update_saham.php");
+			setInterval(function() {
+				$(".table").load("auto_update_saham.php");
+			},3000);
+		});
+	</script>
 
-	<div class = "table">
-		<center>
-		<div class = "saldo">
-			<?php
-				include "koneksi.php";
-				$conn = new mysqli($host,$user,$password,$database);
+	<div class = "table"></div>
 
-				$user = $_SESSION['username'];
-
-				$sql = "SELECT * FROM user WHERE username = '$user' ";
-				$result = mysqli_query($conn, $sql);
-				// hitung hasil dan cek ada atau tidaknya data
-				$is_exist = mysqli_num_rows($result);
-				if($is_exist > 0){
-				// keluarkan hasil
-					$data = mysqli_fetch_assoc($result);
-					echo ("<b><br>".$data['nama_lengkap']."</b>"."<br>");
-					$rupiah = "Rp " . number_format($data['saldo'],2,',','.');
-					echo ("<b><br>".$rupiah."</b>"."<br><br>");
-				}
-			?>
-		</div>
-		<br><br>
-		</center>
-	</div>
-	<form action="#" method="post">
-		<input type="submit" class="tombol_top-up" value="Top Up">
-	</form>
-	<form action="#" method="post">
-		<input type="submit" class="tombol_withdraw" value="Withdrawal">
-	</form>
 </body>
 </html>

@@ -7,21 +7,40 @@ h1{
 	/*ketebalan font*/
 
 	color: #D9D9D9;
-	position: fixed;
-	top: 130px;
-	left: 570px;
-	font-size: 25px;
-	font-weight: bold;
 }
 
 h2{
-	/*ketebalan font*/
-
 	color: #D9D9D9;
-	position: fixed;
-	top: 170px;
-	left: 570px;
-	font-size: 15px;
+	font-size: medium;	
+	text-align: center;
+	font-weight: bold;
+}
+
+.nama {
+	width: 475px;
+	height: max-content;
+	position: relative;
+	top: 0px;
+	bottom: 0px;
+	z-index: 1;
+	left: 675px;
+	overflow-x: hidden;
+	border-radius: 27px;
+	color: white;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+  }
+
+img {
+	border-radius: 50%;
+}
+
+.photo{
+	position: absolute;
+	left: 845px;
+	top: 150px;
+	z-index: 10;
 }
  
 .tulisan_login{
@@ -57,6 +76,11 @@ label{
 	font-size: 11pt;
 	margin-bottom: 20px;
 }
+
+.harga{
+	color: #E7E7E7;
+	font-size: 75px;
+}
  
 .tombol_login{
 	background: #2aa7e2;
@@ -66,6 +90,11 @@ label{
 	border: none;
 	border-radius: 3px;
 	padding: 10px 20px;
+}
+
+.cash_h1{
+	margin-left: 0px;
+	color: #D9D9D9;
 }
 
 .tombol_register{
@@ -116,14 +145,72 @@ label{
 	background: #7C7C7C;
 	color: #FFFFFF;
 	font-size: 11pt;
-	width: relative;
+	width: 650px;
 	border: none;
 	border-radius: 10px;
 	padding: 10px 20px;
 	position: relative;
-	left: 790px;
+	left: 575px;
 	top: 21px;
 	text-align: left;
+}
+
+.nama_user{
+	font-size: large;
+	text-transform: uppercase;
+}
+
+.tombol_change{
+	background: #7C7C7C;
+	color: #FFFFFF;
+	font-size: 10pt;
+	width: 110px;
+	border: none;
+	border-radius: 10px;
+	padding: 10px 20px;
+	position: relative;
+	left: 340px;
+	bottom: 45px;
+}
+
+.tombol_buy{
+	background: #3B962A;
+	color: #FFFFFF;
+	font-size: 10pt;
+	width: 10%;
+	border: none;
+	border-radius: 25px;
+	padding: 10px 20px;
+	position: relative;
+	left: 680px;
+	top: 0px;
+}
+
+.tombol_sell{
+	background: #F23535;
+	color: #FFFFFF;
+	font-size: 10pt;
+	width: 10%;
+	border: none;
+	border-radius: 25px;
+	padding: 10px 20px;
+	position: relative;
+	left: 1000px;
+	bottom: 100px;
+}
+
+.tombol_level{
+	background: #3B962A;
+	color: #FFFFFF;
+	font-size: 10pt;
+	width: max-content;
+	height: fit-content;
+	border: none;
+	border-radius: 10px;
+	padding: 10px 20px;
+	position: relative;
+	left: 1075px;
+	top: 95px;
 }
 
 ::placeholder{
@@ -194,17 +281,19 @@ label{
 }
 
 .table {
-	width: 850px;
-	top: 150px;
-	height: min-content;
+	width: 475px;
+	height: max-content;
 	position: relative;
+	top: 0px;
 	bottom: 0px;
 	z-index: 1;
-	left: 570px;
+	left: 675px;
 	background-color: #404040;
 	overflow-x: hidden;
-	border-radius: 10px;
+	border-radius: 27px;
 	color: white;
+	padding-left: 10px;
+	padding-right: 10px;
   }
 
 .sidenav {
@@ -221,20 +310,31 @@ label{
   }
   
 .sidenav a {
-	padding: 6px 8px 6px 16px;
-	text-decoration: none;
-	font-size: 25px;
-	color: #E7E7E7;
-	display: block;
-	padding: 15px;
-	font-weight: bold;
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #e7e7e7;
+  display: block;
+  padding: 15px;
+  font-weight: bold;
 }
-  
-.sidenav a:hover {
-	color: #F27B35;
+.sidenav b {
+  padding: 6px 8px 6px 25px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #e7e7e7;
+  display: block;
+  padding: 3px 30px;
+  font-weight: bold;
 }
 
-  
+.sidenav a:hover {
+  color: #f27b35;
+}
+.sidenav b:hover {
+  color: #f27b35;
+}
+
 .main {
 	margin-left: 160px; /* Same as the width of the sidenav */
 	font-size: 28px; /* Increased text to enable scrolling */
@@ -268,18 +368,5 @@ label{
 .modal-content{
 	padding: 10px;
 }
- .time{
-	color: white;
-	position: fixed;
-	background-color: #FFFFFF;
-	color: #3B962A;
-	border-radius: 15px;
-	width: 130px;
-	height: max-content;
-	font-size: 25px;
-	text-align: center;
-	font-weight: bold;
-	left: 1275px;
-	top: 100px;
-	position: relative;
- }
+
+

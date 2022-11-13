@@ -81,7 +81,6 @@
 				<a href="account.php">Account</a>
 				<a href="data_saham.php">Manage Stock</a>
 				<a href="#contact">Admin</a>
-				<a href="#services">Setting</a>
 				<a href="#services">User Management</a>
 
 				<form action="logout.php">
@@ -112,6 +111,7 @@
 		<a href="info_saham.php">INFO SAHAM</a><br>
 		<a href="account.php">AKON</a><br>
 		<a href="cash_balance.php">CASH BALANCE</a><br>
+		<a href="porto.php">PORTOFOLIO</a><br>
 	</div>
  
 	<br/>

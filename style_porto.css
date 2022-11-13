@@ -8,20 +8,7 @@ h1{
 
 	color: #D9D9D9;
 	position: fixed;
-	top: 130px;
 	left: 570px;
-	font-size: 25px;
-	font-weight: bold;
-}
-
-h2{
-	/*ketebalan font*/
-
-	color: #D9D9D9;
-	position: fixed;
-	top: 170px;
-	left: 570px;
-	font-size: 15px;
 }
  
 .tulisan_login{
@@ -194,13 +181,12 @@ label{
 }
 
 .table {
-	width: 850px;
-	top: 150px;
+	width: 650px;
 	height: min-content;
 	position: relative;
-	bottom: 0px;
+	top: 20px;
 	z-index: 1;
-	left: 570px;
+	left: 575px;
 	background-color: #404040;
 	overflow-x: hidden;
 	border-radius: 10px;
@@ -268,18 +254,3 @@ label{
 .modal-content{
 	padding: 10px;
 }
- .time{
-	color: white;
-	position: fixed;
-	background-color: #FFFFFF;
-	color: #3B962A;
-	border-radius: 15px;
-	width: 130px;
-	height: max-content;
-	font-size: 25px;
-	text-align: center;
-	font-weight: bold;
-	left: 1275px;
-	top: 100px;
-	position: relative;
- }

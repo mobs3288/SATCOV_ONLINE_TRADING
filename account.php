@@ -39,7 +39,6 @@
 				<a href="account.php">Account</a>
 				<a href="data_saham.php">Manage Stock</a>
 				<a href="#contact">Admin</a>
-				<a href="#services">Setting</a>
 				<a href="#services">User Management</a>
 
 				<form action="logout.php">

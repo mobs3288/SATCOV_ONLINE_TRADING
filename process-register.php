@@ -48,12 +48,13 @@ if($row != null){
 }else{
 	$password = $user['password'];
 	$level = 'user';
+	$saldo = 0;
 
 	//username unik. simpan di database.
-	$query = "insert into user (nama_lengkap, username, password, level) values  (?,?,?,?)";
+	$query = "insert into user (nama_lengkap, username, password, level, saldo) values  (?,?,?,?,?)";
 	$stmt = $mysqli->stmt_init();
 	$stmt->prepare($query);
-	$stmt->bind_param('ssss', $user['nama_lengkap'],$user['username'],$password, $level);
+	$stmt->bind_param('sssss', $user['nama_lengkap'],$user['username'],$password, $level, $saldo);
 	$stmt->execute();
 	$result = $stmt->get_result();
 	var_dump($result);

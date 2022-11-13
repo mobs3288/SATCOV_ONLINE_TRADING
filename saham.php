@@ -15,6 +15,7 @@
             echo $row['nama_saham'] ."<br>";
             echo $row['harga']. "<br>";
             echo $row['country']. "<br>";
+            $_SESSION['harga'] = $row['harga'];
             }
 	}
     $conn->close();

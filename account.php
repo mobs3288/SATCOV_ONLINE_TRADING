@@ -32,27 +32,39 @@
 		</div>
 	</div>
 
-	<div class="sidenav">
-		<a href="home_direct.php">Home</a>
-		<a href="#services">Account</a>
-		<a href="#clients">Info Stock</a>
-		<a href="#contact">Stock</a>
-    <!--
-    <b href="#contact">Buy Stock</b>
-    <b href="#contact">Sell Stock</b>
-    -->
-		<a href="#services">Portofolio</a>
-		<a href="#contact">Cash Balance</a>
-    <!--
-    <b href="#contact">Top Up</b>
-    <b href="#contact">Withdrawal</b>
-    -->
-    <br>
+	<?php
+		if ($_SESSION['level'] == "admin"){ ?>
+			<div class="sidenav">
+				<a href="home_direct.php">Home</a>
+				<a href="account.php">Account</a>
+				<a href="data_saham.php">Manage Stock</a>
+				<a href="#contact">Admin</a>
+				<a href="#services">Setting</a>
+				<a href="#services">User Management</a>
 
-		<form action="logout.php">
-			<input type="submit" value="LOG OUT" class = "tombol_logout" />
-		</form>
-	</div>
+				<form action="logout.php">
+					<input type="submit" value="LOG OUT" class = "tombol_logout" />
+				</form>
+			</div>
+	<?php } ?>
+
+	<?php
+		if ($_SESSION['level'] == "user"){ ?>
+			<div class="sidenav">
+				<a href="home_direct.php">Home</a>
+				<a href="#services">Account</a>
+				<a href="#clients">Info Stock</a>
+				<a href="#contact">Stock</a>
+				<a href="#services">Portofolio</a>
+				<a href="#contact">Cash Balance</a>
+			<br>
+
+				<form action="logout.php">
+					<input type="submit" value="LOG OUT" class = "tombol_logout" />
+				</form>
+			</div> 
+	<?php } ?>
+	
 	<br>
 	<br>
 	<br>

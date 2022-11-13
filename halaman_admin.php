@@ -26,10 +26,12 @@
 	} 
  
 	?>
-
-	<h1>Halaman Admin</h1>
- 
-	<p>Halo <b><?php echo $_SESSION['username']; ?></b> Anda telah login sebagai <b><?php echo $_SESSION['level']; ?></b>.</p>
+	<div class="topnav">
+		<img src = "logo.png" width="85" height="50">
+		<div class = "logo_user">
+			<a href = "#account"><img src = "logo_user.png" width ="30" height="30"></a>
+		</div>
+	</div>
 
 	<script>        
 		$(document).ready(function(){
@@ -42,21 +44,20 @@
 
 	<div class = "time"></div>
 
-	<?php
+	<h1><?php
 		include "koneksi.php";
 		$conn = new mysqli($host,$user,$password,$database);
 
 		date_default_timezone_set("Asia/Jakarta");
 		//echo date('H'). "<br>";
 
+
 		if(date("H") >= 18){
-			$salam = "Selamat Malam!: ";
+			$salam = "Good Night, ";
 		} else if (date("H") >= 5 and date("H") < 12){
-			$salam = "Selamat Pagi!: ";
-		} else if (date("H") >= 12 and date("H") < 15) {
-			$salam = "Selamat Siang!: ";
-		} else if (date("H") >= 15 and date("H") < 18) {
-			$salam = "Selamat Sore!: ";
+			$salam = "Good Morning, ";
+		} else if (date("H") >= 12 and date("H") < 18) {
+			$salam = "Good Afternoon, ";
 		}
 		
 		$user = $_SESSION['username'];
@@ -68,14 +69,34 @@
 		if($is_exist > 0){
 		// keluarkan hasil
 			$data = mysqli_fetch_assoc($result);
-			echo ($salam ."<b>".$data['nama_lengkap']."</b>"."<br><br>");
+			echo ($salam ."<b>".$data['nama_lengkap']."!</b>"."<br><br>");
 		}
-	?>
+	?></h1>
+	<h2>You login as a <?php echo $_SESSION['level']; ?></h2>
 
-	<a href="logout.php">LOGOUT</a><br>
-	<a href="data_saham.php">ADD SAHAM</a><br>
-	<a href="info_saham.php">INFO SAHAM</a><br>
-	<a href="account.php">AKON</a>
+	<?php
+		if ($_SESSION['level'] == "admin"){ ?>
+			<div class="sidenav">
+				<a href="home_direct.php">Home</a>
+				<a href="account.php">Account</a>
+				<a href="data_saham.php">Manage Stock</a>
+				<a href="#contact">Admin</a>
+				<a href="#services">Setting</a>
+				<a href="#services">User Management</a>
+
+				<form action="logout.php">
+					<input type="submit" value="LOG OUT" class = "tombol_logout" />
+				</form>
+			</div>
+	<?php } ?>
+	
+	<div class = "table">
+		<a href="logout.php">LOGOUT</a><br>
+		<a href="data_saham.php">ADD SAHAM</a><br>
+		<a href="info_saham.php">INFO SAHAM</a><br>
+		<a href="account.php">AKON</a><br>
+		<a href="cash_balance.php">CASH BALANCE</a><br>
+	</div>
  
 	<br/>
 	<br/>

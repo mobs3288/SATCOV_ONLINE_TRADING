@@ -1,6 +1,8 @@
 body{
 	font-family: sans-serif;
 	background: #303030;
+	color: #FFFFFF;
+	position: relative;
 }
  
 h1{
@@ -8,56 +10,57 @@ h1{
 	/*ketebalan font*/
 	font-weight: 300;
 }
-
-
-.regist{
-	text-align: center;
-	color: #FFFFFF;
-	font-size: xx-large;
-}
-
-.tulisan_register{
+img {
+	margin-left: 44%;
+	width: 10%;
+	position: absolute;
+  }
+  
+.tulisan_login{
 	text-align: center;
 	/*membuat semua huruf menjadi kapital*/
 	text-transform: uppercase;
-	color: #FFFFFF;
-	font-size: 100;
+	font-size: 35px;
+	font-weight: bold;
 }
+
  
-.kotak_register{
+.kotak_login{
 	width: 350px;
 	background: #404040;
 	/*meletakkan form ke tengah*/
 	margin: 80px auto;
-	padding: 1px 20px;
+	padding: 20px;
 	border-radius: 27px;
+	position: relative;
 }
  
 label{
 	font-size: 11pt;
-	color: #FFFFFF;
 }
  
-.form_register{
+.form_login{
 	/*membuat lebar form penuh*/
 	box-sizing : border-box;
 	width: 100%;
 	padding: 10px;
 	font-size: 11pt;
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 	border-radius: 27px;
 }
  
-
-.tombol_register{
+.tombol_login{
 	background: #F27B35;
-	color: white;
+	color: #404040;
 	font-size: 11pt;
-	width: 150px;
+	width: 50%;
 	border: none;
 	border-radius: 27px;
 	padding: 10px 20px;
+	position: relative;
+	left: 25%;
 }
+
  
 .link{
 	color: #232323;
@@ -81,12 +84,25 @@ label{
 	border:1px solid #4ee44e;
 }
 
-.akun{
-	position: absolute;
-	right: 600px;
-	bottom: 12px;
+.forgot{
+	font-size: x-small;
 }
 
-.logo{
-	text-align: center;
+a:link {
+	color: #8E8BFF;
+	background-color: transparent;
+	text-decoration: none;
   }
+  
+a:visited {
+	color: #8E8BFF;
+	background-color: transparent;
+	text-decoration: none;
+}
+
+.akun{
+	position:fixed;
+	bottom: 100px;
+	left: 665px;
+	font-size: smaller;
+}

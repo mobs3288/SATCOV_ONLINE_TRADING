@@ -99,3 +99,10 @@ a:visited {
 	background-color: transparent;
 	text-decoration: none;
 }
+
+.akun{
+	position:fixed;
+	bottom: 170px;
+	left: 665px;
+	font-size: smaller;
+}

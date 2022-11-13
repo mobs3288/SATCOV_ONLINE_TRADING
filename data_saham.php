@@ -40,19 +40,38 @@
 			<a href = "#account"><img src = "logo_user.png" width ="30" height="30"></a>
 		</div>
 	</div>
+	<?php
+		if ($_SESSION['level'] == "admin"){ ?>
+			<div class="sidenav">
+				<a href="home_direct.php">Home</a>
+				<a href="account.php">Account</a>
+				<a href="data_saham.php">Manage Stock</a>
+				<a href="#contact">Admin</a>
+				<a href="#services">Setting</a>
+				<a href="#services">User Management</a>
 
-	<div class="sidenav">
-		<a href="home_direct.php">Home</a>
-		<a href="#services">Account</a>
-		<a href="#clients">Manage Stock</a>
-		<a href="#contact">Admin</a>
-		<a href="#services">Setting</a>
-		<a href="#services">User Management</a>
+				<form action="logout.php">
+					<input type="submit" value="LOG OUT" class = "tombol_logout" />
+				</form>
+			</div>
+	<?php } ?>
 
-		<form action="logout.php">
-         	<input type="submit" value="LOG OUT" class = "tombol_logout" />
-      	</form>
-	</div>
+	<?php
+		if ($_SESSION['level'] == "user"){ ?>
+			<div class="sidenav">
+				<a href="home_direct.php">Home</a>
+				<a href="#services">Account</a>
+				<a href="#clients">Info Stock</a>
+				<a href="#contact">Stock</a>
+				<a href="#services">Portofolio</a>
+				<a href="#contact">Cash Balance</a>
+			<br>
+
+				<form action="logout.php">
+					<input type="submit" value="LOG OUT" class = "tombol_logout" />
+				</form>
+			</div> 
+	<?php } ?>
 	<br>
 	<h1>Manage Stock Exchanges</h1><br><br><br>
 
@@ -85,12 +104,17 @@
 				</div>
 				<div class="form-group">
 					<label for="nama_saham">Nama Saham</label>
-					<input type="text" name="nama_saham" class="form-control" id="nama_saham" value="<?php echo @$_SESSION['nama_saham']?>" aria-describedby="nama_saham" autocomplete="off">
+					<input type="text" name="nama_saham" class="form-control" id="nama_saham" value="<?php echo @$_POST['nama_saham']?>" aria-describedby="nama_saham" autocomplete="off">
 
 				</div>
 				<div class="form-group">
 					<label for="harga">Harga</label>
-					<input type="harga" name="harga" class="form-control" id="harga" value="<?php echo @$_SESSION['harga']?>">
+					<input type="text" name="harga" class="form-control" id="harga" value="<?php echo @$_POST['harga']?>">
+				</div>
+
+				<div class="form-group">
+					<label for="harga">Country</label>
+					<input type="text" name="country" class="form-control" id="country" value="<?php echo @$_POST['country']?>">
 				</div>
 
                 <button type="submit" class="tombol_add_modal">Add</button>

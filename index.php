@@ -39,7 +39,9 @@
 		</form>
 
 	</div>
-	<p align = "center">Belum punya akun? <a href = "register.php">Sign Up</a></p>
+	<div class = "akun">
+		<center><p>Belum punya akun? <a href = "register.php">Sign Up</a></p></center>
+	</div>
 </body>
 </html>
 <!-- ashiap -->

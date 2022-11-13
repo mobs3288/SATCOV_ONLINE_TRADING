@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="regist_style.css">
 </head>
 <body>
- 
+
 	<?php 
 	if(isset($_GET['pesan'])){
 		if($_GET['pesan']=="gagal"){
@@ -16,44 +16,33 @@
 	}
 	clearstatcache();
 	?>
-	<br>
-	<div class = "logo">
-		<img src="logo.png"  style="width:15%">
-	</div>
-	<br>
-	<div class="kotak_register">
-		<p class="regist">REGISTER</p>
+	<img src = "logo.png"><br>
+ 
+	<div class="kotak_login">
+		<p class="tulisan_login">REGISTER</p>
  
 		<form action="process-register.php" method="post">
-			<div class="form-group">
-				<label for="username">Full Name</label>
-				<input type="text" name="nama" class="form_register" id="name" value="<?php echo @$_SESSION['nama']?>" aria-describedby="name" autocomplete="off">
-			</div>
-			<div class="form-group">
-				<label for="username">Username</label>
-				<input type="text" name="username" class="form_register" id="username" value="<?php echo @$_SESSION['username']?>" aria-describedby="username" autocomplete="off">
-
-			</div>
-			<div class="form-group">
-				<label for="password">Password</label>
-				<input type="password" name="password" class="form_register" id="password" value="<?php echo @$_SESSION['password']?>" >
-			</div>
-				<div class="form-group">
-				<label for="password">Confirm Password</label>
-				<input type="password" name="password_confirmation" class="form_register" id="password_confirmation" value="<?php echo @$_SESSION['password_confirmation']?>">
-			</div>
-			<br>
-			<center>
-				<button type="submit" class="tombol_register">REGISTER</button>
-			</center>
+			<label>Nama Lengkap</label>
+			<input type="text" name="nama_lengkap" class="form-control" id="nama_lengkap" value="<?php echo @$_SESSION['nama_lengkap']?>" aria-describedby="nama_lengkap" placeholder="Nama lengkap" autocomplete="off">
+ 
+			<label>Username</label>
+			<input type="text" name="username" class="form-control" id="username" value="<?php echo @$_SESSION['username']?>" aria-describedby="username" placeholder="username" autocomplete="off">
+			
+			<label>Password</label>
+			<input type="password" name="password" class="form-control" id="password" value="<?php echo @$_SESSION['password']?>" placeholder="Password">
+			
+			<label>Password Confirmation</label>
+			<input type="password" name="password_confirmation" class="form-control" id="password_confirmation" value="<?php echo @$_SESSION['password_confirmation']?>"  placeholder="Password">
+ 
 			<br><br>
+			<input type="submit" class="tombol_login" value="REGISTER">
+ 
 		</form>
+
 	</div>
 	<div class = "akun">
-		<p style="color:#FFFFFF;"> Sudah punya akun?
-		<a href="index.php" style="color:#8E8BFF;">Login</a></p>
+		<center><p>Sudah punya akun? <a href = "index.php">Login</a></p></center>
 	</div>
-
 </body>
 </html>
 <!-- ashiap -->

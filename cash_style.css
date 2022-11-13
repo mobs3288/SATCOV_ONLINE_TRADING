@@ -8,7 +8,7 @@ h1{
 
 	color: #D9D9D9;
 	position: fixed;
-	left: 570px;
+	left: 815px;
 }
 
 img {
@@ -55,6 +55,11 @@ label{
 	font-size: 11pt;
 	margin-bottom: 20px;
 }
+
+.saldo{
+	color: #E7E7E7;
+	font-size: large;
+}
  
 .tombol_login{
 	background: #2aa7e2;
@@ -64,6 +69,11 @@ label{
 	border: none;
 	border-radius: 3px;
 	padding: 10px 20px;
+}
+
+.cash_h1{
+	margin-left: 0px;
+	color: #D9D9D9;
 }
 
 .tombol_register{
@@ -142,17 +152,30 @@ label{
 	bottom: 45px;
 }
 
-.tombol_delete{
-	background: #F23535;
+.tombol_top-up{
+	background: #F27B35;
 	color: #FFFFFF;
 	font-size: 10pt;
-	width: max-content;
+	width: 10%;
 	border: none;
-	border-radius: 10px;
+	border-radius: 25px;
 	padding: 10px 20px;
 	position: relative;
-	left: 855px;
+	left: 680px;
 	top: 95px;
+}
+
+.tombol_withdraw{
+	background: #3B962A;
+	color: #FFFFFF;
+	font-size: 10pt;
+	width: 10%;
+	border: none;
+	border-radius: 25px;
+	padding: 10px 20px;
+	position: relative;
+	left: 1000px;
+	top: 57px;
 }
 
 .tombol_level{

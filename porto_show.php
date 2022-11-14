@@ -31,13 +31,14 @@
                 while($row = $result->fetch_assoc()) {
                     $harga = $row["lot"] * $row["harga"];
                     $rupiah = "Rp " . number_format($harga,2,',','.');
+                    $avr_price = $row["harga"] / ($row["lot"] * 100);
                     $_SESSION['kode_saham'] = $row['kode_saham'];
 
                     ?>
                         <tr>
                             <td><?php echo("<a href = saham.php?id={$_SESSION['kode_saham']}> ".$row['kode_saham']." </a>");?></td>
                             <td><?php echo $row["lot"];?> </td>
-                            <td><?php echo $row["harga"];?> </td>
+                            <td><?php echo $avr_price;?> </td>
                             <td><?php echo $rupiah;?> </td>
                         </tr>
                     <?php

@@ -72,11 +72,10 @@
 		if ($_SESSION['level'] == "user"){ ?>
 			<div class="sidenav">
 				<a href="home_direct.php">Home</a>
-				<a href="#services">Account</a>
-				<a href="#clients">Info Stock</a>
-				<a href="#contact">Stock</a>
-				<a href="#services">Portofolio</a>
-				<a href="#contact">Cash Balance</a>
+				<a href="account.php">Account</a>
+				<a href="info_saham.php">Stock</a>
+				<a href="porto.php">Portofolio</a>
+				<a href="cash_balance.php">Cash Balance</a>
 			<br>
 
 				<form action="logout.php">

@@ -81,9 +81,8 @@
 	</div>
 	
 	<br/>
-	<br/>
 	<!-- Trigger the modal with a button -->
-	<button type="button" class="tombol_add" data-toggle="modal" data-target="#myModal">+ Add Stock Exchange</button>
+	<button type="button" class="tombol_add" data-toggle="modal" data-target="#myModal">+ Add Stock Exchange</button><br><br>
 
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" role="dialog">

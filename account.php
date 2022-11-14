@@ -68,7 +68,17 @@
 	<br>
 	<br>
 	<div class = "photo">
-		<img src="photo1.jpeg" alt="Avatar" width = 25%>
+		<?php
+			if ($_SESSION['level'] == "admin"){
+				?>
+				<img src="admin.png" alt="Avatar" width = 50%>
+				<?php
+			} else {
+				?>
+				<img src="user.png" alt="Avatar" width = 50%>
+				<?php
+			}
+		?>
 	</div>
 
 	<form action="#" method="post">

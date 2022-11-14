@@ -64,17 +64,28 @@
 			</div> 
 	<?php } ?>
 	<br>
-	<h1>Portofolio</h1><br><br><br>
+	<h1>Portofolio</h1>
 	<script>        
 		$(document).ready(function(){
-			$(".table").load("auto_update_saham.php");
+			$(".table").load("porto_show.php");
 			setInterval(function() {
-				$(".table").load("auto_update_saham.php");
+				$(".table").load("porto_show.php");
 			},3000);
 		});
 	</script>
 
 	<div class = "table"></div>
+
+	<script>        
+		$(document).ready(function(){
+			$(".refresh").load("auto_update_saham_all.php");
+			setInterval(function() {
+				$(".refresh").load("auto_update_saham_all.php");
+			},3000);
+		});
+	</script>
+
+	<div class = "refresh"></div>
 
 </body>
 </html>

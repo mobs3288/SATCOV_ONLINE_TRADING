@@ -65,7 +65,7 @@
 			</div> 
 	<?php } ?>
 	<br>
-	<h1> Stock Exchanges </h1><br><br><br>
+	<h1> Stock Exchanges </h1>
 
 	<div class="form-outline">
       <form action="cek_search.php" method="post">
@@ -80,10 +80,11 @@
 			$(".table").load("auto_update_saham.php");
 			setInterval(function() {
 				$(".table").load("auto_update_saham.php");
-			},3000);
+			},1000);
 		});
 	</script>
 
 	<div class = "table"></div>
+
 </body>
 </html>

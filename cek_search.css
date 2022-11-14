@@ -5,10 +5,9 @@ body{
  
 h1{
 	/*ketebalan font*/
-
+	margin-left: 575px;
+	position: static;
 	color: #D9D9D9;
-	position: relative;
-	left: 575px;
 }
  
 .tulisan_login{
@@ -109,7 +108,7 @@ label{
 	padding: 10px 20px;
 	position: relative;
 	left: 575px;
-	top: 21px;
+	top: 18px;
 	text-align: left;
 }
 
@@ -182,7 +181,7 @@ label{
 
 .table {
 	width: 650px;
-	height: min-content;
+	height: max-content;
 	position: relative;
 	bottom: 0px;
 	z-index: 1;
@@ -268,17 +267,32 @@ label{
 
 .grid-container{
 	display: grid;
-	grid-template-columns: auto auto auto;
+	grid-template-columns: auto;
 	background-color: #505050;
-	padding: 10px;
+	padding: 20px;
 	column-gap: 10px;
-	row-gap: 10px;
+	row-gap: 15px;
 }
 
 .grid-item {
 	background-color: #404040;
 	border: 1px #404040;
-	padding: 20px;
+	padding: 15px;
 	font-size: 15px;
-	text-align: center;
+	text-align: left;
+	border-radius: 27px;
   }
+
+.kode_saham{
+	font-size: 20px;
+}
+
+.nama_saham{
+	font-size: 10px;
+}
+
+.harga{
+	font-size: 20px;
+	font-weight: bold;
+	text-align: right;
+}

@@ -52,11 +52,10 @@
 		if ($_SESSION['level'] == "user"){ ?>
 			<div class="sidenav">
 				<a href="home_direct.php">Home</a>
-				<a href="#services">Account</a>
-				<a href="#clients">Info Stock</a>
-				<a href="#contact">Stock</a>
-				<a href="#services">Portofolio</a>
-				<a href="#contact">Cash Balance</a>
+				<a href="account.php">Account</a>
+				<a href="info_saham.php">Stock</a>
+				<a href="porto.php">Portofolio</a>
+				<a href="cash_balance.php">Cash Balance</a>
 			<br>
 
 				<form action="logout.php">
@@ -91,7 +90,7 @@
 					while($row = $result->fetch_assoc()) {
 						$data_saham = $row["kode_saham"];
 						$harga_update = rand(50, 40000);
-						$sql_update = "UPDATE saham SET harga = '".$harga_update."' WHERE kode_saham = '".$data_saham."'";
+						$sql_update = "UPDATE saham SET harga_saham = '".$harga_update."' WHERE kode_saham = '".$data_saham."'";
 						mysqli_query($conn, $sql_update);
 						}
 				}
@@ -115,7 +114,7 @@
 								</div>
 							</div>
 							<div class = "harga"> <?php
-								echo($row['harga'] . "<br>");?> 
+								echo($row['harga_saham'] . "<br>");?> 
 							</div>
 						</div>
 						<?php

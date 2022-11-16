@@ -41,5 +41,15 @@ th {
 }
 
 td{
-	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-bottom: 6px;
+}
+
+.profit {
+	color : #39FF14;
+
+}
+
+.loss {
+	color: red;
 }

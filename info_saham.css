@@ -5,10 +5,9 @@ body{
  
 h1{
 	/*ketebalan font*/
-
+	margin-left: 575px;
+	position: static;
 	color: #D9D9D9;
-	position: relative;
-	left: 575px;
 }
  
 .tulisan_login{
@@ -281,4 +280,5 @@ label{
 	padding: 20px;
 	font-size: 15px;
 	text-align: center;
+	border-radius: 27px;
   }

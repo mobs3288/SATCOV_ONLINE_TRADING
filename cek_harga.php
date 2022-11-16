@@ -15,6 +15,5 @@
             mysqli_query($conn, $sql_update);
             }
 	}
-	$conn->close();
 ?>
 

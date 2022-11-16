@@ -52,7 +52,7 @@
 		//echo date('H'). "<br>";
 
 
-		if(date("H") >= 18 or date('H')>= 0){
+		if(date("H") >= 18 or date('H')>= 0 and date('H') < 5){
 			$salam = "Good Night, ";
 		} else if (date("H") >= 5 and date("H") < 12){
 			$salam = "Good Morning, ";

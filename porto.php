@@ -66,17 +66,6 @@
 	<h1>Portofolio</h1>
 	<script>        
 		$(document).ready(function(){
-			$(".table").load("porto_show.php");
-			setInterval(function() {
-				$(".table").load("porto_show.php");
-			},3000);
-		});
-	</script>
-
-	<div class = "table"></div>
-
-	<script>        
-		$(document).ready(function(){
 			$(".refresh").load("auto_update_saham_all.php");
 			setInterval(function() {
 				$(".refresh").load("auto_update_saham_all.php");
@@ -85,6 +74,18 @@
 	</script>
 
 	<div class = "refresh"></div>
+	<script>        
+		$(document).ready(function(){
+			$(".table").load("porto_show.php");
+			setInterval(function() {
+				$(".table").load("porto_show.php");
+			},1000);
+		});
+	</script>
+
+	<div class = "table"></div>
+
+
 
 </body>
 </html>

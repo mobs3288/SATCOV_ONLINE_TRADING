@@ -106,7 +106,7 @@
 				</div>
 				<div class="form-group">
 					<label for="harga">Harga</label>
-					<input type="text" name="harga" class="form-control" id="harga" value="<?php echo @$_POST['harga']?>">
+					<input type="text" name="harga_saham" class="form-control" id="harga_saham" value="<?php echo @$_POST['harga_saham']?>">
 				</div>
 
 				<div class="form-group">

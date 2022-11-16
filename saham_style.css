@@ -131,8 +131,18 @@ label{
 	bottom: 60px;
 }
 
-.tombol_add_modal{
-	background: #8E8BFF;
+.tombol_fbuy_modal{
+	background: #3B962A;
+	color: white;
+	font-size: 11pt;
+	width: 100%;
+	border: none;
+	border-radius: 3px;
+	padding: 10px 20px;
+}
+
+.tombol_fsell_modal{
+	background: #F23535;
 	color: white;
 	font-size: 11pt;
 	width: 100%;
@@ -196,7 +206,7 @@ label{
 	padding: 10px 20px;
 	position: relative;
 	left: 1000px;
-	bottom: 100px;
+	bottom: 60px;
 }
 
 .tombol_level{
@@ -369,4 +379,8 @@ label{
 	padding: 10px;
 }
 
-
+.harga_kanan{
+	left: 525px;
+	position: fixed;
+	top: 26px;
+}

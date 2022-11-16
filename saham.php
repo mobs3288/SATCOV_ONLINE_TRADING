@@ -13,11 +13,10 @@
             $_SESSION['kode_saham'] = $row['kode_saham']. "<br>";
             $_SESSION['kode_saham'] = $row['kode_saham'];
             $_SESSION['nama_saham'] = $row['nama_saham'];
-            $_SESSION['harga'] = $row['harga'];
+            $_SESSION['harga_saham'] = $row['harga_saham'];
             $_SESSION['country'] = $row['country'];
             }
 	}
-    $conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -85,35 +84,85 @@
 	<?php } ?>
 	<br><br><br><br>
     
-    <div class="nama">
-        <center>
-        <h1><?php echo($_SESSION['kode_saham'])?></h1>
-        <h2><?php echo($_SESSION['nama_saham'])?></h2><br>
-        </center>
-    </div>
-    
-	<div class = "table">
-		<center>
-		<div class = "harga">
-            <?php 
-            $harga = "Rp " . number_format($_SESSION['harga'],2,',','.');
-            echo($harga)
-            ?>
-		</div>
-		</center>
-	</div>
-	<form action="#" method="post">
-		<input type="submit" class="tombol_buy" value="Fast Buy">
-	</form><br>
-	<form action="#" method="post">
-		<input type="submit" class="tombol_buy" value="Simple Buy">
-	</form>
+	<script>        
+		$(document).ready(function(){
+			$(".refresh").load("update_saham_now.php");
+			setInterval(function() {
+				$(".refresh").load("update_saham_now.php");
+			},3500);
+		});
+	</script>
+	
+	<div class = "refresh"></div>
 
-	<form action="#" method="post">
-		<input type="submit" class="tombol_sell" value="Fast Sell">
-	</form><br>
-	<form action="#" method="post">
-		<input type="submit" class="tombol_sell" value="Simple Sell">
-	</form>
+	<button type="button" class="tombol_buy" data-toggle="modal" data-target="#myModal">Buy</button><br><br>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog">
+	
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<script>        
+					$(document).ready(function(){
+						$(".r").load("saham_modal.php");
+						setInterval(function() {
+							$(".r").load("saham_modal.php");
+						},500);
+					});
+				</script>
+
+				<div class = "r"></div>
+			</div>
+			<form action="konfirm_beli.php" method="post">
+				<div class="form-group">
+					<label for="lot">Lot</label>
+					<input type="number" min="1" name="lot" class="form-control" id="lot" value="<?php echo @$_POST['lot']?>" aria-describedby="lot" autocomplete="off">
+				</div>
+                <button type="submit" class="tombol_fbuy_modal">Buy</button>
+			</form>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<button type="button" class="tombol_sell" data-toggle="modal" data-target="#myModal1">Sell</button><br><br>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal1" role="dialog">
+	<div class="modal-dialog">
+	
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<script>        
+					$(document).ready(function(){
+						$(".r").load("saham_modal.php");
+						setInterval(function() {
+							$(".r").load("saham_modal.php");
+						},500);
+					});
+				</script>
+
+				<div class = "r"></div>
+			</div>
+			<form action="konfirm_jual.php" method="post">
+				<div class="form-group">
+					<label for="lot">Lot</label>
+					<input type="number" min="1" name="lot" class="form-control" id="lot" value="<?php echo @$_POST['lot']?>" aria-describedby="lot" autocomplete="off">
+				</div>
+                <button type="submit" class="tombol_fsell_modal">Sell</button>
+			</form>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
 </body>
 </html>

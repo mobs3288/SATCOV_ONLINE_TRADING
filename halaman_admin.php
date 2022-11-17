@@ -112,6 +112,8 @@
 		<a href="account.php">AKON</a><br>
 		<a href="cash_balance.php">CASH BALANCE</a><br>
 		<a href="porto.php">PORTOFOLIO</a><br>
+		<a href="#">ADOMIN</a><br>
+		<a href="#">USAR MAANGE</a><br>
 	</div>
  
 	<br/>

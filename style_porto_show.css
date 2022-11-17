@@ -31,13 +31,15 @@
 table{
 	text-align: center;
 	width: 630px;
+	empty-cells: show;
 }
 
 th {
 	background-color: #F27B35;
-	border-radius: 27px 100px;
-	padding-left: 10px;
+	border-radius: 27px;
 	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 td{

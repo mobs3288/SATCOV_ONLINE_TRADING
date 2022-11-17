@@ -67,7 +67,7 @@
                     }
                 }
         }
-
+        header("location:saham.php?pesan=jual");
 
     }
 ?>

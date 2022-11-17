@@ -124,10 +124,21 @@
 	</div>
 	<script>        
 		$(document).ready(function(){
+			$(".refresh").load("auto_update_saham_all.php");
+			setInterval(function() {
+				$(".refresh").load("auto_update_saham_all.php");
+			},3000);
+		});
+	</script>	
+
+	<div class = "refresh"></div>
+
+	<script>        
+		$(document).ready(function(){
 			$(".table").load("auto_update_saham.php");
 			setInterval(function() {
 				$(".table").load("auto_update_saham.php");
-			},3000);
+			},4000);
 		});
 	</script>
 

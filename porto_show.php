@@ -26,6 +26,7 @@
 
             $sql = "SELECT * FROM history INNER JOIN saham on (saham.kode_saham = history.kode_saham) WHERE history.username = '".$_SESSION['username']."' AND status = 'Buy'";
             $result = $conn->query($sql);
+            $total_harga = 0;
 
             if ($result->num_rows > 0) {
                     // output data of each row
@@ -34,12 +35,13 @@
                     $avr_price = $harga / ($row['lot'] * 100) ;
                     $rupiah = "Rp " . number_format($harga,2,',','.');
                     $lot = $row['lot'];
+                    $total_harga += $row['harga'];
 
                     ?>
                         <tr>
                             <td><?php echo("<a href = saham.php?id={$row['kode_saham']}> ".$row['kode_saham']." </a>");?></td>
                             <td><?php echo $lot;?> </td>
-                            <td><?php echo $avr_price ;?> </td>
+                            <td><?php echo round($avr_price) ;?> </td>
                             <td><?php echo $rupiah;?> </td>
                             <td>
                                 <?php 
@@ -75,7 +77,20 @@
             }
 
             $conn->close();
-        ?></table>
+            
+        ?>  
+            </table>
     </div>
+    <table>
+        <tr>
+            <th>Total Value</th>
+            <td>
+                <?php 
+                    $rupiah = "Rp " . number_format($total_harga,2,',','.');
+                    echo $rupiah; 
+                ?>
+            </td>
+        </tr>  
+    </table>
 </body>
 </html>

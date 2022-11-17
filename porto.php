@@ -69,7 +69,7 @@
 			$(".refresh").load("auto_update_saham_all.php");
 			setInterval(function() {
 				$(".refresh").load("auto_update_saham_all.php");
-			},3000);
+			},2500);
 		});
 	</script>
 
@@ -79,7 +79,7 @@
 			$(".table").load("porto_show.php");
 			setInterval(function() {
 				$(".table").load("porto_show.php");
-			},1000);
+			},1500);
 		});
 	</script>
 

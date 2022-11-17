@@ -44,6 +44,17 @@
 		exit; 
 	} 
  
+	if(isset($_GET['pesan'])){
+		if($_GET['pesan']=="jual"){
+			echo "<div class='success'>Berhasil Menjual</div>";
+		} else if ($_GET['pesan']=="beli"){
+         	echo "<div class='success'>Berhasil membeli</div>";
+      	} else if ($_GET['pesan']=="gagalbeli"){
+			echo "<div class='alert'>Gagal Membeli</div>";
+	 	} else if ($_GET['pesan']=="gagaljual"){
+			echo "<div class='alert'>Gagal Menjual</div>";
+		}
+	}
 	?>
 	<div class="topnav">
 		<img src = "logo.png" width="85" height="50">

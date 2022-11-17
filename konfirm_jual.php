@@ -25,7 +25,7 @@
     if ($result->num_rows > 0) {
             // output data of each row
         while($row = $result->fetch_assoc()) {
-                if ($beli_lot < $row['lot']) {
+                if ($beli_lot <= $row['lot']) {
                     $conn = new mysqli($host,$user,$password,$database);
 
                     $sql = "SELECT * FROM saham WHERE kode_saham = '".$_SESSION['kode_saham']."'";
@@ -71,7 +71,7 @@
                         }
                     }
                 } else{
-                    echo "Lot kurang ngab";
+                    header("location:saham.php?pesan=gagaljual");
                 }
 
         }

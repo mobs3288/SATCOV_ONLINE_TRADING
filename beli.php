@@ -16,7 +16,7 @@
     if($cek > 0){
         $data = mysqli_fetch_assoc($sql);
 
-        $sql1 = mysqli_query($mysqli,"SELECT * FROM history WHERE username = '$user' AND kode_saham = '$kode' AND status = 'Buy'");
+        $sql1 = mysqli_query($mysqli,"SELECT * FROM history WHERE username = '$user' AND kode_saham = '$kode' AND status = 'Buy' AND lot_sell_check > 0");
 
         $cek = mysqli_num_rows($sql1);
 
@@ -31,7 +31,7 @@
                     $harga_update = $row['saldo'] - $harga;
                     if ($harga_update > 0){
                         if($cek == 0){
-                            $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Buy')";
+                            $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status, lot_sell_check) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Buy', '$jml_lot')";
                             mysqli_query($conn, $sql2);
                 
                         } else {
@@ -40,17 +40,20 @@
 
                             if ($result->num_rows == 1) {
                                 while($row = $result->fetch_assoc()){
+                                    $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status, lot_sell_check) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Buy', NULL)";
+                                    mysqli_query($conn, $sql2);
                                     
                                     $lot_upd = $jml_lot + $row['lot'];
-
-                                    $sql = "UPDATE history SET lot ='$lot_upd' WHERE username = '$user' AND kode_saham = '$kode' AND status = 'Buy' LIMIT 1";
-                                    $conn->query($sql);
 
                                     $harga_upd = $row['harga'] + $harga;
 
                                     $sql = "UPDATE history SET harga ='$harga_upd' WHERE username = '$user' AND kode_saham = '$kode' AND status = 'Buy' LIMIT 1";
                                     $conn->query($sql);
 
+                                    $lot_upd = $jml_lot + $row['lot'];
+
+                                    $sql = "UPDATE history SET lot_sell_check ='$lot_upd' WHERE username = '$user' AND kode_saham = '$kode' AND status = 'Buy' LIMIT 1";
+                                    $conn->query($sql);
                                 }
                             }
                         }

@@ -1,49 +1,45 @@
-<br/>
-	<br/>
-	<!-- Trigger the modal with a button -->
-	<button type="button" class="tombol_add" data-toggle="modal" data-target="#myModal">+ Add Stock Exchange</button>
+$cek_lot = $row['lot'] - $jml_lot;
+                    if ($cek_lot == 0){
 
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" role="dialog">
-	<div class="modal-dialog">
-	
-		<!-- Modal content-->
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Add Stock</h4>
-			</div>
-			<form action="process_add_saham.php" method="post">
-				<div class="form-group">
-					<label for="kode_saham">Kode Saham</label>
-					<input type="text" name="kode_saham" class="form-control" id="kode_saham" value="<?php echo @$_SESSION['kode_saham']?>" aria-describedby="kode_saham" autocomplete="off">
+                        $sql1 = "select * from user where username='$user'";
+                        $result1 = $conn->query($sql1);
 
-				</div>
-				<div class="form-group">
-					<label for="nama_saham">Nama Saham</label>
-					<input type="text" name="nama_saham" class="form-control" id="nama_saham" value="<?php echo @$_SESSION['nama_saham']?>" aria-describedby="nama_saham" autocomplete="off">
+                        if ($result1->num_rows > 0){
+                            while($row1 = $result1->fetch_assoc()){
+                                $harga = ($jml_lot * 100) * $_SESSION['harga_saham'];
+                                $harga_update = $row1['saldo'] + $harga;
 
-				</div>
-				<div class="form-group">
-					<label for="harga">Harga</label>
-					<input type="harga" name="harga" class="form-control" id="harga" value="<?php echo @$_SESSION['harga']?>">
-				</div>
+                                $sql = "UPDATE user SET saldo ='$harga_update' WHERE username = '$user'";
+                                $conn->query($sql);
 
-                <button type="submit" class="tombol_add_modal">Add</button>
-			</form>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			</div>
-		</div>
-	</div>
-	</div>
-	<script>        
-		$(document).ready(function(){
-			$(".table").load("auto_update_saham.php");
-			setInterval(function() {
-				$(".table").load("auto_update_saham.php");
-			},3000);
-		});
-	</script>
+                                $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Sell')";
+                                mysqli_query($conn, $sql2);
+                                
+                                $sql2 = "DELETE FROM history WHERE kode_saham = '$kode' AND username = '$user' AND status = 'Buy' limit 1";
+                                mysqli_query($conn, $sql2);
+                            }
+                        }
+                    } else if ($cek_lot > 0) {
+                        $harga = ($cek_lot) * ($row['harga'] / $row['lot']);
+                        $sql = "UPDATE history SET lot ='$cek_lot'WHERE kode_saham = '$kode' AND username = '$user' AND status = 'Buy' limit 1";
+                        $conn->query($sql);
 
-	<div class = "table"></div>
+                        $sql = "UPDATE history SET harga ='$harga'WHERE kode_saham = '$kode' AND username = '$user' AND status = 'Buy' limit 1";
+                        $conn->query($sql);
+
+                        $sql = "select * from user where username='$user'";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0){
+                            while($row = $result->fetch_assoc()){
+                                $harga = ($jml_lot * 100) * $_SESSION['harga_saham'];
+                                $harga_update = $row['saldo'] + $harga;
+
+                                $sql = "UPDATE user SET saldo ='$harga_update' WHERE username = '$user'";
+                                $conn->query($sql);
+
+                                $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Sell')";
+                                mysqli_query($conn, $sql2);
+                            }
+                        }
+                    }

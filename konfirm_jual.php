@@ -19,13 +19,13 @@
 
     $beli_lot = $_POST['lot'];
 
-    $sql = "SELECT * FROM history WHERE kode_saham = '".$_SESSION['kode_saham']."' AND username = '".$_SESSION['username']."' AND status = 'Buy' LIMIT 1";
+    $sql = "SELECT * FROM history WHERE kode_saham = '".$_SESSION['kode_saham']."' AND username = '".$_SESSION['username']."' AND status = 'Buy' AND lot_sell_check > 0 LIMIT 1";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
             // output data of each row
         while($row = $result->fetch_assoc()) {
-                if ($beli_lot <= $row['lot']) {
+                if ($beli_lot <= $row['lot_sell_check']) {
                     $conn = new mysqli($host,$user,$password,$database);
 
                     $sql = "SELECT * FROM saham WHERE kode_saham = '".$_SESSION['kode_saham']."'";

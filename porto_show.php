@@ -24,7 +24,7 @@
 
             $user = $_SESSION['username'];
 
-            $sql = "SELECT * FROM history INNER JOIN saham on (saham.kode_saham = history.kode_saham) WHERE history.username = '".$_SESSION['username']."' AND status = 'Buy'";
+            $sql = "SELECT * FROM history INNER JOIN saham on (saham.kode_saham = history.kode_saham) WHERE history.username = '".$_SESSION['username']."' AND status = 'Buy' AND lot_sell_check > 0";
             $result = $conn->query($sql);
             $total_harga = 0;
 
@@ -34,7 +34,7 @@
                     $harga = $row["harga"];
                     $avr_price = $harga / ($row['lot'] * 100) ;
                     $rupiah = "Rp " . number_format($harga,2,',','.');
-                    $lot = $row['lot'];
+                    $lot = $row['lot_sell_check'];
                     $total_harga += $row['harga'];
 
                     ?>

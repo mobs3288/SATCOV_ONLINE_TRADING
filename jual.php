@@ -14,13 +14,13 @@
     $cek = mysqli_num_rows($sql);
 
     if($cek > 0){
-        $sql = "SELECT * FROM history WHERE username = '$user' AND kode_saham = '$kode' AND status = 'Buy' LIMIT 1";
+        $sql = "SELECT * FROM history WHERE username = '$user' AND kode_saham = '$kode' AND status = 'Buy' AND lot_sell_check > 0 LIMIT 1";
         $result = $conn->query($sql);
     
         if ($result->num_rows == 1) {
                 // output data of each row
             while($row = $result->fetch_assoc()) {
-                    $cek_lot = $row['lot'] - $jml_lot;
+                    $cek_lot = $row['lot_sell_check'] - $jml_lot;
                     if ($cek_lot == 0){
 
                         $sql1 = "select * from user where username='$user'";
@@ -34,16 +34,17 @@
                                 $sql = "UPDATE user SET saldo ='$harga_update' WHERE username = '$user'";
                                 $conn->query($sql);
 
-                                $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Sell')";
+                                $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status, lot_sell_check) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Sell', NULL)";
                                 mysqli_query($conn, $sql2);
+
+                                $sql = "UPDATE history SET lot_sell_check='$cek_lot' WHERE username = '$user' AND kode_saham = '$kode' AND status = 'Buy' LIMIT 1";
+                                $conn->query($sql);
                                 
-                                $sql2 = "DELETE FROM history WHERE kode_saham = '$kode' AND username = '$user' AND status = 'Buy' limit 1";
-                                mysqli_query($conn, $sql2);
                             }
                         }
                     } else if ($cek_lot > 0) {
                         $harga = ($cek_lot) * ($row['harga'] / $row['lot']);
-                        $sql = "UPDATE history SET lot ='$cek_lot'WHERE kode_saham = '$kode' AND username = '$user' AND status = 'Buy' limit 1";
+                        $sql = "UPDATE history SET lot_sell_check ='$cek_lot'WHERE kode_saham = '$kode' AND username = '$user' AND status = 'Buy' limit 1";
                         $conn->query($sql);
 
                         $sql = "UPDATE history SET harga ='$harga'WHERE kode_saham = '$kode' AND username = '$user' AND status = 'Buy' limit 1";
@@ -60,7 +61,7 @@
                                 $sql = "UPDATE user SET saldo ='$harga_update' WHERE username = '$user'";
                                 $conn->query($sql);
 
-                                $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Sell')";
+                                $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status, lot_sell_check) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Sell', NULL)";
                                 mysqli_query($conn, $sql2);
                             }
                         }

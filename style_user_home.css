@@ -194,7 +194,7 @@ label{
 }
 
 .table {
-	width: 850px;
+	width: 800px;
 	top: 225px;
 	height: min-content;
 	position: fixed;
@@ -272,7 +272,7 @@ label{
 .modal-content{
 	padding: 10px;
 }
- .time{
+.time{
 	color: white;
 	position: fixed;
 	background-color: #FFFFFF;
@@ -283,7 +283,7 @@ label{
 	font-size: 25px;
 	text-align: center;
 	font-weight: bold;
-	left: 1275px;
+	left: 1235px;
 	top: 100px;
 	position: relative;
  }

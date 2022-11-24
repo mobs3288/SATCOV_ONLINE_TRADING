@@ -20,8 +20,6 @@
 
         $cek = mysqli_num_rows($sql1);
 
-
-
         $sql = "SELECT * FROM user WHERE username = '$user'";
         $result = $conn->query($sql);
     

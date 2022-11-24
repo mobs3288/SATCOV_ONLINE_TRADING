@@ -23,7 +23,18 @@
 		echo "<div class='alert'>Anda tidak memiliki akses untuk halaman ini.</div>";
 		exit; 
 	} 
- 
+
+	if(isset($_GET['pesan'])){
+		if($_GET['pesan']=="berhasiltop"){
+			echo "<div class='success'>Berhasil Top Up</div>";
+      	} else if ($_GET['pesan']=="gagaltop"){
+			echo "<div class='alert'>Gagal Top Up</div>";
+		} else if ($_GET['pesan']=="berhasiltarik"){
+			echo "<div class='success'>Berhasil Narik Mang</div>";
+		} else if ($_GET['pesan']=="gagaltarik"){
+			echo "<div class='alert'>Gagal Narik Mang</div>";
+		}
+	}
 	?>
 	<div class="topnav">
 		<img src = "logo.png" width="85" height="50">
@@ -63,7 +74,7 @@
 			</div> 
 	<?php } ?>
 	<br><br><br><br>
-	<h1> Cash Balance </h1>
+	<h1> Cash Balance </h1><br>
 
 	<div class = "table">
 		<center>
@@ -83,6 +94,7 @@
 					$data = mysqli_fetch_assoc($result);
 					echo ("<b><br>".$data['nama_lengkap']."</b>"."<br>");
 					$rupiah = "Rp " . number_format($data['saldo'],2,',','.');
+					$_SESSION['saldo'] = $data['saldo'];
 					echo ("<b><br>".$rupiah."</b>"."<br><br>");
 				}
 			?>
@@ -90,11 +102,60 @@
 		<br><br>
 		</center>
 	</div>
-	<form action="#" method="post">
-		<input type="submit" class="tombol_top-up" value="Top Up">
-	</form>
-	<form action="#" method="post">
-		<input type="submit" class="tombol_withdraw" value="Withdrawal">
-	</form>
+
+	<button type="button" class="tombol_top-up" data-toggle="modal" data-target="#myModal">Top Up</button><br><br>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog">
+	
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class = "saldo">
+					<?php $rupiah = "Rp " . number_format($_SESSION['saldo'],2,',','.'); echo $rupiah;?>
+				</div>
+			</div>
+			<form action="konfirm_topup.php" method="post"><br>
+				<div class="form-group">
+					<label for="lot">Masukkan nominal Top Up</label>
+					<input type="number" min="10000" name="saldo" class="form-control" id="saldo" value="<?php echo @$_POST['saldo']?>" aria-describedby="saldo" autocomplete="off">
+				</div>
+                <button type="submit" class="tombol_fbuy_modal">Top Up</button>
+			</form>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+	</div>
+	<button type="button" class="tombol_withdraw" data-toggle="modal" data-target="#myModal1">Withdraw</button><br><br>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal1" role="dialog">
+	<div class="modal-dialog">
+	
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class = "saldo">
+					<?php $rupiah = "Rp " . number_format($_SESSION['saldo'],2,',','.'); echo $rupiah;?>
+				</div>
+			</div>
+			<form action="konfirm_tarik.php" method="post"><br>
+				<div class="form-group">
+					<label for="lot">Masukkan nominal</label>
+					<input type="number" min="10000" max ='' name="saldo" class="form-control" id="saldo" value="<?php echo @$_POST['saldo']?>" aria-describedby="lot" autocomplete="off">
+				</div>
+                <button type="submit" class="tombol_fsell_modal">Withdraw</button>
+			</form>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
 </body>
 </html>

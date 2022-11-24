@@ -17,13 +17,13 @@ if($user['password'] != $user['password_confirmation']){
 	$_SESSION['error'] = 'Password yang anda masukkan tidak sama dengan password confirmation.';
 	$_SESSION['nama_lengkap'] = $_POST['nama_lengkap'];
 	$_SESSION['username'] = $_POST['username'];
-	header("Location:register.php");
+	header("Location:register.php?pesan=gagal");
 	return;
 }
 
-if($user['password'] == null){
+if($user['password'] == null || $user['password_confirmation'] == null){
 	$_SESSION['error'] = 'Gaboleh kosong yah mas!';
-	header("Location:register.php");
+	header("Location:register.php?pesan=gagal");
 	return;
 }
 
@@ -42,7 +42,7 @@ if($row != null){
 	$_SESSION['nama_lengkap'] = $_POST['nama_lengkap'];
 	$_SESSION['password'] = $_POST['password'];
 	$_SESSION['password_confirmation'] = $_POST['password_confirmation'];
-	header("Location:register.php");
+	header("Location:register.php?pesan=gagal");
 	return;
 
 }else{

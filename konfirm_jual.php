@@ -75,6 +75,8 @@
                 }
 
         }
+    } else {
+        header("location:saham.php?pesan=gagaljual");
     }
 
 

@@ -73,7 +73,7 @@
                             </td>
                         </tr>
                     <?php
-                    }
+                }
             }
 
             $conn->close();

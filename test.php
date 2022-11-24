@@ -1,45 +1,64 @@
-$cek_lot = $row['lot'] - $jml_lot;
-                    if ($cek_lot == 0){
+<!DOCTYPE html>
+<html lang="en">
 
-                        $sql1 = "select * from user where username='$user'";
-                        $result1 = $conn->query($sql1);
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Camera</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
 
-                        if ($result1->num_rows > 0){
-                            while($row1 = $result1->fetch_assoc()){
-                                $harga = ($jml_lot * 100) * $_SESSION['harga_saham'];
-                                $harga_update = $row1['saldo'] + $harga;
+<body>
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-four-fifths">
+          <h1 class="title">
+            JavaScript Camera
+          </h1>
+          <video autoplay id="video"></video>
+          <button class="button is-hidden" id="btnPlay">
+            <span class="icon is-small">
+              <i class="fas fa-play"></i>
+            </span>
+          </button>
+          <button class="button" id="btnPause">
+            <span class="icon is-small">
+              <i class="fas fa-pause"></i>
+            </span>
+          </button>
+          <button class="button is-success" id="btnScreenshot">
+            <span class="icon is-small">
+              <i class="fas fa-camera"></i>
+            </span>
+          </button>
+          <button class="button" id="btnChangeCamera">
+            <span class="icon">
+              <i class="fas fa-sync-alt"></i>
+            </span>
+            <span>Switch camera</span>
+          </button>
+        </div>
+        <div class="column">
+          <h2 class="title">Screenshots</h2>
+          <div id="screenshots"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                                $sql = "UPDATE user SET saldo ='$harga_update' WHERE username = '$user'";
-                                $conn->query($sql);
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        By <a href="https://www.webdevdrops.com/">Douglas Matoso</a> | <a
+          href="https://github.com/doug2k1/javascript-camera">Source code</a>
+      </p>
+    </div>
+  </footer>
 
-                                $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Sell')";
-                                mysqli_query($conn, $sql2);
-                                
-                                $sql2 = "DELETE FROM history WHERE kode_saham = '$kode' AND username = '$user' AND status = 'Buy' limit 1";
-                                mysqli_query($conn, $sql2);
-                            }
-                        }
-                    } else if ($cek_lot > 0) {
-                        $harga = ($cek_lot) * ($row['harga'] / $row['lot']);
-                        $sql = "UPDATE history SET lot ='$cek_lot'WHERE kode_saham = '$kode' AND username = '$user' AND status = 'Buy' limit 1";
-                        $conn->query($sql);
+  <canvas class="is-hidden" id="canvas"></canvas>
+  <script src="script.js"></script>
+</body>
 
-                        $sql = "UPDATE history SET harga ='$harga'WHERE kode_saham = '$kode' AND username = '$user' AND status = 'Buy' limit 1";
-                        $conn->query($sql);
-
-                        $sql = "select * from user where username='$user'";
-                        $result = $conn->query($sql);
-
-                        if ($result->num_rows > 0){
-                            while($row = $result->fetch_assoc()){
-                                $harga = ($jml_lot * 100) * $_SESSION['harga_saham'];
-                                $harga_update = $row['saldo'] + $harga;
-
-                                $sql = "UPDATE user SET saldo ='$harga_update' WHERE username = '$user'";
-                                $conn->query($sql);
-
-                                $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Sell')";
-                                mysqli_query($conn, $sql2);
-                            }
-                        }
-                    }
+</html>

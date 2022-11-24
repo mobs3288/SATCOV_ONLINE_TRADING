@@ -93,7 +93,7 @@
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 				<h4 class="modal-title">Add Stock</h4>
 			</div>
-			<form action="process_add_saham.php" method="post">
+			<form action="Admin_handler.php" method="post">
 				<div class="form-group">
 					<label for="kode_saham">Kode Saham</label>
 					<input type="text" name="kode_saham" class="form-control" id="kode_saham" value="<?php echo @$_POST['kode_saham']?>" aria-describedby="kode_saham" autocomplete="off">
@@ -114,7 +114,7 @@
 					<input type="text" name="country" class="form-control" id="country" value="<?php echo @$_POST['country']?>">
 				</div>
 
-                <button type="submit" class="tombol_add_modal">Add</button>
+                <button type="submit" class="tombol_add_modal" value = "addSaham" name = "addSaham">Add</button>
 			</form>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

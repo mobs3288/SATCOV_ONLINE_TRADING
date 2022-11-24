@@ -23,7 +23,12 @@
 		echo "<div class='alert'>Anda tidak memiliki akses untuk halaman ini.</div>";
 		exit; 
 	} 
- 
+
+	if(isset($_GET['pesan'])){
+		if($_GET['pesan']=="gagal"){
+			echo "<div class='alert'>Akun gagal terhapus</div>";
+		}
+	}
 	?>
 	<div class="topnav">
 		<img src = "logo.png" width="85" height="50">
@@ -130,10 +135,33 @@
 			<input type="submit" class="tombol_change" value="CHANGE">
 		</form>
 	</div>
-	<form action="#" method="post">
-		<input type="submit" class="tombol_delete" value="Delete Account">
-	</form>
 
+	<button type="button" class="tombol_delete" data-toggle="modal" data-target="#myModal1">Delete Account</button><br><br>
 
+	<!-- Modal -->
+	<div class="modal fade" id="myModal1" role="dialog">
+	<div class="modal-dialog">
+	
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				DELETE ACCOUNT
+			</div>
+			<form action="delete_account.php" method="post">
+				<div class="form-group">
+					<label>Password</label>
+					<input type="password" name="password" class="form_login" id="password" value="<?php echo @$_SESSION['password']?>" placeholder="Password">
+				
+					<label>Password Confirmation</label>
+					<input type="password" name="password_confirmation" class="form_login" id="password_confirmation" value="<?php echo @$_SESSION['password_confirmation']?>"  placeholder="Password">
+				</div>
+                <button type="submit" class="tombol_fsell_modal">Sell</button>
+			</form>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+	</div>
 </body>
 </html>

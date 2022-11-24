@@ -315,6 +315,7 @@ label{
 
 .modal-header{
 	background-color: #404040;
+	color: white;
 }
 
 .modal-title{
@@ -325,4 +326,12 @@ label{
 	padding: 10px;
 }
 
-
+.tombol_fsell_modal{
+	background: #F23535;
+	color: white;
+	font-size: 11pt;
+	width: 100%;
+	border: none;
+	border-radius: 3px;
+	padding: 10px 20px;
+}

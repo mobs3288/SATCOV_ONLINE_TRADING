@@ -74,38 +74,8 @@
 	?></h1>
 	<h2>You login as a <?php echo $_SESSION['level']; ?></h2>
 
-	<?php
-		if ($_SESSION['level'] == "admin"){ ?>
-			<div class="sidenav">
-				<a href="home_direct.php">Home</a>
-				<a href="account.php">Account</a>
-				<a href="data_saham.php">Manage Stock</a>
-				<a href="#contact">Admin</a>
-				<a href="#services">User Management</a>
-
-				<form action="logout.php">
-					<input type="submit" value="LOG OUT" class = "tombol_logout" />
-				</form>
-			</div>
-	<?php } ?>
-
-	<?php
-		if ($_SESSION['level'] == "user"){ ?>
-			<div class="sidenav">
-				<a href="home_direct.php">Home</a>
-				<a href="account.php">Account</a>
-				<a href="info_saham.php">Stock</a>
-				<a href="porto.php">Portofolio</a>
-				<a href="cash_balance.php">Cash Balance</a>
-			<br>
-
-				<form action="logout.php">
-					<input type="submit" value="LOG OUT" class = "tombol_logout" />
-				</form>
-			</div> 
-	<?php } ?>
 	
-	<div class = "table">
+	<div class = "table3">
 		<a href="logout.php">LOGOUT</a><br>
 		<a href="data_saham.php">ADD SAHAM</a><br>
 		<a href="info_saham.php">INFO SAHAM</a><br>

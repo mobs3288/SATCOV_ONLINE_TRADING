@@ -28,6 +28,10 @@
 		if($_GET['pesan']=="gagal"){
 			echo "<div class='alert'>Akun gagal terhapus</div>";
 		}
+
+		if($_GET['pesan']=="berhasilchange"){
+			echo "<div class='success'>Password Berhasil diganti</div>";
+		}
 	}
 	?>
 	<div class="topnav">
@@ -131,15 +135,43 @@
 			echo ("****************". "<br>");
 			}
 		?>
-		<form action="#" method="post">
-			<input type="submit" class="tombol_change" value="CHANGE">
-		</form>
+	<button type="button" class="tombol_change" data-toggle="modal" data-target="#myModal1">Change</button>
+
+
 	</div>
-
-	<button type="button" class="tombol_delete" data-toggle="modal" data-target="#myModal1">Delete Account</button><br><br>
-
 	<!-- Modal -->
 	<div class="modal fade" id="myModal1" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				Change Password
+			</div>
+			<form action="change_pw.php" method="post">
+				<div class="form-group">
+					<label>New Password</label>
+					<input type="password" name="new_password" class="form_login" id="new_password" value="<?php echo @$_SESSION['new_password']?>" placeholder="Password">
+
+					<label>Password Confirmation</label>
+					<input type="password" name="password_confirmation" class="form_login" id="password_confirmation" value="<?php echo @$_SESSION['password_confirmation']?>" placeholder="Password">
+				
+					<label>Enter Old Password</label>
+					<input type="password" name="old_password" class="form_login" id="old_password" value="<?php echo @$_SESSION['old_password']?>"  placeholder="Password">
+				</div>
+				<button type="submit" class="tombol_fsell_modal">Change</button>
+			</form>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<button type="button" class="tombol_delete" data-toggle="modal" data-target="#myModal2">Delete Account</button><br><br>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal2" role="dialog">
 	<div class="modal-dialog">
 	
 		<!-- Modal content-->
@@ -155,7 +187,7 @@
 					<label>Password Confirmation</label>
 					<input type="password" name="password_confirmation" class="form_login" id="password_confirmation" value="<?php echo @$_SESSION['password_confirmation']?>"  placeholder="Password">
 				</div>
-                <button type="submit" class="tombol_fsell_modal">Sell</button>
+                <button type="submit" class="tombol_fsell_modal">Delete</button>
 			</form>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

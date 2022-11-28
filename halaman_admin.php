@@ -4,7 +4,6 @@
 	<title>Halaman admin</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -29,9 +28,9 @@
 	<div class="topnav">
 		<img src = "logo.png" width="85" height="50">
 		<div class = "logo_user">
-			<a href = "#account"><img src = "logo_user.png" width ="30" height="30"></a>
+			<a href = "#account"><img src = "photo1.jpeg" width ="30" height="30" class="rounded"></a>
 		</div>
-	</div>
+	</div><br>
 
 	<script>        
 		$(document).ready(function(){
@@ -104,19 +103,101 @@
 				</form>
 			</div> 
 	<?php } ?>
-	
-	<div class = "table">
-		<a href="logout.php">LOGOUT</a><br>
-		<a href="data_saham.php">ADD SAHAM</a><br>
-		<a href="info_saham.php">INFO SAHAM</a><br>
-		<a href="account.php">AKON</a><br>
-		<a href="cash_balance.php">CASH BALANCE</a><br>
-		<a href="porto.php">PORTOFOLIO</a><br>
-		<a href="history.php">HISTORA</a><br>
-	</div>
- 
-	<br/>
-	<br/>
 
+	<div class = "table2">
+		<div class = "logo_u">
+			<img src = "user.png" alt = "Avatar" width = 100%>
+		</div>
+		<div class = "tulisan_count_user">
+			<p> Total User </p>
+			<h4> 100 </h4>
+		</div>
+
+		<div class = "logo_a">
+			<img src = "admin.png" alt = "Avatar" width = 100%>
+		</div>
+		<div class = "tulisan_count_admin">
+			<p> Total User </p>
+			<h4> 100 </h4>
+		</div>
+
+		<div class = "logo_s">
+			<img src = "saham.png" alt = "Avatar" width = 100%>
+		</div>
+		<div class = "tulisan_count_saham">
+			<p> Total Saham </p>
+			<h4> 100 </h4>
+		</div>
+	</div>
+
+	<script>        
+		$(document).ready(function(){
+			$(".refresh").load("auto_update_saham_all.php");
+			setInterval(function() {
+				$(".refresh").load("auto_update_saham_all.php");
+			},4000);
+		});
+	</script>
+
+	<div class = "refresh"></div>
+	<div class = "table1">
+		<div class = "table3">
+			<h3> IHSG (Index Harga Saham Gabungan) </h3>
+			<h3> 7.089,21 </h3>
+		</div>
+		
+		<script>        
+		$(document).ready(function(){
+			$(".table").load("show_saham_home_admin.php");
+			setInterval(function() {
+				$(".table").load("show_saham_home_admin.php");
+			},2500);
+		});
+		</script>
+		<div class = "table"></div>
+
+		<button type="button" class="tombol_add" data-toggle="modal" data-target="#myModal12">+ Add Stock Exchange</button><br><br>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="myModal12" role="dialog">
+	<div class="modal-dialog">
+
+			<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Add Stock</h4>
+			</div>
+			<form action="Admin_handler.php" method="post">
+				<div class="form-group">
+					<label for="kode_saham">Kode Saham</label>
+					<input type="text" name="kode_saham" class="form-control" id="kode_saham" value="<?php echo @$_POST['kode_saham']?>" aria-describedby="kode_saham" autocomplete="off">
+
+				</div>
+				<div class="form-group">
+					<label for="nama_saham">Nama Saham</label>
+					<input type="text" name="nama_saham" class="form-control" id="nama_saham" value="<?php echo @$_POST['nama_saham']?>" aria-describedby="nama_saham" autocomplete="off">
+
+				</div>
+				<div class="form-group">
+					<label for="harga">Harga</label>
+					<input type="text" name="harga_saham" class="form-control" id="harga_saham" value="<?php echo @$_POST['harga_saham']?>">
+				</div>
+
+				<div class="form-group">
+					<label for="harga">Country</label>
+					<input type="text" name="country" class="form-control" id="country" value="<?php echo @$_POST['country']?>">
+				</div>
+
+				<button type="submit" class="tombol_add_modal" value = "addSaham" name = "addSaham">Add</button>
+			</form>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+	</div>
+	<br/>
+	<br/>
 </body>
 </html>

@@ -49,8 +49,6 @@
 				<a href="home_direct.php">Home</a>
 				<a href="account.php">Account</a>
 				<a href="data_saham.php">Manage Stock</a>
-				<a href="#contact">Admin</a>
-				<a href="#services">User Management</a>
 
 				<form action="logout.php">
 					<input type="submit" value="LOG OUT" class = "tombol_logout" />
@@ -143,14 +141,14 @@
 				</div>
 			</div>
 			<form action="konfirm_tarik.php" method="post"><br>
-				<div class="form-group">
+				<div class="form-group input">
 					<label for="lot">Masukkan nominal</label>
 					<input type="number" min="10000" max ='' name="saldo" class="form-control" id="saldo" value="<?php echo @$_POST['saldo']?>" aria-describedby="lot" autocomplete="off">
 				</div>
                 <button type="submit" class="tombol_fsell_modal">Withdraw</button>
 			</form>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" onclick = genQR()>Close</button>
 			</div>
 		</div>
 	</div>

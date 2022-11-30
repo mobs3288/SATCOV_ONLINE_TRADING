@@ -17,8 +17,9 @@
 
             $user = $_SESSION['username'];
 
-            $sql = "SELECT * FROM saham ORDER BY harga_saham DESC LIMIT 4 ";
+            $sql = "SELECT * FROM saham ORDER BY RAND() DESC LIMIT 4 ";
             $result = $conn->query($sql);
+            //$rowcount = mysqli_num_rows( $result );
             $total_harga = 0;
 
             if ($result->num_rows > 0) {
@@ -31,9 +32,10 @@
                             <td><?php echo $row['harga_saham'];?></td>
                         </tr>
                     <?php
+                    
                 }
             }
-
+            //echo $rowcount;
             $conn->close();
             
         ?>  

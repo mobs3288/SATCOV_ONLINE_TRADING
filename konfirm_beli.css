@@ -124,3 +124,14 @@ a:visited {
 	border-radius: 27px;
 	padding: 10px 20px;
 }
+
+.hasil{
+	position: relative;
+	top: 25px;
+	left: -1825px;
+	width: 2000px;
+}
+
+body{
+	overflow: hidden;
+}

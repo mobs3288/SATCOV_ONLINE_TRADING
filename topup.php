@@ -3,11 +3,10 @@
     include "koneksi.php";
 
 	$conn = new mysqli($host,$user,$password,$database);
-    $pass = $_POST['password'];
     $user = $_SESSION['username'];
     $tot = $_SESSION['tot'];
 
-	$sql = mysqli_query($mysqli,"select * from user where username='$user' and password = '$pass'");
+	$sql = mysqli_query($mysqli,"select * from user where username='$user'");
 
     $cek = mysqli_num_rows($sql);
 

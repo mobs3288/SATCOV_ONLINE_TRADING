@@ -4,6 +4,7 @@
 	<title>Halaman admin</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -11,6 +12,7 @@
 </head>
 <body>
 	<?php 
+	include "koneksi.php";
 	session_start();
  
 	// cek apakah yang mengakses halaman ini sudah login
@@ -79,8 +81,6 @@
 				<a href="home_direct.php">Home</a>
 				<a href="account.php">Account</a>
 				<a href="data_saham.php">Manage Stock</a>
-				<a href="#contact">Admin</a>
-				<a href="#services">User Management</a>
 
 				<form action="logout.php">
 					<input type="submit" value="LOG OUT" class = "tombol_logout" />
@@ -110,7 +110,14 @@
 		</div>
 		<div class = "tulisan_count_user">
 			<p> Total User </p>
-			<h4> 100 </h4>
+			<h4>
+				<?php 
+					$sql = "SELECT * FROM user WHERE level = 'user'";
+					$result = $conn->query($sql);
+					$rowcount = mysqli_num_rows( $result );
+					echo $rowcount;
+				?>
+			</h4>
 		</div>
 
 		<div class = "logo_a">
@@ -118,7 +125,14 @@
 		</div>
 		<div class = "tulisan_count_admin">
 			<p> Total User </p>
-			<h4> 100 </h4>
+			<h4> 
+				<?php 
+					$sql = "SELECT * FROM user WHERE level = 'admin'";
+					$result = $conn->query($sql);
+					$rowcount = mysqli_num_rows( $result );
+					echo $rowcount;
+				?>
+			</h4>
 		</div>
 
 		<div class = "logo_s">
@@ -126,7 +140,14 @@
 		</div>
 		<div class = "tulisan_count_saham">
 			<p> Total Saham </p>
-			<h4> 100 </h4>
+			<h4> 
+				<?php 
+					$sql = "SELECT * FROM saham";
+					$result = $conn->query($sql);
+					$rowcount = mysqli_num_rows( $result );
+					echo $rowcount;
+				?>
+			</h4>
 		</div>
 	</div>
 
@@ -143,7 +164,17 @@
 	<div class = "table1">
 		<div class = "table3">
 			<h3> IHSG (Index Harga Saham Gabungan) </h3>
-			<h3> 7.089,21 </h3>
+			<h3> 
+			<script>        
+				$(document).ready(function(){
+					$(".ihsg").load("show_ihsg.php");
+					setInterval(function() {
+						$(".ihsg").load("show_ihsg.php");
+					},2500);
+				});
+			</script>
+			<div class = "ihsg"></div>
+			</h3>
 		</div>
 		
 		<script>        

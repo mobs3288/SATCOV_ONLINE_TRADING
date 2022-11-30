@@ -8,7 +8,6 @@ class Admin{
             'kode_saham' => $_POST['kode_saham'],
             'nama_saham' => $_POST['nama_saham'],
             'harga_saham' => $_POST['harga_saham'],
-            'country' => $_POST['country'],
         ];
         
         //check apakah user dengan username tersebut ada di table users
@@ -20,7 +19,7 @@ class Admin{
         $result = $stmt->get_result();
         $row = $result->fetch_array(MYSQLI_ASSOC);
         
-        if($saham['kode_saham'] == null or $saham['nama_saham'] == null or $saham['harga_saham'] == null or $saham['country'] == null){
+        if($saham['kode_saham'] == null or $saham['nama_saham'] == null or $saham['harga_saham'] == null){
             $_SESSION['error'] = 'Gaboleh kosong yah mas!';
             header("Location:data_saham.php?pesan=failed");
             return;
@@ -32,16 +31,15 @@ class Admin{
             $_SESSION['kode_saham'] = $_POST['kode_saham'];
             $_SESSION['nama_saham'] = $_POST['nama_saham'];
             $_SESSION['harga_saham'] = $_POST['harga_saham'];
-            $_SESSION['country'] = $_POST['country'];
             header("Location:data_saham.php?pesan=failed");
             return;
         
         }else{
             //username unik. simpan di database.
-            $query = "insert into saham (kode_saham, nama_saham, harga_saham, country) values  (?,?,?,?)";
+            $query = "insert into saham (kode_saham, nama_saham, harga_saham) values  (?,?,?)";
             $stmt = $mysqli->stmt_init();
             $stmt->prepare($query);
-            $stmt->bind_param('ssss', $saham['kode_saham'],$saham['nama_saham'],$saham['harga_saham'],$saham['country']);
+            $stmt->bind_param('sss', $saham['kode_saham'],$saham['nama_saham'],$saham['harga_saham']);
             $stmt->execute();
             $result = $stmt->get_result();
             var_dump($result);

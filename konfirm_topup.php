@@ -15,6 +15,17 @@
 <?php
     include "koneksi.php";
     session_start();
+    include "phpqrcode/qrlib.php"; 
+ 
+    // nama folder tempat penyimpanan file qrcode
+    $penyimpanan = "temp/";
+    
+    // membuat folder dengan nama "temp"
+    if (!file_exists($penyimpanan))
+        mkdir($penyimpanan);
+    
+    // isi qrcode yang ingin dibuat. akan muncul saat di scan
+    
 
 	$conn = new mysqli($host,$user,$password,$database);
 
@@ -23,6 +34,8 @@
 
     $tot = $_POST['saldo'];
     $rupiah = "Rp " . number_format($tot,2,',','.');
+    $isi = $rupiah; 
+    QRcode::png($isi, $penyimpanan.'total.png', QR_ECLEVEL_H, 10, 1);
 
 	if ($result->num_rows > 0) {
 			// output data of each row
@@ -40,11 +53,12 @@
                                 echo $rupiah;
                                 $_SESSION['tot'] = $tot;
                             ?>
+                        </div>                        
+                        <div class = "hasil">
+                            <?php echo '<img src="'.$penyimpanan.'total.png" >'; ?>
                         </div>
-                        <br>
-                        <label>Password</label>
-                        <input type="password" name="password" class="form_login" placeholder="Password .." required="required"><br><br><br>
-                        <input type="submit" class="tombol_buy" value="BUY"><br><br>
+                        <br><br><br><br><br><br><br><br><br><br><br><br>
+                        <input type="submit" class="tombol_buy" value="Verify"><br><br>
             
                     </form>
 

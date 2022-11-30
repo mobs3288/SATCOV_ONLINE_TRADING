@@ -69,8 +69,6 @@
 				<a href="home_direct.php">Home</a>
 				<a href="account.php">Account</a>
 				<a href="data_saham.php">Manage Stock</a>
-				<a href="#contact">Admin</a>
-				<a href="#services">User Management</a>
 
 				<form action="logout.php">
 					<input type="submit" value="LOG OUT" class = "tombol_logout" />

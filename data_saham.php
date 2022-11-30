@@ -46,8 +46,6 @@
 				<a href="home_direct.php">Home</a>
 				<a href="account.php">Account</a>
 				<a href="data_saham.php">Manage Stock</a>
-				<a href="#contact">Admin</a>
-				<a href="#services">User Management</a>
 
 				<form action="logout.php">
 					<input type="submit" value="LOG OUT" class = "tombol_logout" />
@@ -81,13 +79,14 @@
 	
 	<br/>
 	<!-- Trigger the modal with a button -->
-	<button type="button" class="tombol_add" data-toggle="modal" data-target="#myModal">+ Add Stock Exchange</button><br><br>
+	<a href = "add_saham.php">
+		<button type="button" class="tombol_add" data-toggle="modal" data-target="#myModal">+ Add Stock Exchange</button><br><br>
+	</a>
 
-	<!-- Modal -->
+	<!-- Modal
 	<div class="modal fade" id="myModal" role="dialog">
 	<div class="modal-dialog">
 	
-		<!-- Modal content-->
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -121,7 +120,7 @@
 			</div>
 		</div>
 	</div>
-	</div>
+	</div>-->
 	<script>        
 		$(document).ready(function(){
 			$(".refresh").load("auto_update_saham_all.php");

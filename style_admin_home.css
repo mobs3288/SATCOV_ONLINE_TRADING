@@ -2,6 +2,9 @@ body{
 	font-family: sans-serif;
 	background: #303030;
 	width: min-content;
+	/*-moz-transform: scale(0.9, 0.8); /* Moz-browsers 
+    zoom: 0.8; /* Other non-webkit browsers 
+    zoom: 90%; /* Webkit browsers */
 }
  
 h1{

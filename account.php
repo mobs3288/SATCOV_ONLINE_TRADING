@@ -47,8 +47,6 @@
 				<a href="home_direct.php">Home</a>
 				<a href="account.php">Account</a>
 				<a href="data_saham.php">Manage Stock</a>
-				<a href="#contact">Admin</a>
-				<a href="#services">User Management</a>
 
 				<form action="logout.php">
 					<input type="submit" value="LOG OUT" class = "tombol_logout" />
@@ -135,15 +133,17 @@
 			echo ("****************". "<br>");
 			}
 		?>
-	<button type="button" class="tombol_change" data-toggle="modal" data-target="#myModal1">Change</button>
-
+	<a href = "ganti_pw.php">
+		<button type="button" class="tombol_change">Change</button>
+	</a>
 
 	</div>
 	<!-- Modal -->
+	<!--
 	<div class="modal fade" id="myModal1" role="dialog">
 	<div class="modal-dialog">
 
-		<!-- Modal content-->
+
 		<div class="modal-content">
 			<div class="modal-header">
 				Change Password
@@ -166,7 +166,7 @@
 			</div>
 		</div>
 	</div>
-	</div>
+	</div>-->
 
 	<button type="button" class="tombol_delete" data-toggle="modal" data-target="#myModal2">Delete Account</button><br><br>
 

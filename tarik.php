@@ -19,12 +19,16 @@
                 // output data of each row
             while($row = $result->fetch_assoc()) {
                 $saldo_upd = $row['saldo'] - $tot;
-                $sql = "UPDATE user SET saldo ='$saldo_upd' WHERE username = '$user'";
-                $conn->query($sql);
+                if ($saldo_upd >= 0) {
+                    $sql = "UPDATE user SET saldo ='$saldo_upd' WHERE username = '$user'";
+                    $conn->query($sql);
+                    header("location:cash_balance.php?pesan=berhasiltarik");
+                } else {
+                    header("location:cash_balance.php?pesan=gagaltarik");
+                }
 
                 }
         }
-        header("location:cash_balance.php?pesan=berhasiltarik");
     } else {
         header("location:cash_balance.php?pesan=gagaltarik");
     }

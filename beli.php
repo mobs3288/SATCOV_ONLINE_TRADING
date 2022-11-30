@@ -63,9 +63,13 @@
                     }
                     
                 }
+        } else {
+            header("location:saham.php?pesan=gagalbeli");
         }
 
 
+    } else {
+        header("location:saham.php?pesan=gagalbeli");
     }
 ?>
 

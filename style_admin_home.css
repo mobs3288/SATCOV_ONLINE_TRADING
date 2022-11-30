@@ -6,6 +6,9 @@ body{
     zoom: 0.8; /* Other non-webkit browsers 
     zoom: 90%; /* Webkit browsers */
 }
+p{
+	color: #D9D9D9;
+}
  
 h1{
 	/*ketebalan font*/
@@ -441,4 +444,10 @@ table{
 	border: none;
 	border-radius: 3px;
 	padding: 10px 20px;
+}
+
+.version{
+	position: relative;
+	bottom: 245px;
+	left: 175px;
 }

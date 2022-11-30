@@ -63,6 +63,7 @@
 				<a href="account.php">Account</a>
 				<a href="info_saham.php">Stock</a>
 				<a href="porto.php">Portofolio</a>
+				<a href="history.php">History</a>
 				<a href="cash_balance.php">Cash Balance</a>
 			<br>
 

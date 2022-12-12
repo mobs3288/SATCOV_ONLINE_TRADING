@@ -140,7 +140,16 @@
 	</div>
 	</div>
 
-	<?php if (date("H") >= 17 and date("H") < 8){ ?>
+	<?php 
+		include dirname(__FILE__).'/../etc/koneksi.php';
+
+		$conn = new mysqli($host,$user,$password,$database);
+
+		$sql = "SELECT * FROM history WHERE username = '".$_SESSION['username']."' AND status = 'Buy' AND lot_sell_check != 0 AND kode_saham = '".$_SESSION['kode_saham']."'";
+		$result = $conn->query($sql);
+
+		if ($result->num_rows > 0){
+	?>
 	<button type="button" class="tombol_sell" data-toggle="modal" data-target="#myModal1">Sell</button><br><br>
 
 	<!-- Modal -->

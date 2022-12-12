@@ -31,9 +31,20 @@
 				$(".time").load("src/etc/auto_time.php");
 			},1000);
 		});
+		$(document).ready(function(){
+			$(".time2").load("src/etc/auto_time.php");
+			setInterval(function() {
+				$(".time2").load("src/etc/auto_time.php");
+			},1000);
+		});
 	</script>
 
-	<div class = "time"></div>
+	<?php
+		if (date("H") >= 17 and date("H") < 8){
+	?><div class = "time"></div>
+	<?php } else { ?>
+		<div class = "time2"></div>
+	<?php } ?>
 
 	<h1><?php
 		include dirname(__FILE__).'/src/etc/koneksi.php';
@@ -69,6 +80,10 @@
 		</form>
 	</div> 
 
+	<?php
+		if (date("H") >= 17 and date("H") < 8){
+
+	?>
 	<script>        
 		$(document).ready(function(){
 			$(".refresh").load("src/etc/auto_update_saham_all.php");
@@ -76,7 +91,7 @@
 				$(".refresh").load("src/etc/auto_update_saham_all.php");
 			},4000);
 		});
-	</script>
+	</script> <?php } ?>
 
 	<div class = "refresh"></div>
 	<div class = "table1">

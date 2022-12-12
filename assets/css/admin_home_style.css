@@ -457,3 +457,19 @@ table{
 		zoom: 0.8;  
 	}
 }
+
+.time2{
+	color: white;
+	position: fixed;
+	background-color: #FFFFFF;
+	color: red;
+	border-radius: 15px;
+	width: 130px;
+	height: max-content;
+	font-size: 25px;
+	text-align: center;
+	font-weight: bold;
+	left: 1148px;
+	top: 60px;
+	position: relative;
+ }

@@ -63,6 +63,11 @@
 	<?php } ?>
 	<br>
 	<h1>Portofolio</h1>
+
+	<?php
+		if (date("H") >= 17 and date("H") < 8){
+
+	?>
 	<script>        
 		$(document).ready(function(){
 			$(".refresh").load("../etc/auto_update_saham_all.php");
@@ -70,7 +75,7 @@
 				$(".refresh").load("../etc/auto_update_saham_all.php");
 			},2500);
 		});
-	</script>
+	</script> <?php } ?>
 
 	<div class = "refresh"></div>
 	<script>        

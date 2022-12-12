@@ -53,7 +53,11 @@
 						// output data of each row
 					while($row = $result->fetch_assoc()) {
 						$data_saham = $row["kode_saham"];
-						$harga_update = rand(50, 40000);
+						if (date("H") < 17 and date("H") >= 8){
+							$harga_update = rand(50, 40000);
+						} else {
+							$harga_update = $row['harga_saham'];
+						}
 						$sql_update = "UPDATE saham SET harga_saham = '".$harga_update."' WHERE kode_saham = '".$data_saham."'";
 						$_SESSION['harga_saham'] = $row["harga_saham"];
 						$_SESSION['kode_saham'] = $row["kode_saham"];

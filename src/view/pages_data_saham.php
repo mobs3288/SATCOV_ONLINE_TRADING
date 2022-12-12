@@ -83,6 +83,11 @@
 	<a href = "pages_add_saham.php">
 		<button type="button" class="tombol_add" data-toggle="modal" data-target="#myModal">+ Add Stock Exchange</button><br><br>
 	</a>
+
+	<?php
+		if (date("H") >= 17 and date("H") < 8){
+
+	?>
 	<script>        
 		$(document).ready(function(){
 			$(".refresh").load("../etc/auto_update_saham_all.php");
@@ -90,7 +95,7 @@
 				$(".refresh").load("../etc/auto_update_saham_all.php");
 			},3000);
 		});
-	</script>	
+	</script>	<?php } ?>
 
 	<div class = "refresh"></div>
 

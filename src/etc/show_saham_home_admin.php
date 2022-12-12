@@ -27,7 +27,7 @@
                 while($row = $result->fetch_assoc()) {
                     ?>
                         <tr>
-                            <td><?php echo("<a href = saham.php?id={$row['kode_saham']}> ".$row['kode_saham']." </a>");?></td>
+                            <td><?php echo("<a href = ../view/pages_saham.php?id={$row['kode_saham']}> ".$row['kode_saham']." </a>");?></td>
                             <td><?php echo $row['nama_saham'];?> </td>
                             <td><?php echo $row['harga_saham'];?></td>
                         </tr>

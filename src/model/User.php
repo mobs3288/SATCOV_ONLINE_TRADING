@@ -197,7 +197,7 @@ class User{
         }
     
         //check apakah user dengan username tersebut ada di table users
-        $sql = "SELECT * FROM user WHERE username = '".$user['username']."' AND password = '".$user['old_password']."'";
+        $sql = "SELECT * FROM user WHERE username = '".$user['username']."' AND password = '".sha1($user['old_password'])."'";
         $result = $conn->query($sql);
             
         if ($result->num_rows > 0) {

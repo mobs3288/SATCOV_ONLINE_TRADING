@@ -36,12 +36,23 @@
 		$(document).ready(function(){
 			$(".time").load("../etc/auto_time.php");
 			setInterval(function() {
-				$(".time").load("auto_time.php");
+				$(".time").load("../etc/auto_time.php");
+			},1000);
+		});
+		$(document).ready(function(){
+			$(".time2").load("../etc/auto_time.php");
+			setInterval(function() {
+				$(".time2").load("../etc/auto_time.php");
 			},1000);
 		});
 	</script>
 
-	<div class = "time"></div>
+	<?php
+		if (date("H") >= 17 and date("H") < 8){
+	?><div class = "time"></div>
+	<?php } else { ?>
+		<div class = "time2"></div>
+	<?php } ?>
 
 	<h1><?php
 		include dirname(__FILE__).'/../etc/koneksi.php';
@@ -103,6 +114,10 @@
 			</div> 
 	<?php } ?>
 
+	<?php
+		if (date("H") >= 17 and date("H") < 8){
+
+	?>
 	<script>        
 		$(document).ready(function(){
 			$(".refresh").load("../etc/auto_update_saham_all.php");
@@ -110,13 +125,23 @@
 				$(".refresh").load("../etc/auto_update_saham_all.php");
 			},4000);
 		});
-	</script>
+	</script><?php } ?>
 
 	<div class = "refresh"></div>
 	<div class = "table1">
 		<div class = "table3">
 			<h3> IHSG (Index Harga Saham Gabungan) </h3>
-			<h3> 7.089,21 </h3>
+			<h3> 
+			<script>        
+				$(document).ready(function(){
+					$(".ihsg").load("../etc/show_ihsg.php");
+					setInterval(function() {
+						$(".ihsg").load("../etc/show_ihsg.php");
+					},2500);
+				});
+			</script>
+			<div class = "ihsg"></div>
+			</h3>
 		</div>
 		
 		<script>        

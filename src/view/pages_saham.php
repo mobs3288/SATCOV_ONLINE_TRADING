@@ -140,6 +140,7 @@
 	</div>
 	</div>
 
+	<?php if (date("H") >= 17 and date("H") < 8){ ?>
 	<button type="button" class="tombol_sell" data-toggle="modal" data-target="#myModal1">Sell</button><br><br>
 
 	<!-- Modal -->
@@ -173,7 +174,7 @@
 		</div>
 	</div>
 	</div>
-
+	<?php } ?>
 
 </body>
 </html>

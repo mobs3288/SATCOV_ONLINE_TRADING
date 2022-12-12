@@ -1,0 +1,176 @@
+body {
+	font-family: sans-serif;
+	background: #303030;
+  }
+  h1 {
+	color: #d9d9d9;
+	position: fixed;
+	left: 575px;
+  }
+  label {
+	font-size: 11pt;
+  }
+  .tombol_register {
+	background: #fe4e1e;
+	color: #fff;
+	font-size: 11pt;
+	width: 100%;
+	border: none;
+	border-radius: 3px;
+	padding: 10px 20px;
+  }
+  .tombol_logout {
+	background: #f27b35;
+	color: #fff;
+	font-size: 11pt;
+	width: 100%;
+	border: none;
+	border-radius: 3px;
+	padding: 10px 20px;
+	position: relative;
+  }
+  .tombol_add {
+	background: #8e8bff;
+	color: #fff;
+	font-size: 11pt;
+	width: relative;
+	border: none;
+	border-radius: 10px;
+	padding: 10px 20px;
+	position: relative;
+	left: 575px;
+	bottom: 45px;
+  }
+  .tombol_add_modal {
+	background: #8e8bff;
+	color: #fff;
+	font-size: 11pt;
+	width: 100%;
+	border: none;
+	border-radius: 3px;
+	padding: 10px 20px;
+  }
+  .search {
+	background: #7c7c7c;
+	color: #fff;
+	font-size: 11pt;
+	width: relative;
+	border: none;
+	border-radius: 10px;
+	padding: 10px 20px;
+	position: relative;
+	left: 790px;
+	top: 16px;
+	text-align: left;
+  }
+  ::placeholder {
+	color: #fff;
+  }
+  .link {
+	color: #232323;
+	text-decoration: none;
+	font-size: 10pt;
+  }
+  .alert {
+	background: #e44e4e;
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #b32929;
+	position: absolute;
+	opacity: 75%;
+	left: 570px;
+  }
+  .success {
+	background: #4ee44e;
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #4ee44e;
+	position: absolute;
+	opacity: 75%;
+	left: 570px;
+  }
+  .topnav {
+	background-color: #404040;
+	overflow: hidden;
+  }
+  .topnav a {
+	float: left;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+  }
+  .topnav a:hover {
+	background-color: #ddd;
+	color: #000;
+  }
+  .logo_user {
+	position: absolute;
+	right: 12px;
+	top: 0;
+  }
+  .table {
+	width: 650px;
+	height: min-content;
+	position: relative;
+	bottom: 35px;
+	z-index: 1;
+	left: 575px;
+	background-color: #404040;
+	overflow-x: hidden;
+	border-radius: 10px;
+	color: #fff;
+  }
+  .sidenav {
+	height: relative;
+	width: 380px;
+	position: fixed;
+	z-index: 1;
+	top: 150px;
+	left: 30px;
+	background-color: #404040;
+	overflow-x: hidden;
+	padding-top: 20px;
+	border-radius: 27px;
+  }
+  .sidenav a {
+	padding: 6px 8px 6px 16px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #e7e7e7;
+	display: block;
+	padding: 15px;
+	font-weight: 700;
+  }
+  .sidenav a:hover {
+	color: #f27b35;
+  }
+  .topnav input[type="text"] {
+	float: right;
+	padding: 6px;
+	border: none;
+	margin-top: 8px;
+	margin-right: 16px;
+	font-size: 17px;
+  }
+  @media screen and (max-height: 450px) {
+	.sidenav {
+	  padding-top: 15px;
+	}
+	.sidenav a {
+	  font-size: 18px;
+	}
+  }
+  .modal-header {
+	background-color: #404040;
+  }
+  .modal-title {
+	color: #fff;
+  }
+  .modal-content {
+	padding: 10px;
+  }
+  

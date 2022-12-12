@@ -1,0 +1,154 @@
+body {
+	font-family: sans-serif;
+	background: #303030;
+   }
+   h1 {
+	margin-left: 575px;
+	position: static;
+	color: #d9d9d9;
+   }
+   label {
+	font-size: 11pt;
+   }
+   .tombol_logout {
+	background: #f27b35;
+	color: #fff;
+	font-size: 11pt;
+	width: 100%;
+	border: none;
+	border-radius: 3px;
+	padding: 10px 20px;
+	position: relative;
+   }
+   .search {
+	background: #7c7c7c;
+	color: #fff;
+	font-size: 11pt;
+	width: 650px;
+	border: none;
+	border-radius: 10px;
+	padding: 10px 20px;
+	position: relative;
+	left: 575px;
+	top: 18px;
+	text-align: left;
+   }
+   ::placeholder {
+	color: #fff;
+   }
+   .link {
+	color: #232323;
+	text-decoration: none;
+	font-size: 10pt;
+   }
+   .alert {
+	background: #e44e4e;
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #b32929;
+	position: absolute;
+	opacity: 75%;
+	left: 570px;
+   }
+   .topnav {
+	background-color: #404040;
+	overflow: hidden;
+   }
+   .topnav a {
+	float: left;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+   }
+   .topnav a:hover {
+	background-color: #ddd;
+	color: #000;
+   }
+   .logo_user {
+	position: absolute;
+	right: 12px;
+	top: 0;
+   }
+   .table {
+	width: 650px;
+	height: max-content;
+	position: relative;
+	bottom: 0;
+	z-index: 1;
+	left: 575px;
+	background-color: #404040;
+	overflow-x: hidden;
+	border-radius: 10px;
+	color: #fff;
+   }
+   .sidenav {
+	height: relative;
+	width: 380px;
+	position: fixed;
+	z-index: 1;
+	top: 150px;
+	left: 30px;
+	background-color: #404040;
+	overflow-x: hidden;
+	padding-top: 20px;
+	border-radius: 27px;
+   }
+   .sidenav a {
+	padding: 6px 8px 6px 16px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #e7e7e7;
+	display: block;
+	padding: 15px;
+	font-weight: 700;
+   }
+   .sidenav a:hover {
+	color: #f27b35;
+   }
+   .topnav input[type="text"] {
+	float: right;
+	padding: 6px;
+	border: none;
+	margin-top: 8px;
+	margin-right: 16px;
+	font-size: 17px;
+   }
+   @media screen and (max-height: 450px) {
+	.sidenav {
+	 padding-top: 15px;
+	}
+	.sidenav a {
+	 font-size: 18px;
+	}
+   }
+   .grid-container {
+	display: grid;
+	grid-template-columns: auto;
+	background-color: #505050;
+	padding: 20px;
+	column-gap: 10px;
+	row-gap: 15px;
+   }
+   .grid-item {
+	background-color: #404040;
+	border: 1px #404040;
+	padding: 15px;
+	font-size: 15px;
+	text-align: left;
+	border-radius: 27px;
+   }
+   .kode_saham {
+	font-size: 20px;
+   }
+   .nama_saham {
+	font-size: 10px;
+   }
+   .harga {
+	font-size: 20px;
+	font-weight: 700;
+	text-align: right;
+   }
+   

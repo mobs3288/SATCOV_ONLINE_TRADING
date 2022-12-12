@@ -1,0 +1,224 @@
+body {
+	font-family: sans-serif;
+	background: #303030;
+   }
+   h1 {
+	color: #d9d9d9;
+	position: fixed;
+	left: 815px;
+   }
+   img {
+	border-radius: 50%;
+   }
+   .photo {
+	position: absolute;
+	left: 845px;
+	top: 150px;
+	z-index: 10;
+   }
+   label {
+	font-size: 11pt;
+   }
+   .saldo {
+	color: #e7e7e7;
+	font-size: large;
+   }
+   .cash_h1 {
+	margin-left: 0;
+	color: #d9d9d9;
+   }
+   .tombol_logout {
+	background: #f27b35;
+	color: #fff;
+	font-size: 11pt;
+	width: 100%;
+	border: none;
+	border-radius: 3px;
+	padding: 10px 20px;
+	position: relative;
+   }
+   .nama_user {
+	font-size: large;
+	text-transform: uppercase;
+   }
+   .tombol_top-up {
+	background: #f27b35;
+	color: #fff;
+	font-size: 10pt;
+	width: 10%;
+	border: none;
+	border-radius: 25px;
+	padding: 10px 20px;
+	position: relative;
+	left: 675px;
+	top: 85px;
+   }
+   .tombol_withdraw {
+	background: #3b962a;
+	color: #fff;
+	font-size: 10pt;
+	width: 10%;
+	border: none;
+	border-radius: 25px;
+	padding: 10px 20px;
+	position: relative;
+	left: 1000px;
+	top: 25px;
+   }
+   .tombol_level {
+	background: #3b962a;
+	color: #fff;
+	font-size: 10pt;
+	width: max-content;
+	height: fit-content;
+	border: none;
+	border-radius: 10px;
+	padding: 10px 20px;
+	position: relative;
+	left: 1075px;
+	top: 95px;
+   }
+   ::placeholder {
+	color: #fff;
+   }
+   .link {
+	color: #232323;
+	text-decoration: none;
+	font-size: 10pt;
+   }
+   .alert {
+	background: #e44e4e;
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #b32929;
+	position: absolute;
+	opacity: 75%;
+	left: 850px;
+   }
+   .success {
+	background: #4ee44e;
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #4ee44e;
+	position: absolute;
+	opacity: 75%;
+	left: 850px;
+   }
+   .topnav {
+	background-color: #404040;
+	overflow: hidden;
+   }
+   .topnav a {
+	float: left;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+   }
+   .topnav a:hover {
+	background-color: #ddd;
+	color: #000;
+   }
+   .logo_user {
+	position: absolute;
+	right: 12px;
+	top: 0;
+   }
+   .table {
+	width: 475px;
+	height: max-content;
+	position: relative;
+	top: 80px;
+	bottom: 0;
+	z-index: 1;
+	left: 675px;
+	background-color: #404040;
+	overflow-x: hidden;
+	border-radius: 27px;
+	color: #fff;
+	padding-left: 10px;
+	padding-right: 10px;
+   }
+   .sidenav {
+	height: relative;
+	width: 380px;
+	position: fixed;
+	z-index: 1;
+	top: 150px;
+	left: 30px;
+	background-color: #404040;
+	overflow-x: hidden;
+	padding-top: 20px;
+	border-radius: 27px;
+   }
+   .sidenav a {
+	padding: 6px 8px 6px 16px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #e7e7e7;
+	display: block;
+	padding: 15px;
+	font-weight: 700;
+   }
+   .sidenav b {
+	padding: 6px 8px 6px 25px;
+	text-decoration: none;
+	font-size: 15px;
+	color: #e7e7e7;
+	display: block;
+	padding: 3px 30px;
+	font-weight: 700;
+   }
+   .sidenav a:hover {
+	color: #f27b35;
+   }
+   .sidenav b:hover {
+	color: #f27b35;
+   }
+   .topnav input[type="text"] {
+	float: right;
+	padding: 6px;
+	border: none;
+	margin-top: 8px;
+	margin-right: 16px;
+	font-size: 17px;
+   }
+   @media screen and (max-height: 450px) {
+	.sidenav {
+	 padding-top: 15px;
+	}
+	.sidenav a {
+	 font-size: 18px;
+	}
+   }
+   .modal-header {
+	background-color: #404040;
+   }
+   .modal-title {
+	color: #fff;
+   }
+   .modal-content {
+	padding: 10px;
+   }
+   .tombol_fbuy_modal {
+	background: #3b962a;
+	color: #fff;
+	font-size: 11pt;
+	width: 100%;
+	border: none;
+	border-radius: 3px;
+	padding: 10px 20px;
+   }
+   .tombol_fsell_modal {
+	background: #f23535;
+	color: #fff;
+	font-size: 11pt;
+	width: 100%;
+	border: none;
+	border-radius: 3px;
+	padding: 10px 20px;
+   }
+   

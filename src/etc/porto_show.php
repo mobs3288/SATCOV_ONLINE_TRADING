@@ -39,7 +39,7 @@
 
                     ?>
                         <tr>
-                            <td><?php echo("<a href = saham.php?id={$row['kode_saham']}> ".$row['kode_saham']." </a>");?></td>
+                            <td><?php echo("<a href = ../view/pages_saham.php?id={$row['kode_saham']}> ".$row['kode_saham']." </a>");?></td>
                             <td><?php echo $lot;?> </td>
                             <td><?php echo round($avr_price) ;?> </td>
                             <td><?php echo $rupiah;?> </td>

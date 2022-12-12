@@ -6,7 +6,7 @@ class Investor extends User{
         include dirname(__FILE__).'/../etc/koneksi.php';
     
         $conn = new mysqli($host,$user,$password,$database);
-        $pass = $_POST['password'];
+        $pass = sha1($_POST['password']);
         $jml_lot = $_SESSION['lot'];
         $kode = $_SESSION['kode_saham'];
         $user = $_SESSION['username'];
@@ -81,7 +81,7 @@ class Investor extends User{
         include dirname(__FILE__).'/../etc/koneksi.php';
     
         $conn = new mysqli($host,$user,$password,$database);
-        $pass = $_POST['password'];
+        $pass = sha1($_POST['password']);
         $jml_lot = $_SESSION['lot'];
         $kode = $_SESSION['kode_saham'];
         $user = $_SESSION['username'];

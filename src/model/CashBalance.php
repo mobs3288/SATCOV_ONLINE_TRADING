@@ -25,7 +25,7 @@ class CashBalance{
         include dirname(__FILE__).'/../etc/koneksi.php';
     
         $conn = new mysqli($host,$user,$password,$database);
-        $pass = $_POST['password'];
+        $pass = sha1($_POST['password']);
         $user = $_SESSION['username'];
         $tot = $_SESSION['tot'];
     

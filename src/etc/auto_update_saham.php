@@ -21,7 +21,7 @@
                     $_SESSION['kode_saham'] = $row['kode_saham'];?>
                     <div class = "grid-item">
                         <div class = "kode_saham">
-                            <?php echo("<a href = saham.php?id={$_SESSION['kode_saham']}> ".$row['kode_saham']." </a>");?>
+                            <?php echo("<a href = ../view/pages_saham.php?id={$_SESSION['kode_saham']}> ".$row['kode_saham']." </a>");?>
                         </div>
                         <div class = "nama_saham">
                             <?php echo $row["nama_saham"]; 

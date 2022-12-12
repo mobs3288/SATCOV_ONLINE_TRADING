@@ -8,7 +8,7 @@ class User{
         
         // menangkap data yang dikirim dari form login
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $password = sha1($_POST['password']);
         
         
         // menyeleksi data user dengan username dan password yang sesuai
@@ -98,7 +98,7 @@ class User{
             return;
 
         }else{
-            $password = $user['password'];
+            $password = sha1($user['password']);
             $level = 'investor';
             $saldo = 0;
 
@@ -202,7 +202,7 @@ class User{
             
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                $sql = "UPDATE user set  password = '".$user['new_password']."'where username = '".$user['username']."'";
+                $sql = "UPDATE user set  password = '".sha1($user['new_password'])."'where username = '".$user['username']."'";
                 $conn->query($sql);
             }
 

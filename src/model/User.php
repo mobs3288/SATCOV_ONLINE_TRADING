@@ -10,7 +10,6 @@ class User{
         $username = $_POST['username'];
         $password = sha1($_POST['password']);
         
-        
         // menyeleksi data user dengan username dan password yang sesuai
         $login = mysqli_query($mysqli,"select * from user where username='$username' and password='$password'");
         // menghitung jumlah data yang ditemukan

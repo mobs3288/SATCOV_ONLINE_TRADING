@@ -85,7 +85,7 @@
 	</a>
 
 	<?php
-		if (date("H") < 17 or (date("H") > 8 and date("H") < 17)){
+		if (date("G") < 17 and (date("G") > 8 and date("G") < 17)){
 
 	?>
 	<script>        

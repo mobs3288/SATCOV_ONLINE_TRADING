@@ -84,7 +84,7 @@
 				$sql = "SELECT * FROM saham ORDER BY id";
 				$result = $conn->query($sql);
 
-				if (date("H") >= 17 and date("H") < 8){
+				if (date("G") < 17 and (date("G") > 8 and date("G") < 17)){
 					if ($result->num_rows > 0) {
 							// output data of each row
 						while($row = $result->fetch_assoc()) {

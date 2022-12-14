@@ -49,7 +49,7 @@
 	</script>
 
 	<?php
-		if (date("H") < 17 or (date("H") > 8 and date("H") < 17)){
+		if (date("G") < 17 and (date("G") > 8 and date("G") < 17)){
 	?><div class = "time"></div>
 	<?php } else { ?>
 		<div class = "time2"></div>
@@ -58,14 +58,14 @@
 	<h1><?php
 		include dirname(__FILE__).'/../etc/koneksi.php';
 		$conn = new mysqli($host,$user,$password,$database);
-		//echo date('H'). "<br>";
+		//echo date('G'). "<br>";
 
 
-		if(date("H") >= 18 or date('H')>= 0 and date('H') < 5){
+		if(date("G") >= 18 or date('G')>= 0 and date('G') < 5){
 			$salam = "Good Night, ";
-		} else if (date("H") >= 5 and date("H") < 12){
+		} else if (date("G") >= 5 and date("G") < 12){
 			$salam = "Good Morning, ";
-		} else if (date("H") >= 12 and date("H") < 18) {
+		} else if (date("G") >= 12 and date("G") < 18) {
 			$salam = "Good Afternoon, ";
 		}
 		
@@ -114,7 +114,7 @@
 	<?php } ?>
 
 	<?php
-		if (date("H") < 17 or (date("H") > 8 and date("H") < 17)){
+		if (date("G") < 17 and (date("G") > 8 and date("G") < 17)){
 	?>
 	<script>        
 		$(document).ready(function(){

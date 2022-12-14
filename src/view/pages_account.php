@@ -76,17 +76,40 @@
 	<br>
 	<div class = "photo">
 		<?php
+			include dirname(__FILE__).'/../etc/show_photo.php';
+			
 			if ($_SESSION['level'] == "admin"){
 				?>
-					<img src="../../assets/img/admin.png" alt="Avatar" width = 50%>
+					<input type="image" src="<?php echo $_SESSION['image']; ?>"  class="rounded" data-toggle="modal" data-target="#myModal3">
 				<?php
 			} else {
 				?>
-					<img src="../../assets/img/user.png" alt="Avatar" width = 50%>
+					<input type="image" src="<?php echo $_SESSION['image']; ?>"  class="rounded" data-toggle="modal" data-target="#myModal3">
 				<?php
 			}
 		?>
 	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal3" role="dialog">
+	<div class="modal-dialog">
+	
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				UPLOAD IMAGE
+			</div>
+			<form action="../etc/upload.php" method="post" enctype="multipart/form-data">
+				Select Image File to Upload:
+				<input type="file" name="file">
+				<input type="submit" name="submit" value="Upload">
+			</form>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+			</div>
+		</div>
+	</div>
+	</div>	
 
 	<form action="#" method="post">
 		<input type="submit" class="tombol_level" value= <?php 

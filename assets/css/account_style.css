@@ -2,13 +2,13 @@ body {
 	font-family: sans-serif;
 	background: #303030;
   }
-  img {
+  img{
 	border-radius: 50%;
   }
   .photo {
 	position: absolute;
-	left: 845px;
-	top: 150px;
+	left: 838px;
+	top: 135px;
 	z-index: 10;
   }
   label {
@@ -222,3 +222,10 @@ body {
 		zoom: 0.8;  
 	}
 }
+
+input.rounded {
+	object-fit: cover;
+	border-radius: 50%;
+	width: 150px;
+	height : 150px;
+  }

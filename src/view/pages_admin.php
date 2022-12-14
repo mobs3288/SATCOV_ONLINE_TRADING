@@ -14,6 +14,7 @@
 	<?php 
 	include dirname(__FILE__).'/../etc/koneksi.php';
 	session_start();
+	date_default_timezone_set("Asia/Jakarta");
  
 	// cek apakah yang mengakses halaman ini sudah login
 	if($_SESSION['username']==""){
@@ -50,7 +51,7 @@
 	</script>
 
 	<?php
-		if (date("H") >= 17 and date("H") < 8){
+		if (date("H") < 17 or (date("H") > 8 and date("H") < 17)){
 	?><div class = "time"></div>
 	<?php } else { ?>
 		<div class = "time2"></div>
@@ -136,7 +137,7 @@
 			<img src = "../../assets/img/admin.png" alt = "Avatar" width = 100%>
 		</div>
 		<div class = "tulisan_count_admin">
-			<p> Total User </p>
+			<p> Total Admin </p>
 			<h4> 
 				<?php 
 					$sql = "SELECT * FROM user WHERE level = 'admin'";
@@ -164,7 +165,7 @@
 	</div>
 
 	<?php
-		if (date("H") >= 17 and date("H") < 8){
+		if (date("H") < 17 or (date("H") > 8 and date("H") < 17)){
 
 	?><script>        
 		$(document).ready(function(){
@@ -211,7 +212,7 @@
 	<br/>
 	<br/>
 	<div class = "version">
-		<p> v0.1.0-alpha </p>
+		<p> v1.1.2-beta </p>
 	</div>
 </body>
 </html>

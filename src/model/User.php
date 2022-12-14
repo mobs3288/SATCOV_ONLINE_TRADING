@@ -174,9 +174,9 @@ class User{
         //dapatkan data user dari form register
         $user = [
             'username' => $_SESSION['username'],
-            'new_password' => $_POST['new_password'],
-            'old_password' => $_POST['old_password'],
-            'password_confirmation' => $_POST['password_confirmation'],
+            'new_password' => sha1($_POST['new_password']),
+            'old_password' => sha1($_POST['old_password']),
+            'password_confirmation' => sha1($_POST['password_confirmation']),
         ];
     
         //validasi jika password & password_confirmation sama
@@ -196,12 +196,12 @@ class User{
         }
     
         //check apakah user dengan username tersebut ada di table users
-        $sql = "SELECT * FROM user WHERE username = '".$user['username']."' AND password = '".sha1($user['old_password'])."'";
+        $sql = "SELECT * FROM user WHERE username = '".$user['username']."' AND password = '".$user['old_password']."'";
         $result = $conn->query($sql);
             
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
-                $sql = "UPDATE user set  password = '".sha1($user['new_password'])."'where username = '".$user['username']."'";
+                $sql = "UPDATE user set  password = '".$user['new_password']."'where username = '".$user['username']."'";
                 $conn->query($sql);
             }
 
@@ -222,8 +222,8 @@ class User{
         //dapatkan data user dari form register
         $user = [
             'username' => $_SESSION['username'],
-            'password' => $_POST['password'],
-            'password_confirmation' => $_POST['password_confirmation'],
+            'password' => sha1($_POST['password']),
+            'password_confirmation' => sha1($_POST['password_confirmation']),
         ];
     
         //validasi jika password & password_confirmation sama
@@ -243,7 +243,7 @@ class User{
         }
     
         //check apakah user dengan username tersebut ada di table users
-        $sql = "SELECT * FROM user WHERE username = '".$user['username']."'";
+        $sql = "SELECT * FROM user WHERE username = '".$user['username']."' AND password = '".$user['password']."'";
         $result = $conn->query($sql);
             
         if ($result->num_rows > 0) {
@@ -251,9 +251,12 @@ class User{
                 $sql = "DELETE FROM user where username = '".$user['username']."'";
                 $conn->query($sql);
             }
+            header("location:../../index.php");
+        } else {
+            header("Location:../view/pages_account.php?");
         }
     
-        header("location:../../index.php");
+        
     }
 }
 ?>

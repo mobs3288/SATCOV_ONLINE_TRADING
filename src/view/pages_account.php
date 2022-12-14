@@ -13,7 +13,7 @@
 <body>
 	<?php 
 	session_start();
- 
+	date_default_timezone_set("Asia/Jakarta");
 	if($_SESSION['username']==""){
 		header("location:index.php?pesan=gagal");
 	}
@@ -152,7 +152,7 @@
 			<div class="modal-header">
 				DELETE ACCOUNT
 			</div>
-			<form action="../etc/delete_account.php" method="post">
+			<form action="../handler/User_handler.php" method="post">
 				<div class="form-group">
 					<label>Password</label>
 					<input type="password" name="password" class="form_login" id="password" value="<?php echo @$_SESSION['password']?>" placeholder="Password">
@@ -160,7 +160,7 @@
 					<label>Password Confirmation</label>
 					<input type="password" name="password_confirmation" class="form_login" id="password_confirmation" value="<?php echo @$_SESSION['password_confirmation']?>"  placeholder="Password">
 				</div>
-                <button type="submit" class="tombol_fsell_modal">Delete</button>
+				<button type="submit" class="tombol_fsell_modal" value = "deleteAccount" name = "deleteAccount">Delete</button>
 			</form>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 

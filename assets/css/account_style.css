@@ -217,3 +217,8 @@ body {
 	padding: 10px 20px;
   }
   
+  @media screen and (max-width: 1280px){
+	body{
+		zoom: 0.8;  
+	}
+}

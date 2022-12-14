@@ -12,6 +12,7 @@
 <body>
 	<?php 
 	session_start();
+	date_default_timezone_set("Asia/Jakarta");
  
 	// cek apakah yang mengakses halaman ini sudah login
 	if($_SESSION['username']==""){
@@ -48,7 +49,7 @@
 	</script>
 
 	<?php
-		if (date("H") >= 17 and date("H") < 8){
+		if (date("H") < 17 or (date("H") > 8 and date("H") < 17)){
 	?><div class = "time"></div>
 	<?php } else { ?>
 		<div class = "time2"></div>
@@ -57,8 +58,6 @@
 	<h1><?php
 		include dirname(__FILE__).'/../etc/koneksi.php';
 		$conn = new mysqli($host,$user,$password,$database);
-
-		date_default_timezone_set("Asia/Jakarta");
 		//echo date('H'). "<br>";
 
 
@@ -115,8 +114,7 @@
 	<?php } ?>
 
 	<?php
-		if (date("H") >= 17 and date("H") < 8){
-
+		if (date("H") < 17 or (date("H") > 8 and date("H") < 17)){
 	?>
 	<script>        
 		$(document).ready(function(){

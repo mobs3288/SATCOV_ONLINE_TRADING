@@ -43,6 +43,7 @@
 		<div class = "harga">
             <?php 
 				include "koneksi.php";
+				date_default_timezone_set("Asia/Jakarta");
 
 				$conn = new mysqli($host,$user,$password,$database);
 
@@ -53,7 +54,7 @@
 						// output data of each row
 					while($row = $result->fetch_assoc()) {
 						$data_saham = $row["kode_saham"];
-						if (date("H") < 17 and date("H") >= 8){
+						if (date("H") < 17 or (date("H") > 8 and date("H") < 17)){
 							$harga_update = rand(50, 40000);
 						} else {
 							$harga_update = $row['harga_saham'];

@@ -13,6 +13,7 @@
   <body>
    <?php
       session_start();
+      date_default_timezone_set("Asia/Jakarta");
       $_SESSION['lot'] = $_POST['lot'];
     ?>
     <center>

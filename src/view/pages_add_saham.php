@@ -13,7 +13,7 @@
 <body>        
 <?php 
 	session_start();
- 
+	date_default_timezone_set("Asia/Jakarta");
 	if($_SESSION['username']==""){
 		header("location:index.php?pesan=gagal");
 	}
@@ -72,7 +72,7 @@
 	
 	<br><br>
 
-    <h1> Add Stock </h1>
+    <h1>Add Stock</h1>
 
 	<div class = "table">
         <form action="../handler/Admin_handler.php" method="post">
@@ -80,15 +80,15 @@
 				<table>
 					<tr>
 						<td><label>Company Name</label></td>
-						<td><input type="text" name="nama_saham" class="form_login" id="nama_saham" value="<?php echo @$_POST['nama_saham']?>" aria-describedby="nama_saham" autocomplete="off"></td>
+						<td><input type="text" name="nama_saham" class="form_login" id="nama_saham" value="<?php echo @$_POST['nama_saham']?>" aria-describedby="nama_saham" autocomplete="off" required></td>
 					</tr>
 					<tr>
 						<td><label>Code</label></td>
-						<td><input type="text" name="kode_saham" class="form_login" id="kode_saham" value="<?php echo @$_POST['kode_saham']?>" aria-describedby="kode_saham" autocomplete="off"></td>
+						<td><input type="text" name="kode_saham" class="form_login" id="kode_saham" value="<?php echo @$_POST['kode_saham']?>" aria-describedby="kode_saham" autocomplete="off" maxlength="4" minlength="4" required></td>
 					</tr>
 					<tr>
 						<td><label>Open Price</label></td>
-						<td><input type="text" name="harga_saham" class="form_login" id="harga_saham" value="<?php echo @$_POST['harga_saham']?>"></td>
+						<td><input type="number" name="harga_saham" class="form_login" id="harga_saham" value="<?php echo @$_POST['harga_saham']?>" min=0></td>
 					</tr>
 				</table>
                 <button type="submit" class="tombol_add_modal" value = "addSaham" name = "addSaham">+ Add Stock</button>

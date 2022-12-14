@@ -7,8 +7,8 @@
     //dapatkan data user dari form register
     $user = [
         'username' => $_SESSION['user_temp'],
-        'new_password' => $_POST['new_password'],
-        'password_confirmation' => $_POST['password_confirmation'],
+        'new_password' => sha1($_POST['new_password']),
+        'password_confirmation' => sha1($_POST['password_confirmation']),
     ];
 
     //validasi jika password & password_confirmation sama

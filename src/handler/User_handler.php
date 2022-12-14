@@ -7,6 +7,8 @@
         $user->validate();
     } else if ($_REQUEST['Register']){
         $user->Register();
+    } else if ($_REQUEST['deleteAccount']){
+        $user->deleteAccount();
     }
 
 

@@ -15,6 +15,7 @@
 <?php
     include dirname(__FILE__).'/../etc/koneksi.php';
     session_start();
+    date_default_timezone_set("Asia/Jakarta");
 
 	$conn = new mysqli($host,$user,$password,$database);
 

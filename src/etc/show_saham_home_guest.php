@@ -24,7 +24,7 @@
                 while($row = $result->fetch_assoc()) {
                     ?>
                         <tr>
-                            <td><?php echo("<a href = ../view/pages_login.php> ".$row['kode_saham']." </a>");?></td>
+                            <td><?php echo("<a href = /tes/src/view/pages_login.php> ".$row['kode_saham']." </a>");?></td>
                             <td><?php echo $row['nama_saham'];?> </td>
                             <td><?php echo $row['harga_saham'];?></td>
                         </tr>

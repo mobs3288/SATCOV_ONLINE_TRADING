@@ -11,6 +11,7 @@
 </head>
 <body>
 	<?php
+	date_default_timezone_set("Asia/Jakarta");
 	if(isset($_GET['pesan'])){
 		if($_GET['pesan']=="gagal"){
 			echo "<div class='alert'>Login Dulu yah mas</div>";
@@ -40,7 +41,7 @@
 	</script>
 
 	<?php
-		if (date("H") >= 17 and date("H") < 8){
+		if (date("H") < 17 or (date("H") > 8 and date("H") < 17)){
 	?><div class = "time"></div>
 	<?php } else { ?>
 		<div class = "time2"></div>
@@ -67,7 +68,7 @@
 	<h2>You login as a Guest</h2>
 
 	<div class="sidenav">
-			<a href="home_direct.php">Home</a>
+			<a href="src/etc/home_direct.php">Home</a>
 			<a href="src/view/pages_login.php">Account</a>
 			<a href="src/view/pages_login.php">Stock</a>
 			<a href="src/view/pages_login.php">Portofolio</a>
@@ -81,7 +82,7 @@
 	</div> 
 
 	<?php
-		if (date("H") >= 17 and date("H") < 8){
+		if (date("H") < 17 or (date("H") > 8 and date("H") < 17)){
 
 	?>
 	<script>        
@@ -97,7 +98,17 @@
 	<div class = "table1">
 		<div class = "table3">
 			<h3> IHSG (Index Harga Saham Gabungan) </h3>
-			<h3> 7.089,21 </h3>
+			<h3> 
+			<script>        
+				$(document).ready(function(){
+					$(".ihsg").load("src/etc/show_ihsg.php");
+					setInterval(function() {
+						$(".ihsg").load("src/etc/show_ihsg.php");
+					},2500);
+				});
+			</script>
+			<div class = "ihsg"></div>
+			</h3>
 		</div>
 		
 		<script>        

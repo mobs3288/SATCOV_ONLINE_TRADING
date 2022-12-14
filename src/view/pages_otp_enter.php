@@ -12,6 +12,7 @@
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\Exception;
 	include dirname(__FILE__).'/../etc/koneksi.php';
+	define('MyConst', TRUE);
 	require dirname(__FILE__).'/../etc/safeEncrypt.php';
 	
 	$conn = new mysqli($host,$user,$password,$database);

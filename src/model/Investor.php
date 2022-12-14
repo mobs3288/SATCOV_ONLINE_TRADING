@@ -118,17 +118,15 @@ class Investor extends User{
                                     while($row = $result->fetch_assoc()){
                                         $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status, lot_sell_check) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Buy', NULL)";
                                         mysqli_query($conn, $sql2);
-                                        
-                                        $lot_upd = $jml_lot + $row['lot'];
     
                                         $harga_upd = $row['harga'] + $harga;
     
                                         $sql = "UPDATE history SET harga ='$harga_upd' WHERE username = '$user' AND kode_saham = '$kode' AND status = 'Buy' LIMIT 1";
                                         $conn->query($sql);
     
-                                        $lot_upd = $jml_lot + $row['lot'];
+                                        $lot_upd = $jml_lot + $row['lot_sell_check'];
     
-                                        $sql = "UPDATE history SET lot_sell_check ='$lot_upd' WHERE username = '$user' AND kode_saham = '$kode' AND status = 'Buy' LIMIT 1";
+                                        $sql = "UPDATE history SET lot_sell_check ='$lot_upd' WHERE username = '$user' AND kode_saham = '$kode' AND status = 'Buy' AND lot_sell_check AND lot_sell_check != 0 LIMIT 1";
                                         $conn->query($sql);
                                     }
                                 }

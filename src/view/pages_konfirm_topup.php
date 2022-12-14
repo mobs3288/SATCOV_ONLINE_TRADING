@@ -14,11 +14,12 @@
 
 <?php
     include dirname(__FILE__).'/../etc/koneksi.php';
-    session_start();
     include dirname(__FILE__).'/../../assets/library/phpqrcode/qrlib.php';
+    session_start();
+    date_default_timezone_set("Asia/Jakarta");
  
     // nama folder tempat penyimpanan file qrcode
-    $penyimpanan = "temp/";
+    $penyimpanan = "../temp/";
     
     // membuat folder dengan nama "temp"
     if (!file_exists($penyimpanan))
@@ -35,7 +36,7 @@
     $tot = $_POST['saldo'];
     $rupiah = "Rp " . number_format($tot,2,',','.');
     $isi = $rupiah; 
-    QRcode::png($isi, $penyimpanan.'total.png', QR_ECLEVEL_H, 10, 1);
+    QRcode::png($isi, $penyimpanan.'$temp_QRCODE_TOTAL.png', QR_ECLEVEL_H, 10, 1);
 
 	if ($result->num_rows > 0) {
 			// output data of each row
@@ -55,7 +56,7 @@
                             ?>
                         </div>                        
                         <div class = "hasil">
-                            <?php echo '<img src="'.$penyimpanan.'total.png" >'; ?>
+                            <?php echo '<img src="'.$penyimpanan.'$temp_QRCODE_TOTAL.png" >'; ?>
                         </div>
                         <br><br><br><br><br><br><br><br><br><br><br><br>
                         <button type="submit" class="tombol_buy" value = "topup" name = "topup">Verify</button><br><br>

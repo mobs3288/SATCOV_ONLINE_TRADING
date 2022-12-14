@@ -13,7 +13,7 @@
 <body>
 	<?php 
 	session_start();
- 
+	date_default_timezone_set("Asia/Jakarta");
 	if($_SESSION['username']==""){
 		header("location:index.php?pesan=gagal");
 	}
@@ -70,7 +70,7 @@
 			</div> 
 	<?php } ?>
 	<br>
-	<h1>Manage Stock Exchanges</h1><br><br><br>
+	<h1>Manage Stock</h1><br><br><br>
 
 	<div class="form-outline">
       <form action="pages_cek_search.php" method="post">
@@ -85,7 +85,7 @@
 	</a>
 
 	<?php
-		if (date("H") >= 17 and date("H") < 8){
+		if (date("H") < 17 or (date("H") > 8 and date("H") < 17)){
 
 	?>
 	<script>        

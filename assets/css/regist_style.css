@@ -105,3 +105,7 @@ a:visited {
 	bottom: 60px;
 	font-size: smaller;
 }
+
+body{
+	overflow: hidden;
+}

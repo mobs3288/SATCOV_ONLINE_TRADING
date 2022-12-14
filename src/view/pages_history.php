@@ -13,6 +13,7 @@
 <body>
 	<?php 
 	session_start();
+	date_default_timezone_set("Asia/Jakarta");
  
 	if($_SESSION['username']==""){
 		header("location:index.php?pesan=gagal");
@@ -65,7 +66,7 @@
 	<h1>History</h1>
 
 	<?php
-		if (date("H") >= 17 and date("H") < 8){
+		if (date("H") < 17 or (date("H") > 8 and date("H") < 17)){
 
 	?>
 	<script>        

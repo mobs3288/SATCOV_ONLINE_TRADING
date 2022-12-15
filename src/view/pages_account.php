@@ -77,16 +77,14 @@
 	<div class = "photo">
 		<?php
 			include dirname(__FILE__).'/../etc/show_photo.php';
-			
-			if ($_SESSION['level'] == "admin"){
-				?>
+			?>
+				<div class="container">
 					<input type="image" src="<?php echo $_SESSION['image']; ?>"  class="rounded" data-toggle="modal" data-target="#myModal3">
-				<?php
-			} else {
-				?>
-					<input type="image" src="<?php echo $_SESSION['image']; ?>"  class="rounded" data-toggle="modal" data-target="#myModal3">
-				<?php
-			}
+					<div class="middle">
+						<div class="text"><input type="button" class="rounded" data-toggle="modal" data-target="#myModal3"></div>
+					</div>
+				</div>
+			<?php
 		?>
 	</div>
 
@@ -100,9 +98,11 @@
 				UPLOAD IMAGE
 			</div>
 			<form action="../etc/upload.php" method="post" enctype="multipart/form-data">
-				Select Image File to Upload:
-				<input type="file" name="file">
-				<input type="submit" name="submit" value="Upload">
+				<center>
+					Select Image File to Upload:<br><br>
+					<input type="file" name="file" id="file"><br>
+					<input type="submit" name="submit" value="Upload" class = "tombol_upload_modal">
+				</center>
 			</form>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 

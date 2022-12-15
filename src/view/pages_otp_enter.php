@@ -13,12 +13,18 @@
 	use PHPMailer\PHPMailer\Exception;
 	include dirname(__FILE__).'/../etc/koneksi.php';
 	define('MyConst', TRUE);
-	require dirname(__FILE__).'/../etc/safeEncrypt.php';
+	require dirname(__FILE__).'/../../vendor/autoload.php';
+
+	$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+	$dotenv->load();
 	
 	$conn = new mysqli($host,$user,$password,$database);
     $user = $_POST['username'];
 
 	$_SESSION['user_temp'] = $user;
+
+	$PASS = $_ENV['PASS'];
+	$MAIL = $_ENV['EMAIL'];
 
 	//ini sesuaikan foldernya ke file 3 ini
 	require dirname(__FILE__).'/../../assets/library/PHPMailer/src/Exception.php';
@@ -50,8 +56,8 @@
 		$mail->isSMTP();                                            //Send using SMTP
 		$mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
 		$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-		$mail->Username   = $_SESSION['email.a'];                     //SMTP username
-		$mail->Password   = $_SESSION['pass.a'];                               //SMTP password
+		$mail->Username   = $MAIL;                     //SMTP username
+		$mail->Password   = $PASS;                               //SMTP password
 		$mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
 		$mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 

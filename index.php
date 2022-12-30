@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Halaman admin</title>
+	<title>SATCOV ONLINE TRADING</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
+	<link rel="icon" type="image/x-icon" href="assets/img/logo2.png">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -16,12 +17,16 @@
 		if($_GET['pesan']=="gagal"){
 			echo "<div class='alert'>Login Dulu yah mas</div>";
 		} 
+
+		if($_GET['pesan']=="berhasilhapus"){
+			echo "<div class='success'>Akun berhasil dihapus</div>";
+		} 
 	}
 	?>
 	<div class="topnav">
 		<img src = "assets/img/logo.png" width="85" height="50">
 		<div class = "logo_user">
-			<a href = "#account"><img src = "assets/img/photo1.jpeg" width ="30" height="30" class="rounded"></a>
+			<a href = "#account"><img src = "assets/img/user.png" width ="30" height="30" class="rounded"></a>
 		</div>
 	</div><br>
 
@@ -41,7 +46,7 @@
 	</script>
 
 	<?php
-		if (date("G") < 17 or (date("G") > 8 and date("G") < 17)){
+		if (date("G") < 17 and (date("G") > 8 and date("G") < 17)){
 	?><div class = "time"></div>
 	<?php } else { ?>
 		<div class = "time2"></div>
@@ -71,7 +76,7 @@
 			<a href="src/etc/home_direct.php">Home</a>
 			<a href="src/view/pages_login.php">Account</a>
 			<a href="src/view/pages_login.php">Stock</a>
-			<a href="src/view/pages_login.php">Portofolio</a>
+			<a href="src/view/pages_login.php">Portfolio</a>
 			<a href="src/view/pages_login.php">History</a>
 			<a href="src/view/pages_login.php">Cash Balance</a>
 		<br>
@@ -82,7 +87,7 @@
 	</div> 
 
 	<?php
-		if (date("G") < 17 or (date("G") > 8 and date("G") < 17)){
+		if (date("G") < 17 and (date("G") > 8 and date("G") < 17)){
 
 	?>
 	<script>        
@@ -97,7 +102,7 @@
 	<div class = "refresh"></div>
 	<div class = "table1">
 		<div class = "table3">
-			<h3> IHSG (Index Harga Saham Gabungan) </h3>
+			<h3> IDX Composite</h3>
 			<h3> 
 			<script>        
 				$(document).ready(function(){

@@ -27,3 +27,8 @@
 	font-size: 40px;
 	font-weight: bold;
 }
+
+img.rounded {
+	object-fit: cover;
+	border-radius: 50%;
+  }

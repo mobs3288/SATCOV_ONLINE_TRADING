@@ -384,3 +384,8 @@ label{
 	position: fixed;
 	top: 26px;
 }
+
+img.rounded {
+	object-fit: cover;
+	border-radius: 50%;
+  }

@@ -16,15 +16,18 @@
             $_SESSION['harga_saham'] = $row['harga_saham'];
             }
 	}
+
+	
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Saham</title>
+	<title>SATCOV ONLINE TRADING</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="../../assets/img/logo2.png">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -39,30 +42,31 @@
 
 	// cek apakah yang mengakses halaman ini adalah admin
 	if ( $_SESSION['level'] != 'admin' and $_SESSION['level'] != 'user' ){ 
-		echo "<div class='alert'>Anda tidak memiliki akses untuk halaman ini.</div>";
+		echo "<div class='alert'>You Don't Have Access To This Pages</div>";
 		exit; 
-	} else {
-		
 	}
  
 	if(isset($_GET['pesan'])){
 		if($_GET['pesan']=="jual"){
-			echo "<div class='success'>Berhasil Menjual</div>";
+			echo "<div class='success'>Succsessfully Sell Stock</div>";
 		} else if ($_GET['pesan']=="beli"){
-         	echo "<div class='success'>Berhasil membeli</div>";
+         	echo "<div class='success'>Succsessfully Buy Stock</div>";
       	} else if ($_GET['pesan']=="gagalbeli"){
-			echo "<div class='alert'>Gagal Membeli</div>";
+			echo "<div class='alert'>Failed To Buy Stock</div>";
 	 	} else if ($_GET['pesan']=="gagaljual"){
-			echo "<div class='alert'>Gagal Menjual</div>";
+			echo "<div class='alert'>Failed To Sell Stock</div>";
 		}
 	}
 	?>
 	<div class="topnav">
 		<img src = "../../assets/img/logo.png" width="85" height="50">
 		<div class = "logo_user">
-			<a href = "#account"><img src = "../../assets/img/photo1.jpeg" width ="30" height="30"></a>
+			<a href = "pages_account.php"><img src = "
+			<?php include dirname(__FILE__).'/../etc/show_photo.php'; 
+			echo $_SESSION['image'];
+			?>" width ="30" height="30" class="rounded"></a>
 		</div>
-	</div>
+	</div><br>
 
 	<?php
 		if ($_SESSION['level'] == "admin"){ ?>
@@ -83,7 +87,7 @@
 				<a href="../etc/home_direct.php">Home</a>
 				<a href="pages_account.php">Account</a>
 				<a href="pages_info_saham.php">Stock</a>
-				<a href="pages_porto.php">Portofolio</a>
+				<a href="pages_porto.php">Portfolio</a>
 				<a href="pages_history.php">History</a>
 				<a href="pages_cash_balance.php">Cash Balance</a>
 			<br>
@@ -106,8 +110,9 @@
 	
 	<div class = "refresh"></div>
 
-	<button type="button" class="tombol_buy" data-toggle="modal" data-target="#myModal">Buy</button><br><br>
-
+	<?php if ($_SESSION['level'] != 'admin') {
+	?>
+		<button type="button" class="tombol_buy" data-toggle="modal" data-target="#myModal">Buy</button><br><br>
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" role="dialog">
 	<div class="modal-dialog">
@@ -129,7 +134,7 @@
 			<form action="pages_face_recog_buy.php" method="post">
 				<div class="form-group">
 					<label for="lot">Lot</label>
-					<input type="number" min="1" name="lot" class="form-control" id="lot" value="<?php echo @$_POST['lot']?>" aria-describedby="lot" autocomplete="off">
+					<input type="number" min="1" max="1000" name="lot" class="form-control" id="lot" value="<?php echo @$_POST['lot']?>" aria-describedby="lot" autocomplete="off" required>
 				</div>
                 <button type="submit" class="tombol_fbuy_modal">Buy</button>
 			</form>
@@ -139,6 +144,7 @@
 		</div>
 	</div>
 	</div>
+	<?php } ?>
 
 	<?php 
 		include dirname(__FILE__).'/../etc/koneksi.php';
@@ -148,7 +154,7 @@
 		$sql = "SELECT * FROM history WHERE username = '".$_SESSION['username']."' AND status = 'Buy' AND lot_sell_check != 0 AND kode_saham = '".$_SESSION['kode_saham']."'";
 		$result = $conn->query($sql);
 
-		if ($result->num_rows > 0){
+		if ($result->num_rows > 0 and $_SESSION['level'] != 'admin'){
 	?>
 	<button type="button" class="tombol_sell" data-toggle="modal" data-target="#myModal1">Sell</button><br><br>
 
@@ -172,8 +178,14 @@
 			</div>
 			<form action="pages_face_recog_sell.php" method="post">
 				<div class="form-group">
+					<label> Have Lot: </label>
+					<b><?php while($row = $result->fetch_assoc()){
+		    			echo $row['lot_sell_check'];
+						$_SESSION['maxLot'] = $row['lot_sell_check'];
+					} ?></b> <br>
+
 					<label for="lot">Lot</label>
-					<input type="number" min="1" name="lot" class="form-control" id="lot" value="<?php echo @$_POST['lot']?>" aria-describedby="lot" autocomplete="off">
+					<input type="number" min="1" max="<?php  echo $_SESSION['maxLot'] ?>" name="lot" class="form-control" id="lot" value="<?php echo @$_POST['lot']?>" aria-describedby="lot" autocomplete="off" required>
 				</div>
                 <button type="submit" class="tombol_fsell_modal">Sell</button>
 			</form>

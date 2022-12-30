@@ -9,6 +9,10 @@
         $user->Register();
     } else if ($_REQUEST['deleteAccount']){
         $user->deleteAccount();
+    } else if ($_REQUEST['changePassword']){
+        $user->changePassword();
+    } else if ($_REQUEST['forgotPassword']){
+        $user->forgotPassword();
     }
 
 

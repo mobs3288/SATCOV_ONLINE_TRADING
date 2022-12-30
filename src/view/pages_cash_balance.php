@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Saham</title>
+	<title>SATCOV ONLINE TRADING</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="../../assets/img/logo2.png">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -19,29 +20,32 @@
 	}
 
 	// cek apakah yang mengakses halaman ini adalah admin
-	if ( $_SESSION['level'] != 'admin' and $_SESSION['level'] != 'user' ){ 
-		echo "<div class='alert'>Anda tidak memiliki akses untuk halaman ini.</div>";
+	if ($_SESSION['level'] != 'user' ){ 
+		echo "<div class='alert'>You Don't Have Access To This Pages</div>";
 		exit; 
 	} 
 
 	if(isset($_GET['pesan'])){
 		if($_GET['pesan']=="berhasiltop"){
-			echo "<div class='success'>Berhasil Top Up</div>";
+			echo "<div class='success'>Successfully Top Up</div>";
       	} else if ($_GET['pesan']=="gagaltop"){
-			echo "<div class='alert'>Gagal Top Up</div>";
+			echo "<div class='alert'>Failed To Top Up</div>";
 		} else if ($_GET['pesan']=="berhasiltarik"){
-			echo "<div class='success'>Berhasil Narik Mang</div>";
+			echo "<div class='success'>Successfully To Withdraw</div>";
 		} else if ($_GET['pesan']=="gagaltarik"){
-			echo "<div class='alert'>Gagal Narik Mang</div>";
+			echo "<div class='alert'>Failed To Withdraw</div>";
 		}
 	}
 	?>
 	<div class="topnav">
 		<img src = "../../assets/img/logo.png" width="85" height="50">
 		<div class = "logo_user">
-			<a href = "#account"><img src = "../../assets/img/photo1.jpeg" width ="30" height="30"></a>
+			<a href = "pages_account.php"><img src = "
+			<?php include dirname(__FILE__).'/../etc/show_photo.php'; 
+			echo $_SESSION['image'];
+			?>" width ="30" height="30" class="rounded"></a>
 		</div>
-	</div>
+	</div><br>
 
 	<?php
 		if ($_SESSION['level'] == "admin"){ ?>
@@ -62,7 +66,7 @@
 				<a href="../etc/home_direct.php">Home</a>
 				<a href="pages_account.php">Account</a>
 				<a href="pages_info_saham.php">Stock</a>
-				<a href="pages_porto.php">Portofolio</a>
+				<a href="pages_porto.php">Portfolio</a>
 				<a href="pages_history.php">History</a>
 				<a href="pages_cash_balance.php">Cash Balance</a>
 			<br>
@@ -105,8 +109,8 @@
 			</div>
 			<form action="pages_konfirm_topup.php" method="post"><br>
 				<div class="form-group">
-					<label for="lot">Masukkan nominal Top Up</label>
-					<input type="number" min="10000" name="saldo" class="form-control" id="saldo" value="<?php echo @$_POST['saldo']?>" aria-describedby="saldo" autocomplete="off">
+					<label for="lot">Input Top Up Amount</label>
+					<input type="number" min="10000" max="999999999" name="saldo" class="form-control" id="saldo" value="<?php echo @$_POST['saldo']?>" aria-describedby="saldo" autocomplete="off" required>
 				</div>
                 <button type="submit" class="tombol_fbuy_modal">Top Up</button>
 			</form>
@@ -142,8 +146,8 @@
 					<label for="lot">Account Number</label>
 					<input type="text" minlength="12" maxlength="16" name="no_rekening" class="form-control" id="no_rekening" value="<?php echo @$_POST['no_rekening']?>" aria-describedby="lot" autocomplete="off" required>
 
-					<label for="lot">Masukkan nominal</label>
-					<input type="number" min="10000" max ='' name="saldo" class="form-control" id="saldo" value="<?php echo @$_POST['saldo']?>" aria-describedby="lot" autocomplete="off" required>
+					<label for="lot">Input Withdraw Amount</label>
+					<input type="number" min="10000" max ='<?php echo $_SESSION['saldo']; ?>' name="saldo" class="form-control" id="saldo" value="<?php echo @$_POST['saldo']?>" aria-describedby="lot" autocomplete="off" required>
 				</div>
                 <button type="submit" class="tombol_fsell_modal">Withdraw</button>
 			</form>

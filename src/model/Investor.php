@@ -10,13 +10,14 @@ class Investor extends User{
         $jml_lot = $_SESSION['lot'];
         $kode = $_SESSION['kode_saham'];
         $user = $_SESSION['username'];
-        $harga = ($jml_lot * 100) * $_SESSION['harga_saham'];
+        $harga_S = $_SESSION['harga_saham'];
+        $harga = ($jml_lot * 100) * $harga_S;
     
         $sql = mysqli_query($mysqli,"select * from user where username='$user' and password = '$pass'");
     
         $cek = mysqli_num_rows($sql);
     
-        if($cek > 0){
+        if($cek > 0 and ($jml_lot != NULL and $harga_S >= 50 and $harga_S <= 40000 and $jml_lot > 0)){
             $sql = "SELECT * FROM history WHERE username = '$user' AND kode_saham = '$kode' AND status = 'Buy' AND lot_sell_check > 0 LIMIT 1";
             $result = $conn->query($sql);
         
@@ -31,7 +32,7 @@ class Investor extends User{
     
                             if ($result1->num_rows > 0){
                                 while($row1 = $result1->fetch_assoc()){
-                                    $harga = ($jml_lot * 100) * $_SESSION['harga_saham'];
+                                    $harga = ($jml_lot * 100) * $harga_S;
                                     $harga_update = $row1['saldo'] + $harga;
     
                                     $sql = "UPDATE user SET saldo ='$harga_update' WHERE username = '$user'";
@@ -44,21 +45,34 @@ class Investor extends User{
                                     $conn->query($sql);
                                     
                                 }
-                            }
+
+                            } 
                         } else if ($cek_lot > 0) {
-                            $harga = ($cek_lot) * ($row['harga'] / $row['lot']);
+                            
                             $sql = "UPDATE history SET lot_sell_check ='$cek_lot'WHERE kode_saham = '$kode' AND username = '$user' AND status = 'Buy' limit 1";
                             $conn->query($sql);
-    
-                            $sql = "UPDATE history SET harga ='$harga'WHERE kode_saham = '$kode' AND username = '$user' AND status = 'Buy' limit 1";
-                            $conn->query($sql);
-    
+
                             $sql = "select * from user where username='$user'";
                             $result = $conn->query($sql);
     
                             if ($result->num_rows > 0){
                                 while($row = $result->fetch_assoc()){
-                                    $harga = ($jml_lot * 100) * $_SESSION['harga_saham'];
+                                    $sql1 = "SELECT * FROM history WHERE username = '$user' AND kode_saham = '$kode' AND status = 'Buy' AND lot_sell_check > 0 LIMIT 1";
+                                    $result1 = $conn->query($sql1);
+
+                                    if ($result1->num_rows > 0) {
+                                        while ($row1 = $result1->fetch_assoc()) {
+                                            $harga = $row1['harga'] - ($jml_lot * 100) * $harga_S;
+                                            if ($harga < 0){
+                                                $harga =($jml_lot * 100) * $harga_S;
+                                            }
+
+                                            $sql = "UPDATE history SET harga ='$harga'WHERE kode_saham = '$kode' AND username = '$user' AND status = 'Buy' limit 1";
+                                            $conn->query($sql);
+                                            break;
+                                        }
+                                    }
+                                    $harga = ($jml_lot * 100) * $harga_S;
                                     $harga_update = $row['saldo'] + $harga;
     
                                     $sql = "UPDATE user SET saldo ='$harga_update' WHERE username = '$user'";
@@ -67,13 +81,18 @@ class Investor extends User{
                                     $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status, lot_sell_check) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Sell', NULL)";
                                     mysqli_query($conn, $sql2);
                                 }
-                            }
+                            } 
+                        } else {
+                            header("location:../view/pages_saham.php");
+                            return false;
                         }
+                        header("location:../view/pages_saham.php?pesan=jual");
+                        return true;
                     }
             }
-            header("location:../view/pages_saham.php?pesan=jual");
-    
-        }
+        } 
+        header("location:../view/pages_saham.php");
+        return false;
     }
 
     public function buyStock(){
@@ -85,13 +104,16 @@ class Investor extends User{
         $jml_lot = $_SESSION['lot'];
         $kode = $_SESSION['kode_saham'];
         $user = $_SESSION['username'];
-        $harga = ($jml_lot * 100) * $_SESSION['harga_saham'];
+        $harga_S = $_SESSION['harga_saham'];
+        $harga = ($jml_lot * 100) * $harga_S;
     
         $sql = mysqli_query($mysqli,"select * from user where username='$user' and password = '$pass'");
-    
         $cek = mysqli_num_rows($sql);
+
+        $sql3 = "SELECT * FROM saham WHERE kode_saham = '$kode'";
+        $result = $conn->query($sql3);
     
-        if($cek > 0){
+        if($result->num_rows > 0 and $cek > 0 and $jml_lot != NULL and ($jml_lot > 0 and $jml_lot <= 1000) and $kode != NULL){
             $data = mysqli_fetch_assoc($sql);
     
             $sql1 = mysqli_query($mysqli,"SELECT * FROM history WHERE username = '$user' AND kode_saham = '$kode' AND status = 'Buy' AND lot_sell_check > 0");
@@ -134,18 +156,22 @@ class Investor extends User{
                             $sql_update = "UPDATE user SET saldo = '$harga_update' WHERE username = '$user'";
                             mysqli_query($conn, $sql_update);
                             header("location:../view/pages_saham.php?pesan=beli");
+                            return true;
                         } else {
                             header("location:../view/pages_saham.php?pesan=gagalbeli");
+                            return false;
                         }
                         
                     }
             } else {
                 header("location:../view/pages_saham.php?pesan=gagalbeli");
+                return false;
             }
     
     
         } else {
             header("location:../view/pages_saham.php?pesan=gagalbeli");
+            return false;
         }
     }
 }

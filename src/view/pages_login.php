@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CERITANYA SATGAS COVID ONLINE TRADING</title>
+	<title>SATCOV ONLINE TRADING</title>
+	<link rel="icon" type="image/x-icon" href="../../assets/img/logo2.png">
 	<link rel="stylesheet" type="text/css" href="../../assets/css/home_style.css">
 </head>
 <body>
@@ -10,10 +11,12 @@
 	date_default_timezone_set("Asia/Jakarta");
 	if(isset($_GET['pesan'])){
 		if($_GET['pesan']=="gagal"){
-			echo "<div class='alert'>Username dan Password tidak sesuai !</div>";
+			echo "<div class='alert'>Username Or Password Not Match!</div>";
 		} else if ($_GET['pesan']=="register"){
-         echo "<div class='success'>Berhasil register ke dalam sistem. Silakan login dengan username dan password yang sudah dibuat.</div>";
-      }
+         	echo "<div class='success'>Successfully Registered To Database, Please Login!</div>";
+      	} else if ($_GET['pesan'] == "berhasilganti"){
+			echo "<div class='success'>Successfully Changed Password</div>";
+		}
 	}
 	clearstatcache();
 	?>
@@ -41,7 +44,7 @@
 
 	</div>
 	<div class = "akun">
-		<center><p>Belum punya akun? <a href = "pages_register.php">Sign Up</a></p></center>
+		<center><p>Don't Have Account Yet? <a href = "pages_register.php">Sign Up</a></p></center>
 	</div>
 </body>
 </html>

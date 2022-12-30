@@ -105,3 +105,8 @@ a:visited {
 	bottom: 60px;
 	font-size: smaller;
 }
+
+img.rounded {
+	object-fit: cover;
+	border-radius: 50%;
+  }

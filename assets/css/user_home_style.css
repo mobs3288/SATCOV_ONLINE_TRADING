@@ -456,3 +456,8 @@ table{
 	top: 60px;
 	position: relative;
  }
+
+ img.rounded {
+	object-fit: cover;
+	border-radius: 50%;
+  }

@@ -85,3 +85,7 @@ label{
 	border:1px solid #4ee44e;
 }
 
+img.rounded {
+	object-fit: cover;
+	border-radius: 50%;
+  }

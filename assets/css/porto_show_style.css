@@ -55,3 +55,8 @@ td{
 .loss {
 	color: red;
 }
+
+img.rounded {
+	object-fit: cover;
+	border-radius: 50%;
+  }

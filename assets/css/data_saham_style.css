@@ -54,12 +54,12 @@ body {
 	background: #7c7c7c;
 	color: #fff;
 	font-size: 11pt;
-	width: relative;
+	width: 500px;
 	border: none;
 	border-radius: 10px;
 	padding: 10px 20px;
 	position: relative;
-	left: 790px;
+	left: 720px;
 	top: 16px;
 	text-align: left;
   }
@@ -173,4 +173,7 @@ body {
   .modal-content {
 	padding: 10px;
   }
-  
+  img.rounded {
+	object-fit: cover;
+	border-radius: 50%;
+  }

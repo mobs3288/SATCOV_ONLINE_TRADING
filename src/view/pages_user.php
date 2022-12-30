@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Halaman admin</title>
+	<title>SATCOV ONLINE TRADING</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
+	<link rel="icon" type="image/x-icon" href="../../assets/img/logo2.png">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -20,8 +21,8 @@
 	}
 
 	// cek apakah yang mengakses halaman ini adalah admin
-	if ( $_SESSION['level'] != 'admin' and $_SESSION['level'] != 'user'){ 
-		echo "<div class='alert'>Anda tidak memiliki akses untuk halaman ini.</div>";
+	if ($_SESSION['level'] != 'user'){ 
+		echo "<div class='alert'>You Don't Have Access To This Pages</div>";
 		exit; 
 	} 
  
@@ -29,7 +30,10 @@
 	<div class="topnav">
 		<img src = "../../assets/img/logo.png" width="85" height="50">
 		<div class = "logo_user">
-			<a href = "#account"><img src = "../../assets/img/photo1.jpeg" width ="30" height="30" class="rounded"></a>
+			<a href = "pages_account.php"><img src = "
+			<?php include dirname(__FILE__).'/../etc/show_photo.php'; 
+			echo $_SESSION['image'];
+			?>" width ="30" height="30" class="rounded"></a>
 		</div>
 	</div><br>
 
@@ -102,7 +106,7 @@
 				<a href="../etc/home_direct.php">Home</a>
 				<a href="pages_account.php">Account</a>
 				<a href="pages_info_saham.php">Stock</a>
-				<a href="pages_porto.php">Portofolio</a>
+				<a href="pages_porto.php">Portfolio</a>
 				<a href="pages_history.php">History</a>
 				<a href="pages_cash_balance.php">Cash Balance</a>
 			<br>
@@ -128,7 +132,7 @@
 	<div class = "refresh"></div>
 	<div class = "table1">
 		<div class = "table3">
-			<h3> IHSG (Index Harga Saham Gabungan) </h3>
+			<h3> IDX Composite </h3>
 			<h3> 
 			<script>        
 				$(document).ready(function(){

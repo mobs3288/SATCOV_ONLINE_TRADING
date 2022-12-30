@@ -17,7 +17,13 @@ class CashBalance{
             $rupiah = "Rp " . number_format($data['saldo'],2,',','.');
             $_SESSION['saldo'] = $data['saldo'];
             echo ("<b><br>".$rupiah."</b>"."<br><br>");
+
+            return true;
+        } else {
+            return false;
         }
+
+        
     }
 
     public function Withdraw(){
@@ -33,7 +39,7 @@ class CashBalance{
     
         $cek = mysqli_num_rows($sql);
     
-        if($cek > 0){
+        if($cek > 0 and (is_int($tot) and ($tot >= 10000))){
             $sql = "SELECT * FROM user WHERE username = '$user'";
             $result = $conn->query($sql);
         
@@ -45,14 +51,19 @@ class CashBalance{
                         $sql = "UPDATE user SET saldo ='$saldo_upd' WHERE username = '$user'";
                         $conn->query($sql);
                         header("location:../view/pages_cash_balance.php?pesan=berhasiltarik");
+                        return true;
                     } else {
-                        header("location:../view/pages_cash_balance.php?pesan=gagaltarik");
+                        header("location:../view/pages_cash_balance.php?pesan=gagal");
+                        return false;
                     }
-    
-                    }
+                }
+            } else {
+                header("location:../view/pages_cash_balance.php?pesan=gagal");
+                return false;
             }
         } else {
-            header("location:../view/pages_cash_balance.phppesan=gagaltarik");
+            header("location:../view/pages_cash_balance.php?pesan=gagal");
+            return false;
         }
     }
 
@@ -68,7 +79,7 @@ class CashBalance{
     
         $cek = mysqli_num_rows($sql);
     
-        if($cek > 0){
+        if($cek > 0 and $tot != 0 and ($tot >= 10000 and $tot <= 999999999)){
             $sql = "SELECT * FROM user WHERE username = '$user'";
             $result = $conn->query($sql);
         
@@ -82,8 +93,10 @@ class CashBalance{
                     }
             }
             header("location:../view/pages_cash_balance.php?pesan=berhasiltop");
+            return true;
         } else {
             header("location:../view/pages_cash_balance.php?pesan=gagaltop");
+            return false;
         }
     }
 }

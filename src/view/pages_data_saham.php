@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Saham</title>
+	<title>SATCOV ONLINE TRADING</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="../../assets/img/logo2.png">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -20,15 +21,15 @@
 
 	// cek apakah yang mengakses halaman ini adalah admin
 	if ( $_SESSION['level'] != 'admin'){ 
-		echo "<div class='alert'>Anda tidak memiliki akses untuk halaman ini.</div>";
+		echo "<div class='alert'>You Don't Have Access To This Pages</div>";
 		exit; 
 	} 
 	if(isset($_GET['pesan'])){
 		if ($_GET['pesan']=="register"){
-         echo "<div class='success'>Data Saham berhasil register ke database</div>";
+         echo "<div class='success'>Successfully Added Stock To Database</div>";
       	}
 		if ($_GET['pesan']=="failed"){
-			echo "<div class='alert'>Datanya kosong masbro</div>";
+			echo "<div class='alert'>Failed To Added Stock To Database</div>";
 		}
 	}
  
@@ -37,9 +38,12 @@
 	<div class="topnav">
 		<img src = "../../assets/img/logo.png" width="85" height="50">
 		<div class = "logo_user">
-			<a href = "#account"><img src = "../../assets/img/logo_user.png" width ="30" height="30"></a>
+			<a href = "pages_account.php"><img src = "
+			<?php include dirname(__FILE__).'/../etc/show_photo.php'; 
+			echo $_SESSION['image'];
+			?>" width ="30" height="30" class="rounded"></a>
 		</div>
-	</div>
+	</div><br>
 	<?php
 		if ($_SESSION['level'] == "admin"){ ?>
 			<div class="sidenav">
@@ -59,7 +63,7 @@
 				<a href="../etc/home_direct.php">Home</a>
 				<a href="pages_account.php">Account</a>
 				<a href="pages_info_saham.php">Stock</a>
-				<a href="pages_porto.php">Portofolio</a>
+				<a href="pages_porto.php">Portfolio</a>
 				<a href="pages_history.php">History</a>
 				<a href="pages_cash_balance.php">Cash Balance</a>
 			<br>
@@ -81,7 +85,7 @@
 	<br/>
 	<!-- Trigger the modal with a button -->
 	<a href = "pages_add_saham.php">
-		<button type="button" class="tombol_add" data-toggle="modal" data-target="#myModal">+ Add Stock Exchange</button><br><br>
+		<button type="button" class="tombol_add" data-toggle="modal" data-target="#myModal">+ Add Stock</button><br><br>
 	</a>
 
 	<?php

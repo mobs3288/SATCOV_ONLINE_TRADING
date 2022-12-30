@@ -124,6 +124,10 @@ body {
 	 font-size: 18px;
 	}
    }
+   img.rounded {
+	object-fit: cover;
+	border-radius: 50%;
+  }
    .grid-container {
 	display: grid;
 	grid-template-columns: auto;

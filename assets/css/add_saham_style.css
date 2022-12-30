@@ -29,6 +29,10 @@ body {
 	border-radius: 27px;
 	color: #000;
   }
+  img.rounded {
+	object-fit: cover;
+	border-radius: 50%;
+  }
   .tombol_login {
 	background: #2aa7e2;
 	color: #fff;

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CERITANYA SATGAS COVID ONLINE TRADING</title>
+	<title>SATCOV ONLINE TRADING</title>
+	<link rel="icon" type="image/x-icon" href="../../assets/img/logo2.png">
 	<link rel="stylesheet" type="text/css" href="../../assets/css/otp_style.css">
 </head>
 <body>
@@ -15,7 +16,13 @@
 	define('MyConst', TRUE);
 	require dirname(__FILE__).'/../../vendor/autoload.php';
 
-	$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+	if (isset($_GET['pesan'])) {
+		if ($_GET['pesan'] == "tidakvalid") {
+			echo "<div class='alert'>OTP Number Is Not Valid!</div>";
+		}
+	}
+
+	$dotenv = Dotenv\Dotenv::createImmutable(dirname(__FILE__, 3));
 	$dotenv->load();
 	
 	$conn = new mysqli($host,$user,$password,$database);
@@ -40,11 +47,14 @@
 			$email = $row['email'];
 
 		}
+	} else {
+		header("location:pages_otp.php?pesan=gagal");
+        return false;
 	}
 				//sesuaikan name dengan di form nya ya 
 				
-				$judul = "Your OTP Code is Here!";
-				$pesan = rand(100000, 999999);
+	$judul = "Your OTP Code is Here!";
+	$pesan = rand(100000, 999999);
 
 	$_SESSION['otp'] = $pesan;
 	//Create an instance; passing `true` enables exceptions

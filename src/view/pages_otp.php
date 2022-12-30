@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CERITANYA SATGAS COVID ONLINE TRADING</title>
+	<title>SATCOV ONLINE TRADING</title>
+	<link rel="icon" type="image/x-icon" href="../../assets/img/logo2.png">
 	<link rel="stylesheet" type="text/css" href="../../assets/css/otp_style.css">
 </head>
 <body>
 
-	<?php 
-
+	<?php
+	if (isset($_GET['pesan'])) {
+		if ($_GET['pesan'] == "gagal") {
+			echo "<div class='alert'>Username Is Not Registered</div>";
+		} else if ($_GET['pesan'] == "tidakvalid") {
+			echo "<div class='alert'>OTP Number Is Not Valid!</div>";
+		}
+	}
 	?>
 	<img src = "../../assets/img/logo.png"><br><br>
  
@@ -23,7 +30,7 @@
 
 	</div>
 	<div class = "akun">
-		<center><p>Belum punya akun? <a href = "register.php">Sign Up</a></p></center>
+		<center><p>Don't Have Account Yet? <a href = "pages_register.php">Sign Up</a></p></center>
 	</div>
 </body>
 </html>

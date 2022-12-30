@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Saham</title>
+	<title>SATCOV ONLINE TRADING</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="../../assets/img/logo2.png">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -17,6 +18,11 @@
     session_start();
     date_default_timezone_set("Asia/Jakarta");
 	$conn = new mysqli($host,$user,$password,$database);
+
+    if ($_SESSION['level'] != 'user' ){ 
+		echo "<div class='alert'>You Don't Have Access To This Pages</div>";
+		exit; 
+	} 
 
     $beli_lot = $_SESSION['lot'];
 
@@ -51,7 +57,7 @@
                                             ?>
                                         </div>
                                         <br>
-                                        <label>Total Harga</label><br>
+                                        <label>Total Prices</label><br>
                                         <div class = "harga">
                                             <?php
                                                 echo $hasil_rupiah;

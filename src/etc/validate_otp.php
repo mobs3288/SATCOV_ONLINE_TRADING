@@ -5,6 +5,6 @@
     if ($check == $_SESSION['otp']){
         header("Location:../view/pages_update_forgot_pw.php");
     } else {
-        header("Location:../view/pages_otp_enter.php");
+        header("Location:../view/pages_otp.php?pesan=tidakvalid");
     }
 ?>

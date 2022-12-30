@@ -4,6 +4,7 @@
 
     $conn = new mysqli($host,$user,$password,$database);
     $ids = $_GET['id'] ?? 0;
+	$user = $_SESSION['username'];
 
     $sql = "SELECT * FROM saham WHERE kode_saham = '".$ids."'";
 	$result = $conn->query($sql);
@@ -17,6 +18,8 @@
             $_SESSION['country'] = $row['country'];
             }
 	}
+
+
 ?>
 
 <!DOCTYPE html>

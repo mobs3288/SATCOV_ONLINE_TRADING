@@ -438,3 +438,8 @@ table{
 	border-radius: 3px;
 	padding: 10px 20px;
 }
+
+img.rounded {
+	object-fit: cover;
+	border-radius: 50%;
+  }

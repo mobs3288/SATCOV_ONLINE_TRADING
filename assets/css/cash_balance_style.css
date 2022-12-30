@@ -197,6 +197,10 @@ body {
    .modal-header {
 	background-color: #404040;
    }
+   img.rounded {
+	object-fit: cover;
+	border-radius: 50%;
+  }
    .modal-title {
 	color: #fff;
    }

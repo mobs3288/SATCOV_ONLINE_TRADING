@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CERITANYA SATGAS COVID ONLINE TRADING</title>
+	<title>SATCOV ONLINE TRADING</title>
+	<link rel="icon" type="image/x-icon" href="../../assets/img/logo2.png">
 	<link rel="stylesheet" type="text/css" href="../../assets/css/regist_style.css">
 </head>
 <body>
@@ -10,9 +11,9 @@
 	date_default_timezone_set("Asia/Jakarta");
 	if(isset($_GET['pesan'])){
 		if($_GET['pesan']=="gagal"){
-			echo "<div class='alert'>Username dan Password tidak sesuai !</div>";
+			echo "<div class='alert'>Username Or Password Not Match!</div>";
 		} else if ($_GET['pesan']=="register"){
-         echo "<div class='success'>Berhasil register ke dalam sistem. Silakan login dengan username dan password yang sudah dibuat.</div>";
+         echo "<div class='success'>Successfully Registered To Database, Please Login!</div>";
       }
 	}
 	clearstatcache();
@@ -22,8 +23,8 @@
 	<div class="kotak_login">
 		<p class="tulisan_login">REGISTER</p>
  
-		<form action="../handler/User_handler.php" method="post">
-			<label>Nama Lengkap</label>
+		<form action="../handler/Guest_handler.php" method="post">
+			<label>Full Name</label>
 			<input type="text" name="nama_lengkap" class="form_login" id="nama_lengkap" value="<?php echo @$_SESSION['nama_lengkap']?>" aria-describedby="nama_lengkap" placeholder="Nama lengkap" autocomplete="off">
  
 			<label>Username</label>
@@ -45,7 +46,7 @@
 
 	</div>
 	<div class = "akun">
-		<center><p>Sudah punya akun? <a href = "pages_login.php">Login</a></p></center>
+		<center><p>Already Has Account? <a href = "pages_login.php">Login</a></p></center>
 	</div>
 </body>
 </html>

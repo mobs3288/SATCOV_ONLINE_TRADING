@@ -124,3 +124,8 @@ a:visited {
 	border-radius: 27px;
 	padding: 10px 20px;
 }
+
+img.rounded {
+	object-fit: cover;
+	border-radius: 50%;
+  }

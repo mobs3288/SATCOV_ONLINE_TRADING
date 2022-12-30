@@ -282,3 +282,8 @@ label{
 	text-align: center;
 	border-radius: 27px;
   }
+
+  img.rounded {
+	object-fit: cover;
+	border-radius: 50%;
+  }

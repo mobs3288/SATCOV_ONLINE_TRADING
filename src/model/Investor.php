@@ -38,7 +38,7 @@ class Investor extends User{
                                     $sql = "UPDATE user SET saldo ='$harga_update' WHERE username = '$user'";
                                     $conn->query($sql);
     
-                                    $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status, lot_sell_check) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Sell', NULL)";
+                                    $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status, lot_sell_check, harga_trans) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Sell', NULL, $harga_S)";
                                     mysqli_query($conn, $sql2);
     
                                     $sql = "UPDATE history SET lot_sell_check='$cek_lot' WHERE username = '$user' AND kode_saham = '$kode' AND status = 'Buy' LIMIT 1";
@@ -62,10 +62,7 @@ class Investor extends User{
 
                                     if ($result1->num_rows > 0) {
                                         while ($row1 = $result1->fetch_assoc()) {
-                                            $harga = $row1['harga'] - ($jml_lot * 100) * $harga_S;
-                                            if ($harga < 0){
-                                                $harga =($jml_lot * 100) * $harga_S;
-                                            }
+                                            $harga = ($row1['lot_sell_check'] * 100) * $row1['harga_trans'];
 
                                             $sql = "UPDATE history SET harga ='$harga'WHERE kode_saham = '$kode' AND username = '$user' AND status = 'Buy' limit 1";
                                             $conn->query($sql);
@@ -78,7 +75,7 @@ class Investor extends User{
                                     $sql = "UPDATE user SET saldo ='$harga_update' WHERE username = '$user'";
                                     $conn->query($sql);
     
-                                    $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status, lot_sell_check) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Sell', NULL)";
+                                    $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status, lot_sell_check, harga_trans) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Sell', NULL, '$harga_S')";
                                     mysqli_query($conn, $sql2);
                                 }
                             } 
@@ -129,7 +126,7 @@ class Investor extends User{
                         $harga_update = $row['saldo'] - $harga;
                         if ($harga_update > 0){
                             if($cek == 0){
-                                $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status, lot_sell_check) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Buy', '$jml_lot')";
+                                $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status, lot_sell_check, harga_trans) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Buy', '$jml_lot', '$harga_S')";
                                 mysqli_query($conn, $sql2);
                     
                             } else {
@@ -138,7 +135,7 @@ class Investor extends User{
     
                                 if ($result->num_rows == 1) {
                                     while($row = $result->fetch_assoc()){
-                                        $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status, lot_sell_check) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Buy', NULL)";
+                                        $sql2 = "INSERT INTO history (id_transaction, kode_saham, lot, harga,  username, status, lot_sell_check, harga_trans) VALUES (NULL,'$kode', '$jml_lot', '$harga','$user', 'Buy', NULL, '$harga_S')";
                                         mysqli_query($conn, $sql2);
     
                                         $harga_upd = $row['harga'] + $harga;

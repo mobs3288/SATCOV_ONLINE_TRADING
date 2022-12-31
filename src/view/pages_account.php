@@ -43,6 +43,10 @@
 		if($_GET['pesan']=="gagalchange"){
 			echo "<div class='alert'>Failed To Changed Password</div>";
 		}
+
+		if($_GET['pesan']=="gagal"){
+			echo "<div class='alert'>Failed To Changed Photo</div>";
+		}
 	}
 	?>
 	<div class="topnav">

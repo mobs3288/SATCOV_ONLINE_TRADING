@@ -446,18 +446,23 @@ class User{
                 $insert = $mysqli->query("INSERT into images (file_name, username, uploaded_on) VALUES ('".$fileName."', '".$user."', NOW())");
                 if($insert){
                     $statusMsg = "The file ".$fileName. " has been uploaded successfully.";
-                    } else {
+                    header("location:../view/pages_account.php?pesan=berhasil");
+                } else {
                         $statusMsg = "File upload failed, please try again.";
-                    } 
-                } else{
-                    $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
-                }
-            }else{
-                $statusMsg = 'Please select a file to upload.';
+                        header("location:../view/pages_account.php?pesan=gagal");
+                } 
+                header("location:../view/pages_account.php?pesan=berhasil");
+            } else{
+                $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
+                header("location:../view/pages_account.php?pesan=gagal");
             }
+        }else{
+            $statusMsg = 'Please select a file to upload.';
+            header("location:../view/pages_account.php?pesan=gagal");
+        }
 
         //Display status message
-        header("location:../view/pages_account.php?pesan=berhasil");
+        
     }
 }
 ?>

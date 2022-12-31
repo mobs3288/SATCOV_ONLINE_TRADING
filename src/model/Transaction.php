@@ -15,28 +15,12 @@ class Transaction{
         $sql = "SELECT * FROM history WHERE username = '".$_SESSION['username']."'";
         $result = $conn->query($sql);
         $count = 1;
-
-        $sql1 = "SELECT * FROM history WHERE username = '".$user."' AND lot_sell_check IS NULL";
-        $result1 = $conn->query($sql1);
+        $temp = 0;
 
         if ($result->num_rows > 0) {
                 // output data of each row
             while($row = $result->fetch_assoc()) {
-                $harga = $row['harga'];
-
-                if ($result1->num_rows > 0) {
-                    // output data of each row
-                    while ($row1 = $result1->fetch_assoc()) {
-                        
-                        if ($row['kode_saham'] == $row1['kode_saham']){
-                            if ($row['lot_sell_check'] != NULL || $row['lot_sell_check'] != 0){
-                                $harga = $harga + $row1['harga'];
-                                //$harga = $row['lot_sell_check'];
-                                break;
-                            }
-                        }
-                    }
-                }
+                $harga = $row['harga_trans'] * ($row['lot'] * 100);
                 $rupiah = "Rp " . number_format($harga,2,',','.');
                 ?>
                     <tr>

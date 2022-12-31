@@ -1,8 +1,8 @@
 <?php
-$database = "tes";
+$database = "satcov";
 $host = "localhost";
 $user = "root"; // ganti dengan username database km
-$password = hex2bin('6d6f627333323838'); // ganti dengan password database km
+$password = ""; // ganti dengan password database km
 
 $mysqli = new mysqli($host,$user,$password,$database);
 

@@ -1,6 +1,7 @@
 <?php
 use function PHPUnit\Framework\once;
 class Transaction{
+    // Fungsi untuk menampilkan seluruh transaksi yang terjadi
     public function showAllTransaction(){
         include dirname(__FILE__).'/../etc/koneksi.php';
 
@@ -12,6 +13,7 @@ class Transaction{
 
         $user = $_SESSION['username'];
 
+        // Query untuk menampilkan saham yang dipunya oleh user
         $sql = "SELECT * FROM history WHERE username = '".$_SESSION['username']."'";
         $result = $conn->query($sql);
         $count = 1;
@@ -22,6 +24,7 @@ class Transaction{
             while($row = $result->fetch_assoc()) {
                 $harga = $row['harga_trans'] * ($row['lot'] * 100);
                 $rupiah = "Rp " . number_format($harga,2,',','.');
+                // Menampilkan di web
                 ?>
                     <tr>
                         <td><?php echo $count;?>
@@ -48,9 +51,11 @@ class Transaction{
                 $count = $count + 1;
             }
             $conn->close();
+            // Mengembalikan nilai true apabila user memiliki history
             return true;
         } else {
             $conn->close();
+            // Mengembalikan nilai false apabila user tidak memiliki history
             return false;
         }
     }

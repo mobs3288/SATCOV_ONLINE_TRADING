@@ -1,5 +1,5 @@
 <?php
-class Portofolio{
+class Portfolio{
     public function showPortofolio(){
         include dirname(__FILE__).'/../etc/koneksi.php';
 
@@ -11,6 +11,7 @@ class Portofolio{
 
         $user = $_SESSION['username'];
 
+        // Query untuk mencari saham yang dimiliki oleh user dengan lot sell check > 0 dan not null
         $sql = "SELECT * FROM history INNER JOIN saham on (saham.kode_saham = history.kode_saham) WHERE history.username = '".$_SESSION['username']."' AND status = 'Buy' AND lot_sell_check > 0 AND lot_sell_check IS NOT NULL";
         $result = $conn->query($sql);
         $total_harga = 0;
@@ -25,6 +26,7 @@ class Portofolio{
                 $avr_price = $harga / ($lot * 100) ;
                 $total_harga += $row['harga'];
 
+                // Fungsi untuk menampilkan di halaman web
                 ?>
                     <tr>
                         <td><?php echo("<a href = ../view/pages_saham.php?id={$row['kode_saham']}> ".$row['kode_saham']." </a>");?></td>
@@ -33,6 +35,7 @@ class Portofolio{
                         <td><?php echo $rupiah;?> </td>
                         <td>
                             <?php 
+                            // Fungsi untuk mencari kode saham yang dicari
                                 $query_saham = "SELECT * FROM saham WHERE kode_saham = '".$row['kode_saham']."'";
                                 $p = $conn->query($query_saham);
 
@@ -42,6 +45,7 @@ class Portofolio{
                                         $harga_now = ($lot * 100) * $row1['harga_saham'];
                                         $surplus = ($harga_now - $harga);
                                         //echo number_format((float)$surplus, 2, '.', '');
+                                        // Menampilkan di halaman web
                                         if ($surplus >= 0){
                                             ?>
                                             <div class = "profit">
@@ -65,9 +69,11 @@ class Portofolio{
             $rupiah = "Rp " . number_format($total_harga,2,',','.');
             $_SESSION['rupiah'] = $rupiah;
     
+            // Mengembalikan nilai true apabila berhasil menampilkan
             return true;
         } else {
             $_SESSION['rupiah'] = $rupiah;
+            // Mengembalikan nilai false apabila gagal menampilkan
             return false;
         }
 

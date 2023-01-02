@@ -21,12 +21,15 @@ class Guest{
             $_SESSION['nama_lengkap'] = $_POST['nama_lengkap'];
             $_SESSION['username'] = $_POST['username'];
             header("Location:../view/pages_register.php?pesan=gagal");
+            // Mengembalikkan nilai false apabila gagal
             return false;;
         }
 
+        // Pengecekan apabila password, password confirmation, email bernilai null
         if($user['password'] == null || $user['password_confirmation'] == null || $user['email'] == null){
             $_SESSION['error'] = 'Gaboleh kosong yah mas!';
             header("Location:../view/pages_register.php?pesan=gagal");
+            // Mengembalikkan nilai false apabila gagal
             return false;
         }
 
@@ -41,6 +44,7 @@ class Guest{
             $_SESSION['password'] = $_POST['password'];
             $_SESSION['password_confirmation'] = $_POST['password_confirmation'];
             header("Location:../view/pages_register.php?pesan=gagal");
+            // Mengembalikkan nilai false apabila gagal
             return false;
 
         }else{
@@ -58,6 +62,7 @@ class Guest{
             var_dump($result);
 
             header("location:../view/pages_login.php?pesan=register");
+            // Mengembalikkan nilai true apabila berhasil memasukkan data kedalam database
             return true;
         }
     }

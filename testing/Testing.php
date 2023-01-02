@@ -3726,8 +3726,8 @@ class Testing extends TestCase
     }
 
     public function testPortofolio(){
-        require_once dirname(__FILE__).'/../src/model/Portofolio.php';
-        $Porto = new Portofolio();
+        require_once dirname(__FILE__).'/../src/model/Portfolio.php';
+        $Porto = new Portfolio();
         $this->setOutputCallback(function() {});
         error_reporting(E_ERROR | E_PARSE); // Session start error
 

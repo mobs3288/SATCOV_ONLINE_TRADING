@@ -16,9 +16,9 @@
                         <th>Profit</th>
                     </tr>
             <?php
-            require_once dirname(__FILE__) . '/../model/Portofolio.php';
+            require_once dirname(__FILE__) . '/../model/Portfolio.php';
 
-            $porto = new Portofolio();
+            $porto = new Portfolio();
 
             $porto->showPortofolio();
         ?>  

@@ -98,7 +98,7 @@ Setelah menekan import maka akan muncul tampilan seperti dibawah, lalu tekan cho
 
 ![alt text](https://github.com/mobs3288/SATCOV_ONLINE_TRADING/blob/main/assets/init/XAMPP_Windows_110.png)
 
-Setelah selesai choose file, maka langkah Selanjutnya adalah scroll kebagian bawah maka akan ada tombol import, tekan tombol import tersebut. Setelah selesai menekan tombol insert maka selurut data telah masuk kedalam database.
+Setelah selesai choose file, maka langkah Selanjutnya adalah scroll kebagian bawah maka akan ada tombol import, tekan tombol import tersebut. Setelah selesai menekan tombol insert maka seluruh data telah masuk kedalam database.
 
 ## Install Web
 Pertama download terlebih dahulu file web yang terdapat pada repo
